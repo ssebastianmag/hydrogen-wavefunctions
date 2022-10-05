@@ -12,10 +12,16 @@ electron probability density plots.
 
 ---
 ### Files / Modules - Providing execution alternatives
-* [IPython Notebook / Jupyter Notebook]()
-* [Main module: hydrogen_wavefunctions.py](hydrogen_wavefunctions.py)
-* [Module with command line arguments: hydrogen_wavefunctions_run.py](hydrogen_wavefunctions_run.py)
+* [IPython Notebook / Jupyter Notebook 
+<span style="color:#aaaaaa"> - hydrogen_wavefunctions.ipynb](hydrogen_wavefunctions.ipynb)
+
+* [Main module
+<span style="color:#aaaaaa"> - hydrogen_wavefunctions.py</span>](hydrogen_wavefunctions.py)
+
+* [Module with command line arguments
+<span style="color:#aaaaaa"> - hydrogen_wavefunctions_run.py</span>](hydrogen_wavefunctions_run.py)
 ---
+
 ## Content
 #### Theory
 * [QM Introduction: wavefunctions, atomic orbitals and probability](#qm-introduction-wavefunctions-atomic-orbitals-and-probability)
@@ -55,7 +61,7 @@ mathematically derived regions of space where the electron can be calculated to 
 
 <br>
 <p align='center'>
-    <img src='img/wavefunction (4,3,1)-dp.png' width=60% />
+    <img src='img/wavefunction (4,3,1)-dp.png' width=50% />
 </p>
 <p align='center'>
     <i>Light shaded areas represent high probability density, 
