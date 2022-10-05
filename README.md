@@ -41,13 +41,13 @@ wave, which corresponds to its energy.
 
 <br>
 <p align='center'>
-  <img src='img/Hydrogen Wavefunction Probability density plots.png' width=90% />
+  <img src='img/Hydrogen Wavefunction Probability density plots.png' width=80% />
 </p>
 <p align='center'>
     <i>Electron probability density in orbital cross-sections</i>
 </p>
 
-<br><br>
+<br>
 The probability of finding an electron at a given point is proportional to 
 the square of the wavefunction at that point, leading to a distribution of 
 probabilities in space that is often portrayed as an electron density plot.
@@ -64,7 +64,7 @@ mathematically derived regions of space where the electron can be calculated to 
     <i>Light shaded areas represent high probability density, 
     darker areas represent lower probability density</i>
 </p>
-
+<br>
 The description of electron distribution as standing waves leads naturally
 to the existence of sets of quantum numbers (n, l, m) characteristic of each 
 wavefunction.
@@ -224,7 +224,7 @@ options:
 
 #### Output:
 
-<p align='center'>
+<p align='left'>
   <img src='img/wavefunction (3,2,1).png' width=60% />
 </p>
 
@@ -243,7 +243,7 @@ options:
 
 #### Output:
 
-<p align='center'>
+<p align='left'>
   <img src='img/wavefunction (3,2,1)-dp.png' width=60% />
 </p>
 
@@ -261,7 +261,7 @@ options:
 
 #### Output:
 
-<p align='center'>
+<p align='left'>
   <img src='img/wavefunction (4,3,0).png' width=60% />
 </p>
 
@@ -280,7 +280,7 @@ options:
 
 #### Output:
 
-<p align='center'>
+<p align='left'>
   <img src='img/wavefunction (4,3,0)-dp.png' width=60% />
 </p>
 
