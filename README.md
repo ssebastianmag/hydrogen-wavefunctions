@@ -12,19 +12,15 @@ electron probability density plots.
 
 ---
 ### Files / Modules - Providing execution alternatives
-* [IPython Notebook / Jupyter Notebook 
-<span style="color:#aaaaaa"> - hydrogen_wavefunctions.ipynb](hydrogen_wavefunctions.ipynb)
-
-* [Main module
-<span style="color:#aaaaaa"> - hydrogen_wavefunctions.py</span>](hydrogen_wavefunctions.py)
-
-* [Module with command line arguments
-<span style="color:#aaaaaa"> - hydrogen_wavefunctions_run.py</span>](hydrogen_wavefunctions_run.py)
+* [IPython Notebook / Jupyter Notebook: hydrogen_wavefunctions.ipynb](hydrogen_wavefunctions.ipynb)
+* [Main module: hydrogen_wavefunctions.py](hydrogen_wavefunctions.py)
+* [Module with command line arguments: hydrogen_wavefunctions_run.py](hydrogen_wavefunctions_run.py)
 ---
 
 ## Content
 #### Theory
-* [QM Introduction: wavefunctions, atomic orbitals and probability](#qm-introduction-wavefunctions-atomic-orbitals-and-probability)
+* [QM Introduction: wavefunctions, 
+atomic orbitals and probability](#qm-introduction-wavefunctions-atomic-orbitals-and-probability)
 * [Quantum numbers](#quantum-numbers)
 * [Hydrogen wavefunction modeling](#hydrogen-wavefunction-modeling)
 #### Implementation
@@ -149,11 +145,13 @@ and φ gives the probability density of finding the electron.
 
 ---
 ## Execution
-#### Display help:
+#### Command line arguments:
 
 ```
 $ python hydrogen_wavefunctions_run.py --help   
+```
 
+```
 usage: hydrogen_wavefunctions_run.py [-h] [-dp] n l m a0      
 
 Hydrogen Wavefunction electron probability-density plot by definition of 
