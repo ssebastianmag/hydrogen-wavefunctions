@@ -47,6 +47,7 @@ wave, which corresponds to its energy.
     <i>Electron probability density in orbital cross-sections</i>
 </p>
 
+<br><br>
 The probability of finding an electron at a given point is proportional to 
 the square of the wavefunction at that point, leading to a distribution of 
 probabilities in space that is often portrayed as an electron density plot.
@@ -186,7 +187,7 @@ options:
 
 #### Output:
 
-<p align='center'>
+<p align='left'>
   <img src='img/wavefunction (2,1,1).png' width=60% />
 </p>
 
@@ -205,7 +206,7 @@ options:
 
 #### Output:
 
-<p align='center'>
+<p align='left'>
   <img src='img/wavefunction (2,1,1)-dp.png' width=60% />
 </p>
 
