@@ -31,7 +31,7 @@ wave, which corresponds to its energy.
 
 <br>
 <p align='center'>
-  <img src='img/Hydrogen Wavefunction Probability density plots.png' width=50% />
+  <img src='img/Hydrogen Wavefunction Probability density plots.png' width=80% />
 </p>
 <p align='center'>
     <i>Electron probability density in orbital cross-sections</i>
@@ -47,7 +47,7 @@ mathematically derived regions of space where the electron can be calculated to 
 
 <br>
 <p align='center'>
-    <img src='img/wavefunction (4,3,1)-dp.png' width=50% />
+    <img src='img/wavefunction (4,3,1)-dp.png' width=40% />
 </p>
 <p align='center'>
     <i>Light shaded areas represent high probability density, 
@@ -173,6 +173,8 @@ options:
   <img src='img/wavefunction (2,1,1).png' width=60% />
 </p>
 
+---
+
 #### Input args:
     $ python hydrogen_wavefunctions_run.py 2 1 1 0.6 -dp
 
@@ -187,8 +189,10 @@ options:
 #### Output:
 
 <p align='center'>
-  <img src='img/wavefunction (3,2,1).png' width=60% />
+  <img src='img/wavefunction (2,1,1)-dp.png' width=60% />
 </p>
+
+---
 
 #### Input args:
     $ python hydrogen_wavefunctions_run.py 3 2 1 0.3
@@ -203,8 +207,10 @@ options:
 #### Output:
 
 <p align='center'>
-  <img src='img/wavefunction (3,2,1)-dp.png' width=60% />
+  <img src='img/wavefunction (3,2,1).png' width=60% />
 </p>
+
+---
 
 #### Input args:
     $ python hydrogen_wavefunctions_run.py 3 2 1 0.3 -dp
@@ -220,8 +226,10 @@ options:
 #### Output:
 
 <p align='center'>
-  <img src='img/wavefunction (4,3,0).png' width=60% />
+  <img src='img/wavefunction (3,2,1)-dp.png' width=60% />
 </p>
+
+---
 
 #### Input args:
     $ python hydrogen_wavefunctions_run.py 4 3 0 0.2
@@ -236,8 +244,10 @@ options:
 #### Output:
 
 <p align='center'>
-  <img src='img/wavefunction (4,3,0)-dp.png' width=60% />
+  <img src='img/wavefunction (4,3,0).png' width=60% />
 </p>
+
+---
 
 #### Input args:
     $ python hydrogen_wavefunctions_run.py 4 3 0 0.2 -dp
@@ -253,5 +263,7 @@ options:
 #### Output:
 
 <p align='center'>
-  <img src='img/wavefunction (2,1,1)-dp.png' width=60% />
+  <img src='img/wavefunction (4,3,0)-dp.png' width=60% />
 </p>
+
+---
