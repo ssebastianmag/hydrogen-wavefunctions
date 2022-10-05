@@ -11,12 +11,20 @@ electron probability density plots.
 * SciPy 1.9.1
 
 ---
-### Content
+### Files / Modules - Providing execution alternatives
+* [IPython Notebook / Jupyter Notebook]()
+* [Main module: hydrogen_wavefunctions.py](hydrogen_wavefunctions.py)
+* [Module with command line arguments: hydrogen_wavefunctions_run.py](hydrogen_wavefunctions_run.py)
+---
+## Content
+#### Theory
 * [QM Introduction: wavefunctions, atomic orbitals and probability](#qm-introduction-wavefunctions-atomic-orbitals-and-probability)
 * [Quantum numbers](#quantum-numbers)
 * [Hydrogen wavefunction modeling](#hydrogen-wavefunction-modeling)
+#### Implementation
 * [Execution and examples](#execution)
 ---
+
 ## Theory
 ### QM Introduction: wavefunctions, atomic orbitals and probability
 
@@ -31,7 +39,7 @@ wave, which corresponds to its energy.
 
 <br>
 <p align='center'>
-  <img src='img/Hydrogen Wavefunction Probability density plots.png' width=80% />
+  <img src='img/Hydrogen Wavefunction Probability density plots.png' width=90% />
 </p>
 <p align='center'>
     <i>Electron probability density in orbital cross-sections</i>
@@ -47,7 +55,7 @@ mathematically derived regions of space where the electron can be calculated to 
 
 <br>
 <p align='center'>
-    <img src='img/wavefunction (4,3,1)-dp.png' width=40% />
+    <img src='img/wavefunction (4,3,1)-dp.png' width=60% />
 </p>
 <p align='center'>
     <i>Light shaded areas represent high probability density, 
