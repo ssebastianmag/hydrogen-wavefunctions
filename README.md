@@ -12,9 +12,9 @@ electron probability density plots.
 
 ---
 ### Files / Modules - Execution alternatives
-* [IPython Notebook / Jupyter Notebook: hydrogen_wavefunctions.ipynb](hydrogen_wavefunctions.ipynb)
-* [Module with command line arguments: hydrogen_wavefunctions_run.py](hydrogen_wavefunctions_run.py)
-* [Main module: hydrogen_wavefunctions.py](hydrogen_wavefunctions.py)
+* [IPython Notebook / Jupyter Notebook](hydrogen_wavefunctions.ipynb)
+* [Module with command line arguments](hydrogen_wavefunctions_run.py)
+* [Main module - hydrogen_wavefunctions.py](hydrogen_wavefunctions.py)
 ---
 
 ## Content
