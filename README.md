@@ -11,10 +11,10 @@ electron probability density plots.
 * SciPy 1.9.1
 
 ---
-### Files / Modules - Providing execution alternatives
+### Files / Modules - Execution alternatives
 * [IPython Notebook / Jupyter Notebook: hydrogen_wavefunctions.ipynb](hydrogen_wavefunctions.ipynb)
-* [Main module: hydrogen_wavefunctions.py](hydrogen_wavefunctions.py)
 * [Module with command line arguments: hydrogen_wavefunctions_run.py](hydrogen_wavefunctions_run.py)
+* [Main module: hydrogen_wavefunctions.py](hydrogen_wavefunctions.py)
 ---
 
 ## Content
@@ -144,7 +144,9 @@ The absolute square of the wavefunction, evaluated at r, θ,
 and φ gives the probability density of finding the electron.
 
 ---
-## Execution
+## Implementation
+
+### Execution
 #### Command line arguments:
 
 ```
