@@ -147,6 +147,10 @@ and φ gives the probability density of finding the electron.
 ## Implementation
 
 ### Execution
+* [IPython Notebook / Jupyter Notebook](hydrogen_wavefunctions.ipynb)
+* [Module with command line arguments](hydrogen_wavefunctions_run.py)
+<br><br>
+
 #### Command line arguments:
 
 ```
