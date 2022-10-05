@@ -41,7 +41,7 @@ wave, which corresponds to its energy.
 
 <br>
 <p align='center'>
-  <img src='img/Hydrogen Wavefunction Probability density plots.png' width=80% />
+  <img src='img/Hydrogen Wavefunction Probability density plots.png' width=90% />
 </p>
 <p align='center'>
     <i>Electron probability density in orbital cross-sections</i>
@@ -58,7 +58,7 @@ mathematically derived regions of space where the electron can be calculated to 
 
 <br>
 <p align='center'>
-    <img src='img/wavefunction (4,3,1)-dp.png' width=50% />
+    <img src='img/wavefunction (4,3,1).png' width=50% />
 </p>
 <p align='center'>
     <i>Light shaded areas represent high probability density, 
