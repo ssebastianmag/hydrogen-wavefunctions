@@ -2,7 +2,7 @@
 
 Modeling and visualization of solutions 
 for the hydrogen atom wavefunction and 
-electron probability density plots.
+electron probability density plots
 
 * Python 3.10.4
 * Matplotlib 3.6.0
