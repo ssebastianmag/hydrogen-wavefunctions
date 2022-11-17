@@ -30,7 +30,6 @@ parser.add_argument('-dp', help='Dark palette: Plot with a less bright color sch
                     action='store_true', default=False)
 
 args = parser.parse_args()
-my_parser = argparse.ArgumentParser()
 
 # ______ / Command line arguments end here
 
