@@ -275,11 +275,8 @@ options:
 |        l        |  Azimuthal quantum number  |   1   | 0 <= l <= n-1 |
 |        m        |  Magnetic quantum number   |   1   | -l <= m <= l  |
 | a0_scale_factor |  Bohr radius scale factor  |  0.6  |               |
-
-|                 |           Option           | Value |
-|:---------------:|:--------------------------:|:-----:|
-|   dark_theme    |   Enable plot dark theme   |       |
-|  color_palette  | Seaborn plot color palette |       |
+|   dark_theme    |   Enable plot dark theme   |       |               |
+|  color_palette  | Seaborn plot color palette |       |               |
 
 #### Output:
 
@@ -292,17 +289,14 @@ options:
 #### Input args:
     $ python plot_hydrogen_wf.py 2 1 1 0.6 --dark_theme
 
-|                 |          Argument          | Value |  Constraint   |
-|:---------------:|:--------------------------:|:-----:|:-------------:|
-|        n        |  Principal quantum number  |   2   |    1 <= n     |
-|        l        |  Azimuthal quantum number  |   1   | 0 <= l <= n-1 |
-|        m        |  Magnetic quantum number   |   1   | -l <= m <= l  |
-| a0_scale_factor |  Bohr radius scale factor  |  0.6  |               |
-
-|                 |           Option           |    Value     |
-|:---------------:|:--------------------------:|:------------:|
-|   dark_theme    |   Enable plot dark theme   | --dark_theme |
-|  color_palette  | Seaborn plot color palette |              |
+|                 |          Argument          |    Value     |  Constraint   |
+|:---------------:|:--------------------------:|:------------:|:-------------:|
+|        n        |  Principal quantum number  |      2       |    1 <= n     |
+|        l        |  Azimuthal quantum number  |      1       | 0 <= l <= n-1 |
+|        m        |  Magnetic quantum number   |      1       | -l <= m <= l  |
+| a0_scale_factor |  Bohr radius scale factor  |     0.6      |               |
+|   dark_theme    |   Enable plot dark theme   | --dark_theme |               |
+|  color_palette  | Seaborn plot color palette |              |               |
 
 #### Output:
 
@@ -321,11 +315,8 @@ options:
 |        l        |  Azimuthal quantum number  |   2   | 0 <= l <= n-1 |
 |        m        |  Magnetic quantum number   |   1   | -l <= m <= l  |
 | a0_scale_factor |  Bohr radius scale factor  |  0.3  |               |
-
-|                 |           Option           | Value |
-|:---------------:|:--------------------------:|:-----:|
-|   dark_theme    |   Enable plot dark theme   |       |
-|  color_palette  | Seaborn plot color palette |       |
+|   dark_theme    |   Enable plot dark theme   |       |               |
+|  color_palette  | Seaborn plot color palette |       |               |
 
 #### Output:
 
@@ -338,17 +329,14 @@ options:
 #### Input args:
     $ python plot_hydrogen_wf.py 3 2 1 0.3 --dark_theme
 
-|                 |          Argument          | Value |  Constraint   |
-|:---------------:|:--------------------------:|:-----:|:-------------:|
-|        n        |  Principal quantum number  |   3   |    1 <= n     |
-|        l        |  Azimuthal quantum number  |   2   | 0 <= l <= n-1 |
-|        m        |  Magnetic quantum number   |   1   | -l <= m <= l  |
-| a0_scale_factor |  Bohr radius scale factor  |  0.3  |               |
-
-|                 |           Option           |    Value     |
-|:---------------:|:--------------------------:|:------------:|
-|   dark_theme    |   Enable plot dark theme   | --dark_theme |
-|  color_palette  | Seaborn plot color palette |              |
+|                 |          Argument          |    Value     |  Constraint   |
+|:---------------:|:--------------------------:|:------------:|:-------------:|
+|        n        |  Principal quantum number  |      3       |    1 <= n     |
+|        l        |  Azimuthal quantum number  |      2       | 0 <= l <= n-1 |
+|        m        |  Magnetic quantum number   |      1       | -l <= m <= l  |
+| a0_scale_factor |  Bohr radius scale factor  |     0.3      |               |
+|   dark_theme    |   Enable plot dark theme   | --dark_theme |               |
+|  color_palette  | Seaborn plot color palette |              |               |
 
 #### Output:
 
@@ -361,17 +349,14 @@ options:
 #### Input args:
     $ python plot_hydrogen_wf.py 4 3 0 0.2 --color_palette "magma"
 
-|                 |          Argument          | Value |  Constraint   |
-|:---------------:|:--------------------------:|:-----:|:-------------:|
-|        n        |  Principal quantum number  |   4   |    1 <= n     |
-|        l        |  Azimuthal quantum number  |   3   | 0 <= l <= n-1 |
-|        m        |  Magnetic quantum number   |   0   | -l <= m <= l  |
-| a0_scale_factor |  Bohr radius scale factor  |  0.2  |               |
-
-|                 |           Option           |  Value  |
-|:---------------:|:--------------------------:|:-------:|
-|   dark_theme    |   Enable plot dark theme   |         |
-|  color_palette  | Seaborn plot color palette | "magma" |
+|                 |          Argument          |  Value  |  Constraint   |
+|:---------------:|:--------------------------:|:-------:|:-------------:|
+|        n        |  Principal quantum number  |    4    |    1 <= n     |
+|        l        |  Azimuthal quantum number  |    3    | 0 <= l <= n-1 |
+|        m        |  Magnetic quantum number   |    0    | -l <= m <= l  |
+| a0_scale_factor |  Bohr radius scale factor  |   0.2   |               |
+|   dark_theme    |   Enable plot dark theme   |         |               |
+|  color_palette  | Seaborn plot color palette | "magma" |               |
 
 #### Output:
 
@@ -384,17 +369,14 @@ options:
 #### Input args:
     $ python plot_hydrogen_wf.py 4 3 0 0.2 --dark_theme --color_palette "magma"
 
-|                 |          Argument          | Value |  Constraint   |
-|:---------------:|:--------------------------:|:-----:|:-------------:|
-|        n        |  Principal quantum number  |   4   |    1 <= n     |
-|        l        |  Azimuthal quantum number  |   3   | 0 <= l <= n-1 |
-|        m        |  Magnetic quantum number   |   0   | -l <= m <= l  |
-| a0_scale_factor |  Bohr radius scale factor  |  0.2  |               |
-
-|                 |           Option           |    Value     |
-|:---------------:|:--------------------------:|:------------:|
-|   dark_theme    |   Enable plot dark theme   | --dark_theme |
-|  color_palette  | Seaborn plot color palette |   "magma"    |
+|                 |          Argument          |    Value     |  Constraint   |
+|:---------------:|:--------------------------:|:------------:|:-------------:|
+|        n        |  Principal quantum number  |      4       |    1 <= n     |
+|        l        |  Azimuthal quantum number  |      3       | 0 <= l <= n-1 |
+|        m        |  Magnetic quantum number   |      0       | -l <= m <= l  |
+| a0_scale_factor |  Bohr radius scale factor  |     0.2      |               |
+|   dark_theme    |   Enable plot dark theme   | --dark_theme |               |
+|  color_palette  | Seaborn plot color palette |   "magma"    |               |
 
 #### Output:
 
@@ -407,17 +389,14 @@ options:
 #### Input args:
     $ python plot_hydrogen_wf.py 4 3 1 0.2 --dark_theme --color_palette "mako"
 
-|                 |          Argument          | Value |  Constraint   |
-|:---------------:|:--------------------------:|:-----:|:-------------:|
-|        n        |  Principal quantum number  |   4   |    1 <= n     |
-|        l        |  Azimuthal quantum number  |   3   | 0 <= l <= n-1 |
-|        m        |  Magnetic quantum number   |   1   | -l <= m <= l  |
-| a0_scale_factor |  Bohr radius scale factor  |  0.2  |               |
-
-|                 |           Option           |    Value     |
-|:---------------:|:--------------------------:|:------------:|
-|   dark_theme    |   Enable plot dark theme   | --dark_theme |
-|  color_palette  | Seaborn plot color palette |    "mako"    |
+|                 |          Argument          |    Value     |  Constraint   |
+|:---------------:|:--------------------------:|:------------:|:-------------:|
+|        n        |  Principal quantum number  |      4       |    1 <= n     |
+|        l        |  Azimuthal quantum number  |      3       | 0 <= l <= n-1 |
+|        m        |  Magnetic quantum number   |      1       | -l <= m <= l  |
+| a0_scale_factor |  Bohr radius scale factor  |     0.2      |               |
+|   dark_theme    |   Enable plot dark theme   | --dark_theme |               |
+|  color_palette  | Seaborn plot color palette |    "mako"    |               |
 
 #### Output:
 
@@ -430,17 +409,14 @@ options:
 #### Input args:
     $ python plot_hydrogen_wf.py 9 6 1 0.04 --dark_theme --color_palette "mako"
 
-|                 |          Argument          | Value |  Constraint   |
-|:---------------:|:--------------------------:|:-----:|:-------------:|
-|        n        |  Principal quantum number  |   9   |    1 <= n     |
-|        l        |  Azimuthal quantum number  |   6   | 0 <= l <= n-1 |
-|        m        |  Magnetic quantum number   |   1   | -l <= m <= l  |
-| a0_scale_factor |  Bohr radius scale factor  | 0.04  |               |
-
-|                 |           Option           |    Value     |
-|:---------------:|:--------------------------:|:------------:|
-|   dark_theme    |   Enable plot dark theme   | --dark_theme |
-|  color_palette  | Seaborn plot color palette |    "mako"    |
+|                 |          Argument          |    Value     |  Constraint   |
+|:---------------:|:--------------------------:|:------------:|:-------------:|
+|        n        |  Principal quantum number  |      9       |    1 <= n     |
+|        l        |  Azimuthal quantum number  |      6       | 0 <= l <= n-1 |
+|        m        |  Magnetic quantum number   |      1       | -l <= m <= l  |
+| a0_scale_factor |  Bohr radius scale factor  |     0.04     |               |
+|   dark_theme    |   Enable plot dark theme   | --dark_theme |               |
+|  color_palette  | Seaborn plot color palette |    "mako"    |               |
 
 #### Output:
 
@@ -453,17 +429,14 @@ options:
 #### Input args:
     $ python plot_hydrogen_wf.py 20 10 5 0.01 --dark_theme --color_palette "mako"
 
-|                 |          Argument          | Value |  Constraint   |
-|:---------------:|:--------------------------:|:-----:|:-------------:|
-|        n        |  Principal quantum number  |  20   |    1 <= n     |
-|        l        |  Azimuthal quantum number  |  10   | 0 <= l <= n-1 |
-|        m        |  Magnetic quantum number   |   5   | -l <= m <= l  |
-| a0_scale_factor |  Bohr radius scale factor  | 0.01  |               |
-
-|                 |           Option           |    Value     |
-|:---------------:|:--------------------------:|:------------:|
-|   dark_theme    |   Enable plot dark theme   | --dark_theme |
-|  color_palette  | Seaborn plot color palette |    "mako"    |
+|                 |          Argument          |    Value     |  Constraint   |
+|:---------------:|:--------------------------:|:------------:|:-------------:|
+|        n        |  Principal quantum number  |      20      |    1 <= n     |
+|        l        |  Azimuthal quantum number  |      10      | 0 <= l <= n-1 |
+|        m        |  Magnetic quantum number   |      5       | -l <= m <= l  |
+| a0_scale_factor |  Bohr radius scale factor  |     0.01     |               |
+|   dark_theme    |   Enable plot dark theme   | --dark_theme |               |
+|  color_palette  | Seaborn plot color palette |    "mako"    |               |
 
 #### Output:
 
