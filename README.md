@@ -1,287 +1,467 @@
 # Hydrogen Wavefunctions - Probability density plots
 
-Modeling and visualization of solutions 
-for the hydrogen atom wavefunction and 
-electron probability density plots
+Modeling and visualization of hydrogen atom wavefunctions and electron probability density.
 
-* Python 3.10.4
-* Matplotlib 3.6.0
-* Seaborn 0.12.0
-* NumPy 1.23.3
-* SciPy 1.9.1
+* Python 3.11.4
+* Matplotlib 3.7.2
+* Seaborn 0.12.2
+* SciPy 1.11.1
+* NumPy 1.25.2
 
 ---
-### Files / Modules - Execution alternatives
-* [IPython Notebook / Jupyter Notebook](hydrogen_wavefunctions.ipynb)
-* [Module with command line arguments](hydrogen_wavefunctions_run.py)
-* [Main module - hydrogen_wavefunctions.py](hydrogen_wavefunctions.py)
+### Main Project Files | Execution Methods
+* [Standalone Script](hydrogen_wavefunction.py)
+* [Standalone Script with expanded comments](hydrogen_wavefunction_annotated.py)
+* [Executable with CLI & Command Line Arguments](plot_hydrogen_wf.py)
+* [IPython Notebook / Jupyter Notebook](hydrogen_wavefunction.ipynb)
 ---
 
 ## Content
-#### Theory
-* [QM Introduction: wavefunctions, 
-atomic orbitals and probability](#qm-introduction-wavefunctions-atomic-orbitals-and-probability)
-* [Quantum numbers](#quantum-numbers)
-* [Hydrogen wavefunction modeling](#hydrogen-wavefunction-modeling)
-#### Implementation
-* [Execution and examples](#execution)
----
-
-## Theory
-### QM Introduction: wavefunctions, atomic orbitals and probability
-
-Quantum mechanics use wavefunctions to describe the mathematical 
-relationship between the motion of electrons in atoms and molecules 
-and their energies.
-
-A wavefunction (Ψ) is a mathematical function that relates the 
-location of an electron at a given point in space 
-(identified by x, y, and z coordinates) to the amplitude of its 
-wave, which corresponds to its energy.
-
-<br>
-<p align='center'>
-  <img src='img/Hydrogen Wavefunction Probability density plots.png' width=90% />
-</p>
-<p align='center'>
-    <i>Electron probability density in orbital cross-sections</i>
-</p>
-
-<br>
-The probability of finding an electron at a given point is proportional to 
-the square of the wavefunction at that point, leading to a distribution of 
-probabilities in space that is often portrayed as an electron density plot.
-
-An atomic orbital is a mathematical function describing 
-the wave-like behavior of an electron in an atom. Orbitals are 
-mathematically derived regions of space where the electron can be calculated to be present.
-
-<br>
-<p align='center'>
-    <img src='img/wavefunction (4,3,1).png' width=50% />
-</p>
-<p align='center'>
-    <i>Light shaded areas represent high probability density, 
-    darker areas represent lower probability density</i>
-</p>
-<br>
-The description of electron distribution as standing waves leads naturally
-to the existence of sets of quantum numbers (n, l, m) characteristic of each 
-wavefunction.
+#### Theoretical Background
+* [Quantum Mechanics and Atomic Systems: A Brief Overview](#quantum-mechanics-and-atomic-systems-a-brief-overview)
+* [Wavefunctions](#wavefunctions)
+* [Electron Density | Probability Density](#electron-density--probability-density)
+* [Atomic Orbitals](#atomic-orbitals)
+* [Quantum Numbers](#quantum-numbers)
+* [Schrödinger Equation for Hydrogen Atom Wavefunction](#schrödinger-equation-for-hydrogen-atom-wavefunction)
+  * [Radial Component](#radial-component)
+  * [Angular Component](#angular-component)
+  * [Normalized wavefunction](#normalized-wavefunction)
+  
+#### Practical Implementation
+* [Usage and Demos](#usage-and-demos)
 
 ---
 
-### Quantum numbers
+### Quantum Mechanics and Atomic Systems: A Brief Overview
 
-Schrödinger’s approach uses three quantum numbers (n, l, m) 
-to specify any wavefunction. The quantum numbers provide information 
-about the spatial distribution of an electron. 
+Quantum mechanics (QM) is the fundamental theory in physics that provides a 
+description of the physical properties of nature at the scale of atoms and subatomic particles. 
+Unlike classical mechanics which describes macroscopic phenomena, QM addresses the behavior 
+of matter and energy on the quantum (smallest discrete) level.
 
-Although n can be any positive integer, only certain values of 
-l and m are allowed for a given value of n.
+The wavefunction ( ) in quantum mechanics Unlike classical mechanics, where a particle’s position and momentum can be precisely known, quantum mechanics deals with probabilities. In the context of atomic systems, the magnitude squared of a wavefunction, ( ), gives the probability density (or electron density) which describes where one is most likely to find an electron in space around a nucleus.
+The hydrogen atom is especially significant as it is the simplest atom, containing just one electron. Its wavefunction can be treated analytically, providing profound insights into the nature of quantum systems. Solutions for the hydrogen atom pave the way for understanding more complex atomic and molecular structures.
 
-* **Principal quantum number (n):** `( 1 <= n )`
+#### Wavefunctions
 
-Average relative distance of 
-an electron from the nucleus.
+Central to the theory of quantum mechanics is the concept of the wavefunction ($\psi$), 
+which provides a complete description of a quantum system's state. It's a mathematical function 
+that associates a probability amplitude to every point in the configuration space of the system, 
+serving as a mathematical representation of a particle’s state and it 
+probabilistic behavior in space and time. 
 
-* **Azimuthal quantum number (l):** `( 0 <= l <= n-1 )`
+The wavefunction encodes all the information we can know about a given quantum system.
 
-Shape of the region of 
-space occupied by the electron.
+#### Electron Density | Probability Density
 
-* **Magnetic quantum number (m):** `( -l <= m <= l )`
+The probability density ($|\psi|^2$), also known as the electron density, 
+describes the likelihood of finding a particle at a given position in space. 
+It is the square of the magnitude of the wavefunction. For an electron in an atom, 
+it describes the spatial distribution of the probability of locating the electron.
 
-Orientation of the region in space occupied by an electron with respect to 
-an applied magnetic field.
+<p align='center'>
+    <img src='img/(3,2,1)[lt].png' width=50% />
+</p>
+<p align='center'>
+    <i>Density plot showing regions of varying electron probability</i>
+</p>
+
+#### Atomic Orbitals
+
+Atomic orbitals are mathematical functions that describe the wave-like 
+behavior of either one electron or a pair of electrons in an atom. These 
+functions can be used to determine the probability of finding an electron in 
+any specific region around the atom's nucleus.
 
 ---
 
-### Hydrogen wavefunction modeling
+#### Quantum Numbers
 
-We may solve Schrödinger’s equation more easily if we express it in 
-terms of the spherical coordinates (r, θ, φ) instead of rectangular 
-coordinates (x, y, z).
+Quantum numbers are a set of numerical values that provide a complete description of a 
+quantum particle's state. For electrons in an atom, there are typically four quantum numbers: 
 
-In spherical coordinates, the variable r is the radial coordinate, 
-θ is the polar angle (relative to the vertical z-axis), 
-and φ is the azimuthal angle (relative to the x-axis).
+- Principal quantum number ($n$): `( 1 <= n )`
+Represents the electron's energy level and relative size of the orbital.
 
-<p align='center'>
-  <img src='img/coordinate_system.png' width=38% />
-</p>
-<p align='center'>
-    <i>Relationship between the spherical and rectangular coordinate systems</i>
-</p>
 
-The wavefunctions for the hydrogen atom depend upon the three variables r, θ, and φ 
-and the three quantum numbers n, l, and m. 
-The solutions to the hydrogen atom Schrödinger equation are functions that are 
-products of a Radial Function and a Spherical Harmonic Function.
+- Azimuthal quantum number ($l$): `( 0 <= l <= n-1 )`
+Relates to the shape of the atomic orbital.
 
-<br>
-<p align='center'>
-  <img src='img/normalized_wf.png' width=60%/>
-</p>
-<p align='center'>
-    <i>Normalized position wavefunctions, given in spherical coordinates</i>
-</p>
 
-<p align='center'>
-    <img src='img/radial_function.png' width=60%/>
-</p>
-<p align='center'>
-    <i>Normalized radial function</i>
-</p>
+- Magnetic quantum number ($m_l$): `( -l <= m <= l )`
+Specifies the orientation of the orbital in space.
 
-<p align='center'>
-    <img src='img/angular_function.png' width=60%/>
-</p>
-<p align='center'>
-    <i>Normalized angular function (spherical harmonic function)</i>
-</p>
 
-The absolute square of the wavefunction, evaluated at r, θ,
-and φ gives the probability density of finding the electron.
+- Spin quantum number ($m_s$): `( +1/2 or -1/2 )`
+Describes the electron's intrinsic spin.
+
+In the hydrogen atom, or any atom with a single electron (like ionized helium, lithium, etc.), 
+the electron's spin doesn't interact with anything else to affect its spatial distribution. 
+This is because there's only one electron, and thus no possibility of electron-electron spin 
+interactions which become relevant in multi-electron systems.
+
+In multi-electron atoms, electron spin becomes significant when considering Pauli's 
+exclusion principle, which states that no two electrons can occupy the same quantum 
+state simultaneously. This principle ensures that each electron in an atom has a unique set 
+of quantum numbers.
+
+> [!NOTE]
+> For our specific application with the hydrogen atom, we will focus on the first three quantum numbers: 
+$n$, $l$, and $m_l$. As the electron's spin, represented by $m_s$ doesn't influence the shape or 
+distribution of the electron cloud.
 
 ---
+
+#### Schrödinger Equation for Hydrogen Atom Wavefunction
+
+The Schrödinger equation serves as the foundation of quantum mechanics,
+it is a differential equation that determines the wavefunctions of a quantum system. 
+For the hydrogen atom, it can be represented as:
+
+$\hat{H} \psi = E \psi$
+
+Solving this equation yields the wavefunctions which are usually 
+expressed in terms of radial and angular parts.
+
+> [!NOTE]
+> Given the spherical symmetry of the hydrogen atom, we choose spherical coordinates ($r, \theta, \varphi).
+This choice facilitates the separation of variables, allowing us to decouple the radial and angular 
+components of the problem.
+
+---
+
+#### Radial Component
+
+$R_{n \ell}(r)$
+
+The radial wavefunction gives us information about the probability
+distribution of the electron as a function of distance $r$ from the 
+nucleus. Its form encompasses three major terms:
+
+- **Exponential Decay**: $e^{-\frac{r}{n a_0}}$ 
+
+Signifies the probability decay of finding an electron as we move away from the nucleus. 
+Here, $a_0$ is the Bohr radius which sets a characteristic scale for atomic dimensions.
+
+
+- **Power term**: $\left( \frac{2r}{n a_0} \right)^{\ell}$ 
+
+Dictates how the probability changes with $r$. 
+The azimuthal quantum number $\ell$ plays a significant role in determining 
+the number of nodes in the radial distribution.
+
+
+- **Associated Laguerre Polynomials**: $L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
+
+These polynomials contribute to the finer structure of the radial part, 
+especially defining nodes (regions where the probability is zero).
+
+Given by:
+
+$R_{n \ell}(r) = \sqrt{\left( \frac{2}{n a_0} \right)^3 \frac{(n-\ell-1)!}{2n(n+\ell)!}} e^{-\frac{r}{n a_0}} \left( \frac{2r}{n a_0} \right)^{\ell} L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
+
+---
+
+#### Angular Component
+
+$Y_{\ell}^{m}(\theta, \varphi)$
+
+Yields the spherical harmonics, which gives the angular dependence of the wavefunction in 
+terms of the polar ($\theta$) and azimuthal ($\phi$) angles.
+
+These spherical harmonics provide a detailed account of the shapes and orientations of atomic orbitals,
+characterizing how electron probability distributions are spread out in space. It has two components:
+
+- **Associated Legendre Polynomials**: $P_{\ell}^{m}(\cos\theta)$
+
+These dictate the shape of the orbital in the polar ($\theta$) direction,
+helping to define the characteristic shapes (s, p, d, etc.) we often associate with atomic orbitals.
+
+
+- **Exponential Azimuthal Term**: $e^{im\varphi}$
+
+This term provides the orientation of the orbital in the azimuthal plane, as 
+determined by the magnetic quantum number $m$.
+
+Given by:
+
+$Y_{\ell}^{m}(\theta, \varphi) = (-1)^m \sqrt{\frac{(2\ell+1)}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}} P_{\ell}^{m}(\cos\theta) e^{im\varphi}$
+
+---
+
+#### Normalized wavefunction
+
+Combining the solutions of the radial and angular parts, we obtain 
+the normalized wavefunction for the hydrogen atom:
+
+$\psi_{nlm_l}(r, \theta, \varphi) = R_{n,l}(r) Y_{l}^{m_l}(\theta, \varphi)$
+
+> [!NOTE]
+> Normalization of the wavefunction is essential in quantum mechanics. 
+This ensures that when we integrate $|\psi_{n \ell m}|^2$ over all space, the result is 1, 
+indicating a certainty of finding the electron somewhere in space.
+
+To determine the probability density of the electron being in a certain location,
+we take the magnitude squared of the wavefunction: $|\psi_{n \ell m}|^2$
+
+$P(r, \theta, \varphi) = |\psi_{n,l,m_l}(r, \theta, \varphi)|^2$
+
+By analyzing this probability density, we gain a thorough understanding 
+of atomic orbitals' shapes and sizes. These visual representations, often 
+showcased in textbooks as "clouds," give an immediate sense of where electrons 
+are most likely to be located. 
+
+Furthermore, these visual representations bridge 
+the gap between the abstract realm of quantum mechanics and our intuitive 
+understanding of phenomena dictating macroscopic events.
+
+---
+
 ## Implementation
 
-### Execution
-* [IPython Notebook / Jupyter Notebook](hydrogen_wavefunctions.ipynb)
-* [Module with command line arguments](hydrogen_wavefunctions_run.py)
+### Usage and demos
+
+* [Standalone Script:](hydrogen_wavefunction.py)
+Run in your preferred IDE or code editor.
+* [Standalone Script with expanded comments:](hydrogen_wavefunction_annotated.py)
+Run in your preferred IDE or code editor.
+* [Executable with CLI & Command Line Arguments:](plot_hydrogen_wf.py)
+Run directly for the CLI tool or with command line arguments.
+* [IPython Notebook / Jupyter Notebook:](hydrogen_wavefunction.ipynb)
+Open with Jupyter Notebook.
+
+---
 
 #### Command line arguments:
 
 ```
-$ python hydrogen_wavefunctions_run.py --help
+$ python plot_hydrogen_wf.py --help
 ```
 
-```
-usage: hydrogen_wavefunctions_run.py [-h] [-dp] n l m a0      
+```   
+usage: plot_hydrogen_wf.py [-h] [--dark_theme] [--color_palette COLOR_PALETTE] [n] [l] [m] [a0_scale_factor]
 
-Hydrogen Wavefunction electron probability-density plot by definition of 
-quantum numbers n, l, m and a bohr radius augmentation coefficient
+Hydrogen Atom - Wavefunction and Electron Density Visualization 
+for specific quantum states (n, l, m).  
 
 positional arguments:
-  n           (n) Principal quantum number (dtype: integer) (1 <= n)
-  l           (l) Azimuthal quantum number (dtype: integer) (0 <= l <= n-1)
-  m           (m) Magnetic quantum number (dtype: integer) (-l <= m <= l)
-  a0          (a0) Bohr radius augmentation coefficient (dtype: float) (0 < a0 <= 1)
+  n                     (n) Principal quantum number (int)
+  l                     (l) Azimuthal quantum number (int)
+  m                     (m) Magnetic quantum number (int)
+  a0_scale_factor       Bohr radius scale factor (float)
 
 options:
-  -h, --help  show this help message and exit
-  -dp         Dark palette: Plot with a less bright color scheme
+  -h, --help            show this help message and exit
+  --dark_theme          If set, the plot uses a dark theme
+  --color_palette       Seaborn plot color palette
+
 ```
 ---
 
 #### Input args:
-    $ python hydrogen_wavefunctions_run.py 2 1 1 0.6
+    $ python plot_hydrogen_wf.py 2 1 1 0.6
 
-|     |                       Argument                       | Value |  Constraint   |
-|:---:|:----------------------------------------------------:|:-----:|:-------------:|
-|  n  |             Principal quantum number (n)             |   2   |    1 <= n     |
-|  l  |            Azimuthal quantum number  (l)             |   1   | 0 <= l <= n-1 |
-|  m  |             Magnetic quantum number (m)              |   1   | -l <= m <= l  |
-| a0  | Bohr radius augmentation coefficient (a<sub>0</sub>) |  0.6  |  0 < a0 <= 1  |
+|                 |          Argument          | Value |  Constraint   |
+|:---------------:|:--------------------------:|:-----:|:-------------:|
+|        n        |  Principal quantum number  |   2   |    1 <= n     |
+|        l        |  Azimuthal quantum number  |   1   | 0 <= l <= n-1 |
+|        m        |  Magnetic quantum number   |   1   | -l <= m <= l  |
+| a0_scale_factor |  Bohr radius scale factor  |  0.6  |               |
+
+|                 |           Option           | Value |
+|:---------------:|:--------------------------:|:-----:|
+|   dark_theme    |   Enable plot dark theme   |       |
+|  color_palette  | Seaborn plot color palette |       |
 
 #### Output:
 
 <p align='left'>
-  <img src='img/wavefunction (2,1,1).png' width=60% />
+  <img src='img/(2,1,1)[lt].png' width=60% />
 </p>
 
 ---
 
 #### Input args:
-    $ python hydrogen_wavefunctions_run.py 2 1 1 0.6 -dp
+    $ python plot_hydrogen_wf.py 2 1 1 0.6 --dark_theme
 
-|     |                       Argument                       | Value |  Constraint   |
-|:---:|:----------------------------------------------------:|:-----:|:-------------:|
-|  n  |             Principal quantum number (n)             |   2   |    1 <= n     |
-|  l  |            Azimuthal quantum number  (l)             |   1   | 0 <= l <= n-1 |
-|  m  |             Magnetic quantum number (m)              |   1   | -l <= m <= l  |
-| a0  | Bohr radius augmentation coefficient (a<sub>0</sub>) |  0.6  |  0 < a0 <= 1  |
-| -dp |   Dark palette; enable a less bright color scheme    | True  |               |
+|                 |          Argument          | Value |  Constraint   |
+|:---------------:|:--------------------------:|:-----:|:-------------:|
+|        n        |  Principal quantum number  |   2   |    1 <= n     |
+|        l        |  Azimuthal quantum number  |   1   | 0 <= l <= n-1 |
+|        m        |  Magnetic quantum number   |   1   | -l <= m <= l  |
+| a0_scale_factor |  Bohr radius scale factor  |  0.6  |               |
+
+|                 |           Option           |    Value     |
+|:---------------:|:--------------------------:|:------------:|
+|   dark_theme    |   Enable plot dark theme   | --dark_theme |
+|  color_palette  | Seaborn plot color palette |              |
 
 #### Output:
 
 <p align='left'>
-  <img src='img/wavefunction (2,1,1)-dp.png' width=60% />
+  <img src='img/(2,1,1)[dt].png' width=60% />
 </p>
 
 ---
 
 #### Input args:
-    $ python hydrogen_wavefunctions_run.py 3 2 1 0.3
+    $ python plot_hydrogen_wf.py 3 2 1 0.3
 
-|     |                       Argument                       | Value |  Constraint   |
-|:---:|:----------------------------------------------------:|:-----:|:-------------:|
-|  n  |             Principal quantum number (n)             |   3   |    1 <= n     |
-|  l  |            Azimuthal quantum number  (l)             |   2   | 0 <= l <= n-1 |
-|  m  |             Magnetic quantum number (m)              |   1   | -l <= m <= l  |
-| a0  | Bohr radius augmentation coefficient (a<sub>0</sub>) |  0.3  |  0 < a0 <= 1  |
+|                 |          Argument          | Value |  Constraint   |
+|:---------------:|:--------------------------:|:-----:|:-------------:|
+|        n        |  Principal quantum number  |   3   |    1 <= n     |
+|        l        |  Azimuthal quantum number  |   2   | 0 <= l <= n-1 |
+|        m        |  Magnetic quantum number   |   1   | -l <= m <= l  |
+| a0_scale_factor |  Bohr radius scale factor  |  0.3  |               |
+
+|                 |           Option           | Value |
+|:---------------:|:--------------------------:|:-----:|
+|   dark_theme    |   Enable plot dark theme   |       |
+|  color_palette  | Seaborn plot color palette |       |
 
 #### Output:
 
 <p align='left'>
-  <img src='img/wavefunction (3,2,1).png' width=60% />
+  <img src='img/(3,2,1)[lt].png' width=60% />
 </p>
 
 ---
 
 #### Input args:
-    $ python hydrogen_wavefunctions_run.py 3 2 1 0.3 -dp
+    $ python plot_hydrogen_wf.py 3 2 1 0.3 --dark_theme
 
-|     |                       Argument                       | Value |  Constraint   |
-|:---:|:----------------------------------------------------:|:-----:|:-------------:|
-|  n  |             Principal quantum number (n)             |   3   |    1 <= n     |
-|  l  |            Azimuthal quantum number  (l)             |   2   | 0 <= l <= n-1 |
-|  m  |             Magnetic quantum number (m)              |   1   | -l <= m <= l  |
-| a0  | Bohr radius augmentation coefficient (a<sub>0</sub>) |  0.3  |  0 < a0 <= 1  |
-| -dp |   Dark palette; enable a less bright color scheme    | True  |               |
+|                 |          Argument          | Value |  Constraint   |
+|:---------------:|:--------------------------:|:-----:|:-------------:|
+|        n        |  Principal quantum number  |   3   |    1 <= n     |
+|        l        |  Azimuthal quantum number  |   2   | 0 <= l <= n-1 |
+|        m        |  Magnetic quantum number   |   1   | -l <= m <= l  |
+| a0_scale_factor |  Bohr radius scale factor  |  0.3  |               |
+
+|                 |           Option           |    Value     |
+|:---------------:|:--------------------------:|:------------:|
+|   dark_theme    |   Enable plot dark theme   | --dark_theme |
+|  color_palette  | Seaborn plot color palette |              |
 
 #### Output:
 
 <p align='left'>
-  <img src='img/wavefunction (3,2,1)-dp.png' width=60% />
+  <img src='img/(3,2,1)[dt].png' width=60% />
 </p>
 
 ---
 
 #### Input args:
-    $ python hydrogen_wavefunctions_run.py 4 3 0 0.2
+    $ python plot_hydrogen_wf.py 4 3 0 0.2 --color_palette "magma"
 
-|     |                       Argument                       | Value |  Constraint   |
-|:---:|:----------------------------------------------------:|:-----:|:-------------:|
-|  n  |             Principal quantum number (n)             |   4   |    1 <= n     |
-|  l  |            Azimuthal quantum number  (l)             |   3   | 0 <= l <= n-1 |
-|  m  |             Magnetic quantum number (m)              |   0   | -l <= m <= l  |
-| a0  | Bohr radius augmentation coefficient (a<sub>0</sub>) |  0.2  |  0 < a0 <= 1  |
+|                 |          Argument          | Value |  Constraint   |
+|:---------------:|:--------------------------:|:-----:|:-------------:|
+|        n        |  Principal quantum number  |   4   |    1 <= n     |
+|        l        |  Azimuthal quantum number  |   3   | 0 <= l <= n-1 |
+|        m        |  Magnetic quantum number   |   0   | -l <= m <= l  |
+| a0_scale_factor |  Bohr radius scale factor  |  0.2  |               |
+
+|                 |           Option           |  Value  |
+|:---------------:|:--------------------------:|:-------:|
+|   dark_theme    |   Enable plot dark theme   |         |
+|  color_palette  | Seaborn plot color palette | "magma" |
 
 #### Output:
 
 <p align='left'>
-  <img src='img/wavefunction (4,3,0).png' width=60% />
+  <img src='img/(4,3,0)[lt].png' width=60% />
 </p>
 
 ---
 
 #### Input args:
-    $ python hydrogen_wavefunctions_run.py 4 3 0 0.2 -dp
+    $ python plot_hydrogen_wf.py 4 3 0 0.2 --dark_theme --color_palette "magma"
 
-|     |                       Argument                       | Value |  Constraint   |
-|:---:|:----------------------------------------------------:|:-----:|:-------------:|
-|  n  |             Principal quantum number (n)             |   4   |    1 <= n     |
-|  l  |            Azimuthal quantum number  (l)             |   3   | 0 <= l <= n-1 |
-|  m  |             Magnetic quantum number (m)              |   0   | -l <= m <= l  |
-| a0  | Bohr radius augmentation coefficient (a<sub>0</sub>) |  0.2  |  0 < a0 <= 1  |
-| -dp |   Dark palette; enable a less bright color scheme    | True  |               |
+|                 |          Argument          | Value |  Constraint   |
+|:---------------:|:--------------------------:|:-----:|:-------------:|
+|        n        |  Principal quantum number  |   4   |    1 <= n     |
+|        l        |  Azimuthal quantum number  |   3   | 0 <= l <= n-1 |
+|        m        |  Magnetic quantum number   |   0   | -l <= m <= l  |
+| a0_scale_factor |  Bohr radius scale factor  |  0.2  |               |
+
+|                 |           Option           |    Value     |
+|:---------------:|:--------------------------:|:------------:|
+|   dark_theme    |   Enable plot dark theme   | --dark_theme |
+|  color_palette  | Seaborn plot color palette |   "magma"    |
 
 #### Output:
 
 <p align='left'>
-  <img src='img/wavefunction (4,3,0)-dp.png' width=60% />
+  <img src='img/(4,3,0)[dt].png' width=60% />
+</p>
+
+---
+
+#### Input args:
+    $ python plot_hydrogen_wf.py 4 3 1 0.2 --dark_theme --color_palette "mako"
+
+|                 |          Argument          | Value |  Constraint   |
+|:---------------:|:--------------------------:|:-----:|:-------------:|
+|        n        |  Principal quantum number  |   4   |    1 <= n     |
+|        l        |  Azimuthal quantum number  |   3   | 0 <= l <= n-1 |
+|        m        |  Magnetic quantum number   |   1   | -l <= m <= l  |
+| a0_scale_factor |  Bohr radius scale factor  |  0.2  |               |
+
+|                 |           Option           |    Value     |
+|:---------------:|:--------------------------:|:------------:|
+|   dark_theme    |   Enable plot dark theme   | --dark_theme |
+|  color_palette  | Seaborn plot color palette |    "mako"    |
+
+#### Output:
+
+<p align='left'>
+  <img src='img/(4,3,1)[dt].png' width=60% />
+</p>
+
+---
+
+#### Input args:
+    $ python plot_hydrogen_wf.py 9 6 1 0.04 --dark_theme --color_palette "mako"
+
+|                 |          Argument          | Value |  Constraint   |
+|:---------------:|:--------------------------:|:-----:|:-------------:|
+|        n        |  Principal quantum number  |   9   |    1 <= n     |
+|        l        |  Azimuthal quantum number  |   6   | 0 <= l <= n-1 |
+|        m        |  Magnetic quantum number   |   1   | -l <= m <= l  |
+| a0_scale_factor |  Bohr radius scale factor  | 0.04  |               |
+
+|                 |           Option           |    Value     |
+|:---------------:|:--------------------------:|:------------:|
+|   dark_theme    |   Enable plot dark theme   | --dark_theme |
+|  color_palette  | Seaborn plot color palette |    "mako"    |
+
+#### Output:
+
+<p align='left'>
+  <img src='img/(9,6,1)[dt].png' width=60% />
+</p>
+
+---
+
+#### Input args:
+    $ python plot_hydrogen_wf.py 20 10 5 0.01 --dark_theme --color_palette "mako"
+
+|                 |          Argument          | Value |  Constraint   |
+|:---------------:|:--------------------------:|:-----:|:-------------:|
+|        n        |  Principal quantum number  |  20   |    1 <= n     |
+|        l        |  Azimuthal quantum number  |  10   | 0 <= l <= n-1 |
+|        m        |  Magnetic quantum number   |   5   | -l <= m <= l  |
+| a0_scale_factor |  Bohr radius scale factor  | 0.01  |               |
+
+|                 |           Option           |    Value     |
+|:---------------:|:--------------------------:|:------------:|
+|   dark_theme    |   Enable plot dark theme   | --dark_theme |
+|  color_palette  | Seaborn plot color palette |    "mako"    |
+
+#### Output:
+
+<p align='left'>
+  <img src='img/(20,10,5)[dt].png' width=60% />
 </p>
 
 ---
