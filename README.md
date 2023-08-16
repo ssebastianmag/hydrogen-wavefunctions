@@ -88,22 +88,22 @@ quantum particle's state. For electrons in an atom, there are typically four qua
 <br><br>
 
 *1. Principal quantum number* ($n$): `( 1 <= n )`
-<br>
+
 Represents the electron's energy level and relative size of the orbital.
 
 
 *2. Azimuthal quantum number* ($l$): `( 0 <= l <= n-1 )`
-<br>
+
 Relates to the shape of the atomic orbital.
 
 
 *3. Magnetic quantum number ($m_l$)*: `( -l <= m <= l )`
-<br>
+
 Specifies the orientation of the orbital in space.
 
 
 *4. Spin quantum number ($m_s$)*: `( +1/2 or -1/2 )`
-<br>
+
 Describes the electron's intrinsic spin.
 
 <br>
@@ -141,7 +141,7 @@ components of the problem.
 
 #### 2.1 Radial Component
 
-### $R_{n \ell}(r) = \sqrt{\left( \frac{2}{n a_0} \right)^3 \frac{(n-\ell-1)!}{2n(n+\ell)!}} e^{-\frac{r}{n a_0}} \left( \frac{2r}{n a_0} \right)^{\ell} L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
+#### $R_{n \ell}(r) = \sqrt{\left( \frac{2}{n a_0} \right)^3 \frac{(n-\ell-1)!}{2n(n+\ell)!}} e^{-\frac{r}{n a_0}} \left( \frac{2r}{n a_0} \right)^{\ell} L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
 
 The radial wavefunction gives us information about the probability
 distribution of the electron as a function of distance $r$ from the 
