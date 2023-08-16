@@ -12,8 +12,8 @@ Modeling and visualization of hydrogen atom wavefunctions and electron probabili
 ### Main Project Files | Execution Methods
 * [Standalone Module](hydrogen_wavefunction.py)
 * [Standalone Module with extended comments](hydrogen_wavefunction_annotated.py)
-* [Executable with CLI & Command Line Arguments](plot_hydrogen_wf.py)
-* [IPython Notebook / Jupyter Notebook](hydrogen_wavefunction.ipynb)
+* [Executable with CLI & Command Line Arguments](hydrogen_wavefunction_cli.py)
+* [IPython Notebook / Jupyter Notebook](hydrogen_wavefunction_notebook.ipynb)
 ---
 
 ## Content
@@ -230,9 +230,9 @@ understanding of phenomena dictating macroscopic events.
 Run in your preferred IDE or code editor.
 * [Standalone Module with extended comments:](hydrogen_wavefunction_annotated.py)
 Run in your preferred IDE or code editor.
-* [Executable with CLI & Command Line Arguments:](plot_hydrogen_wf.py)
+* [Executable with CLI & Command Line Arguments:](hydrogen_wavefunction_cli.py)
 Run directly for the CLI tool or with command line arguments.
-* [IPython Notebook / Jupyter Notebook:](hydrogen_wavefunction.ipynb)
+* [IPython Notebook / Jupyter Notebook:](hydrogen_wavefunction_notebook.ipynb)
 Open with Jupyter Notebook.
 
 ---
@@ -240,11 +240,11 @@ Open with Jupyter Notebook.
 #### Command line arguments:
 
 ```
-$ python plot_hydrogen_wf.py --help
+$ python hydrogen_wavefunction_cli.py --help
 ```
 
 ```   
-usage: plot_hydrogen_wf.py [-h] [--dark_theme] [--color_palette COLOR_PALETTE] [n] [l] [m] [a0_scale_factor]
+usage: hydrogen_wavefunction_cli.py [-h] [--dark_theme] [--color_palette COLOR_PALETTE] [n] [l] [m] [a0_scale_factor]
 
 Hydrogen Atom - Wavefunction and Electron Density Visualization 
 for specific quantum states (n, l, m).  
@@ -265,7 +265,7 @@ options:
 ---
 
 #### Input args:
-    $ python plot_hydrogen_wf.py 3 2 1 0.3
+    $ python hydrogen_wavefunction_cli.py 3 2 1 0.3
 
 |                 |          Argument          | Value |  Constraint   |
 |:---------------:|:--------------------------:|:-----:|:-------------:|
@@ -285,7 +285,7 @@ options:
 ---
 
 #### Input args:
-    $ python plot_hydrogen_wf.py 3 2 1 0.3 --dark_theme
+    $ python hydrogen_wavefunction_cli.py 3 2 1 0.3 --dark_theme
 
 |                 |          Argument          |    Value     |  Constraint   |
 |:---------------:|:--------------------------:|:------------:|:-------------:|
@@ -305,7 +305,7 @@ options:
 ---
 
 #### Input args:
-    $ python plot_hydrogen_wf.py 4 3 0 0.2 --color_palette "magma"
+    $ python hydrogen_wavefunction_cli.py 4 3 0 0.2 --color_palette "magma"
 
 |                 |          Argument          |  Value  |  Constraint   |
 |:---------------:|:--------------------------:|:-------:|:-------------:|
@@ -325,7 +325,7 @@ options:
 ---
 
 #### Input args:
-    $ python plot_hydrogen_wf.py 4 3 0 0.2 --dark_theme --color_palette "magma"
+    $ python hydrogen_wavefunction_cli.py 4 3 0 0.2 --dark_theme --color_palette "magma"
 
 |                 |          Argument          |    Value     |  Constraint   |
 |:---------------:|:--------------------------:|:------------:|:-------------:|
@@ -345,7 +345,7 @@ options:
 ---
 
 #### Input args:
-    $ python plot_hydrogen_wf.py 4 3 1 0.2 --dark_theme --color_palette "mako"
+    $ python hydrogen_wavefunction_cli.py 4 3 1 0.2 --dark_theme --color_palette "mako"
 
 |                 |          Argument          |    Value     |  Constraint   |
 |:---------------:|:--------------------------:|:------------:|:-------------:|
@@ -365,7 +365,7 @@ options:
 ---
 
 #### Input args:
-    $ python plot_hydrogen_wf.py 9 6 1 0.04 --dark_theme --color_palette "mako"
+    $ python hydrogen_wavefunction_cli.py 9 6 1 0.04 --dark_theme --color_palette "mako"
 
 |                 |          Argument          |    Value     |  Constraint   |
 |:---------------:|:--------------------------:|:------------:|:-------------:|
@@ -385,7 +385,7 @@ options:
 ---
 
 #### Input args:
-    $ python plot_hydrogen_wf.py 20 10 5 0.01 --dark_theme --color_palette "mako"
+    $ python hydrogen_wavefunction_cli.py 20 10 5 0.01 --dark_theme --color_palette "mako"
 
 |                 |          Argument          |    Value     |  Constraint   |
 |:---------------:|:--------------------------:|:------------:|:-------------:|
