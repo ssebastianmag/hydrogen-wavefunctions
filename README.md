@@ -10,8 +10,8 @@ Modeling and visualization of hydrogen atom wavefunctions and electron probabili
 
 ---
 ### Main Project Files | Execution Methods
-* [Standalone Script](hydrogen_wavefunction.py)
-* [Standalone Script with expanded comments](hydrogen_wavefunction_annotated.py)
+* [Standalone Module](hydrogen_wavefunction.py)
+* [Standalone Module with extended comments](hydrogen_wavefunction_annotated.py)
 * [Executable with CLI & Command Line Arguments](plot_hydrogen_wf.py)
 * [IPython Notebook / Jupyter Notebook](hydrogen_wavefunction.ipynb)
 ---
@@ -24,9 +24,6 @@ Modeling and visualization of hydrogen atom wavefunctions and electron probabili
 * [Atomic Orbitals](#atomic-orbitals)
 * [Quantum Numbers](#quantum-numbers)
 * [Schrödinger Equation for Hydrogen Atom Wavefunction](#schrödinger-equation-for-hydrogen-atom-wavefunction)
-  * [Radial Component](#radial-component)
-  * [Angular Component](#angular-component)
-  * [Normalized wavefunction](#normalized-wavefunction)
   
 #### Practical Implementation
 * [Usage and Demos](#usage-and-demos)
@@ -229,9 +226,9 @@ understanding of phenomena dictating macroscopic events.
 
 ### Usage and demos
 
-* [Standalone Script:](hydrogen_wavefunction.py)
+* [Standalone Module:](hydrogen_wavefunction.py)
 Run in your preferred IDE or code editor.
-* [Standalone Script with expanded comments:](hydrogen_wavefunction_annotated.py)
+* [Standalone Module with extended comments:](hydrogen_wavefunction_annotated.py)
 Run in your preferred IDE or code editor.
 * [Executable with CLI & Command Line Arguments:](plot_hydrogen_wf.py)
 Run directly for the CLI tool or with command line arguments.
