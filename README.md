@@ -5,8 +5,8 @@ Modeling and visualization of hydrogen atom wavefunctions and electron probabili
 * Python 3.11.4
 * Matplotlib 3.7.2
 * Seaborn 0.12.2
-* SciPy 1.11.1
 * NumPy 1.25.2
+* SciPy 1.11.1
 
 ---
 ### Main Project Files | Execution Methods
@@ -40,8 +40,11 @@ description of the physical properties of nature at the scale of atoms and subat
 Unlike classical mechanics which describes macroscopic phenomena, QM addresses the behavior 
 of matter and energy on the quantum (smallest discrete) level.
 
-The wavefunction ( ) in quantum mechanics Unlike classical mechanics, where a particle’s position and momentum can be precisely known, quantum mechanics deals with probabilities. In the context of atomic systems, the magnitude squared of a wavefunction, ( ), gives the probability density (or electron density) which describes where one is most likely to find an electron in space around a nucleus.
-The hydrogen atom is especially significant as it is the simplest atom, containing just one electron. Its wavefunction can be treated analytically, providing profound insights into the nature of quantum systems. Solutions for the hydrogen atom pave the way for understanding more complex atomic and molecular structures.
+The hydrogen atom is especially significant as it is the simplest atom, containing just one electron. 
+Its wavefunction can be treated analytically, providing profound insights into the nature of quantum systems. 
+Solutions for the hydrogen atom pave the way for understanding more complex atomic and molecular structures.
+
+---
 
 #### Wavefunctions
 
@@ -52,6 +55,8 @@ serving as a mathematical representation of a particle’s state and it
 probabilistic behavior in space and time. 
 
 The wavefunction encodes all the information we can know about a given quantum system.
+
+---
 
 #### Electron Density | Probability Density
 
@@ -66,6 +71,8 @@ it describes the spatial distribution of the probability of locating the electro
 <p align='center'>
     <i>Density plot showing regions of varying electron probability</i>
 </p>
+
+---
 
 #### Atomic Orbitals
 
