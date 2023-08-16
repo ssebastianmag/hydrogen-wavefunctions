@@ -264,45 +264,6 @@ options:
   --color_palette       Seaborn plot color palette
 
 ```
----
-
-#### Input args:
-    $ python plot_hydrogen_wf.py 2 1 1 0.6
-
-|                 |          Argument          | Value |  Constraint   |
-|:---------------:|:--------------------------:|:-----:|:-------------:|
-|        n        |  Principal quantum number  |   2   |    1 <= n     |
-|        l        |  Azimuthal quantum number  |   1   | 0 <= l <= n-1 |
-|        m        |  Magnetic quantum number   |   1   | -l <= m <= l  |
-| a0_scale_factor |  Bohr radius scale factor  |  0.6  |               |
-|   dark_theme    |   Enable plot dark theme   |       |               |
-|  color_palette  | Seaborn plot color palette |       |               |
-
-#### Output:
-
-<p align='left'>
-  <img src='img/(2,1,1)[lt].png' width=60% />
-</p>
-
----
-
-#### Input args:
-    $ python plot_hydrogen_wf.py 2 1 1 0.6 --dark_theme
-
-|                 |          Argument          |    Value     |  Constraint   |
-|:---------------:|:--------------------------:|:------------:|:-------------:|
-|        n        |  Principal quantum number  |      2       |    1 <= n     |
-|        l        |  Azimuthal quantum number  |      1       | 0 <= l <= n-1 |
-|        m        |  Magnetic quantum number   |      1       | -l <= m <= l  |
-| a0_scale_factor |  Bohr radius scale factor  |     0.6      |               |
-|   dark_theme    |   Enable plot dark theme   | --dark_theme |               |
-|  color_palette  | Seaborn plot color palette |              |               |
-
-#### Output:
-
-<p align='left'>
-  <img src='img/(2,1,1)[dt].png' width=60% />
-</p>
 
 ---
 
