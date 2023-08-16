@@ -86,18 +86,22 @@ Quantum numbers are a set of numerical values that provide a complete descriptio
 quantum particle's state. For electrons in an atom, there are typically four quantum numbers: 
 
 - Principal quantum number ($n$): `( 1 <= n )`
+
 Represents the electron's energy level and relative size of the orbital.
 
 
 - Azimuthal quantum number ($l$): `( 0 <= l <= n-1 )`
+
 Relates to the shape of the atomic orbital.
 
 
 - Magnetic quantum number ($m_l$): `( -l <= m <= l )`
+
 Specifies the orientation of the orbital in space.
 
 
 - Spin quantum number ($m_s$): `( +1/2 or -1/2 )`
+
 Describes the electron's intrinsic spin.
 
 In the hydrogen atom, or any atom with a single electron (like ionized helium, lithium, etc.), 
@@ -110,15 +114,16 @@ exclusion principle, which states that no two electrons can occupy the same quan
 state simultaneously. This principle ensures that each electron in an atom has a unique set 
 of quantum numbers.
 
-> For our specific application with the hydrogen atom, we will focus on the first three quantum numbers: 
+For our specific application with the hydrogen atom, we will focus on the first three quantum numbers: 
 $n$, $l$, and $m_l$. As the electron's spin, represented by $m_s$ doesn't influence the shape or 
 distribution of the electron cloud.
 
 <p align='center'>
-    <img src='img/(2,1,1)[dt].png' width=50% />
+    <img src='img/(2,1,1)[lt].png' width=50% />
 </p>
 <p align='center'>
-    <i>Electron density plot showing regions of varying electron probability</i>
+    <i> lighter shades signify regions of high electron probability.Conversely, 
+    darker shades denote areas of lower probability </i>
 </p>
 
 ---
@@ -134,7 +139,6 @@ $\hat{H} \psi = E \psi$
 Solving this equation yields the wavefunctions which are usually 
 expressed in terms of radial and angular parts.
 
-> [!NOTE]
 Given the spherical symmetry of the hydrogen atom, we choose spherical coordinates ($r, \theta, \varphi).
 This choice facilitates the separation of variables, allowing us to decouple the radial and angular 
 components of the problem.
@@ -207,8 +211,7 @@ the normalized wavefunction for the hydrogen atom:
 
 $\psi_{nlm_l}(r, \theta, \varphi) = R_{n,l}(r) Y_{l}^{m_l}(\theta, \varphi)$
 
-> [!NOTE]
-> Normalization of the wavefunction is essential in quantum mechanics. 
+Normalization of the wavefunction is essential in quantum mechanics. 
 This ensures that when we integrate $|\psi_{n \ell m}|^2$ over all space, the result is 1, 
 indicating a certainty of finding the electron somewhere in space.
 
