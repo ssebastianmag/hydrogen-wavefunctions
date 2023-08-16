@@ -66,7 +66,7 @@ it describes the spatial distribution of the probability of locating the electro
     <img src='img/(3,2,1)[lt].png' width=50% />
 </p>
 <p align='center'>
-    <i>Density plot showing regions of varying electron probability</i>
+    <i>Electron density plot showing regions of varying electron probability</i>
 </p>
 
 ---
@@ -110,10 +110,16 @@ exclusion principle, which states that no two electrons can occupy the same quan
 state simultaneously. This principle ensures that each electron in an atom has a unique set 
 of quantum numbers.
 
-> [!NOTE]
 > For our specific application with the hydrogen atom, we will focus on the first three quantum numbers: 
 $n$, $l$, and $m_l$. As the electron's spin, represented by $m_s$ doesn't influence the shape or 
 distribution of the electron cloud.
+
+<p align='center'>
+    <img src='img/(2,1,1)[dt].png' width=50% />
+</p>
+<p align='center'>
+    <i>Electron density plot showing regions of varying electron probability</i>
+</p>
 
 ---
 
@@ -129,7 +135,7 @@ Solving this equation yields the wavefunctions which are usually
 expressed in terms of radial and angular parts.
 
 > [!NOTE]
-> Given the spherical symmetry of the hydrogen atom, we choose spherical coordinates ($r, \theta, \varphi).
+Given the spherical symmetry of the hydrogen atom, we choose spherical coordinates ($r, \theta, \varphi).
 This choice facilitates the separation of variables, allowing us to decouple the radial and angular 
 components of the problem.
 
