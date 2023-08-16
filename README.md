@@ -89,21 +89,22 @@ quantum particle's state. For electrons in an atom, there are typically four qua
 
 Represents the electron's energy level and relative size of the orbital.
 
-
+<br>
 - Azimuthal quantum number ($l$): `( 0 <= l <= n-1 )`
 
 Relates to the shape of the atomic orbital.
 
-
+<br>
 - Magnetic quantum number ($m_l$): `( -l <= m <= l )`
 
 Specifies the orientation of the orbital in space.
 
-
+<br>
 - Spin quantum number ($m_s$): `( +1/2 or -1/2 )`
 
 Describes the electron's intrinsic spin.
 
+<br>
 In the hydrogen atom, or any atom with a single electron (like ionized helium, lithium, etc.), 
 the electron's spin doesn't interact with anything else to affect its spatial distribution. 
 This is because there's only one electron, and thus no possibility of electron-electron spin 
@@ -122,8 +123,7 @@ distribution of the electron cloud.
     <img src='img/(2,1,1)[lt].png' width=50% />
 </p>
 <p align='center'>
-    <i> lighter shades signify regions of high electron probability.Conversely, 
-    darker shades denote areas of lower probability </i>
+    <i> Lighter shades signify regions of high electron probability</i>
 </p>
 
 ---
@@ -143,11 +143,9 @@ Given the spherical symmetry of the hydrogen atom, we choose spherical coordinat
 This choice facilitates the separation of variables, allowing us to decouple the radial and angular 
 components of the problem.
 
----
+#### 1. Radial Component
 
-#### Radial Component
-
-$R_{n \ell}(r)$
+$R_{n \ell}(r) = \sqrt{\left( \frac{2}{n a_0} \right)^3 \frac{(n-\ell-1)!}{2n(n+\ell)!}} e^{-\frac{r}{n a_0}} \left( \frac{2r}{n a_0} \right)^{\ell} L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
 
 The radial wavefunction gives us information about the probability
 distribution of the electron as a function of distance $r$ from the 
@@ -157,29 +155,23 @@ nucleus. Its form encompasses three major terms:
 
 Signifies the probability decay of finding an electron as we move away from the nucleus. 
 Here, $a_0$ is the Bohr radius which sets a characteristic scale for atomic dimensions.
-
+<br>
 
 - **Power term**: $\left( \frac{2r}{n a_0} \right)^{\ell}$ 
 
 Dictates how the probability changes with $r$. 
 The azimuthal quantum number $\ell$ plays a significant role in determining 
 the number of nodes in the radial distribution.
-
+<br>
 
 - **Associated Laguerre Polynomials**: $L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
 
 These polynomials contribute to the finer structure of the radial part, 
 especially defining nodes (regions where the probability is zero).
 
-Given by:
+#### 2. Angular Component
 
-$R_{n \ell}(r) = \sqrt{\left( \frac{2}{n a_0} \right)^3 \frac{(n-\ell-1)!}{2n(n+\ell)!}} e^{-\frac{r}{n a_0}} \left( \frac{2r}{n a_0} \right)^{\ell} L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
-
----
-
-#### Angular Component
-
-$Y_{\ell}^{m}(\theta, \varphi)$
+$Y_{\ell}^{m}(\theta, \varphi) = (-1)^m \sqrt{\frac{(2\ell+1)}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}} P_{\ell}^{m}(\cos\theta) e^{im\varphi}$
 
 Yields the spherical harmonics, which gives the angular dependence of the wavefunction in 
 terms of the polar ($\theta$) and azimuthal ($\phi$) angles.
@@ -191,16 +183,12 @@ characterizing how electron probability distributions are spread out in space. I
 
 These dictate the shape of the orbital in the polar ($\theta$) direction,
 helping to define the characteristic shapes (s, p, d, etc.) we often associate with atomic orbitals.
-
+<br>
 
 - **Exponential Azimuthal Term**: $e^{im\varphi}$
 
 This term provides the orientation of the orbital in the azimuthal plane, as 
 determined by the magnetic quantum number $m$.
-
-Given by:
-
-$Y_{\ell}^{m}(\theta, \varphi) = (-1)^m \sqrt{\frac{(2\ell+1)}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}} P_{\ell}^{m}(\cos\theta) e^{im\varphi}$
 
 ---
 
