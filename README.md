@@ -54,8 +54,6 @@ probabilistic behavior in space and time.
 
 The wavefunction encodes all the information we can know about a given quantum system.
 
----
-
 #### 1.2 Electron Density | Probability Density
 
 The probability density ($|\psi|^2$), also known as the electron density, 
@@ -70,8 +68,6 @@ it describes the spatial distribution of the probability of locating the electro
     <i>Electron density plot showing regions of varying electron probability</i>
 </p>
 
----
-
 #### 1.3 Atomic Orbitals
 
 Atomic orbitals are mathematical functions that describe the wave-like 
@@ -79,31 +75,25 @@ behavior of either one electron or a pair of electrons in an atom. These
 functions can be used to determine the probability of finding an electron in 
 any specific region around the atom's nucleus.
 
----
-
 #### 1.4 Quantum Numbers
 
 Quantum numbers are a set of numerical values that provide a complete description of a 
 quantum particle's state. For electrons in an atom, there are typically four quantum numbers:
 <br><br>
 
-*1. Principal quantum number* ($n$): `( 1 <= n )`
-
+*1. Principal quantum number* ($n$): `( 1 <= n )`<br>
 Represents the electron's energy level and relative size of the orbital.
 
 
-*2. Azimuthal quantum number* ($l$): `( 0 <= l <= n-1 )`
-
+*2. Azimuthal quantum number* ($l$): `( 0 <= l <= n-1 )`<br>
 Relates to the shape of the atomic orbital.
 
 
-*3. Magnetic quantum number ($m_l$)*: `( -l <= m <= l )`
-
+*3. Magnetic quantum number* ($m_l$): `( -l <= m <= l )`<br>
 Specifies the orientation of the orbital in space.
 
 
-*4. Spin quantum number ($m_s$)*: `( +1/2 or -1/2 )`
-
+*4. Spin quantum number* ($m_s$): `( +1/2 or -1/2 )`<br>
 Describes the electron's intrinsic spin.
 
 <br>
@@ -141,26 +131,32 @@ components of the problem.
 
 #### 2.1 Radial Component
 
-#### $R_{n \ell}(r) = \sqrt{\left( \frac{2}{n a_0} \right)^3 \frac{(n-\ell-1)!}{2n(n+\ell)!}} e^{-\frac{r}{n a_0}} \left( \frac{2r}{n a_0} \right)^{\ell} L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
+### $R_{n \ell}(r) = \sqrt{\left( \frac{2}{n a_0} \right)^3 \frac{(n-\ell-1)!}{2n(n+\ell)!}} e^{-\frac{r}{n a_0}} \left( \frac{2r}{n a_0} \right)^{\ell} L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
 
 The radial wavefunction gives us information about the probability
 distribution of the electron as a function of distance $r$ from the 
 nucleus. Its form encompasses three major terms:
 
-- **Exponential Decay**: $e^{-\frac{r}{n a_0}}$ 
+- **Exponential Decay**: 
+
+#### $e^{-\frac{r}{n a_0}}$ 
 
 Signifies the probability decay of finding an electron as we move away from the nucleus. 
 Here, $a_0$ is the Bohr radius which sets a characteristic scale for atomic dimensions.
 <br>
 
-- **Power term**: $\left( \frac{2r}{n a_0} \right)^{\ell}$ 
+- **Power term**: 
+
+#### $\left( \frac{2r}{n a_0} \right)^{\ell}$ 
 
 Dictates how the probability changes with $r$. 
 The azimuthal quantum number $\ell$ plays a significant role in determining 
 the number of nodes in the radial distribution.
 <br>
 
-- **Associated Laguerre Polynomials**: $L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
+- **Associated Laguerre Polynomials**: 
+
+#### $L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
 
 These polynomials contribute to the finer structure of the radial part, 
 especially defining nodes (regions where the probability is zero).
