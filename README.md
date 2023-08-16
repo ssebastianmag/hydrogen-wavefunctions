@@ -1,6 +1,7 @@
-# Hydrogen Wavefunctions - Probability density plots
+# Hydrogen Wavefunctions & Electron Density
 
-Modeling and visualization of hydrogen atom wavefunctions and electron probability density.
+Modeling and visualization of hydrogen atom wavefunctions and 
+electron probability density.
 
 * Python 3.11.4
 * Matplotlib 3.7.2
@@ -18,19 +19,19 @@ Modeling and visualization of hydrogen atom wavefunctions and electron probabili
 
 ## Content
 #### Theoretical Background
-* [Quantum Mechanics and Atomic Systems: A Brief Overview](#quantum-mechanics-and-atomic-systems-a-brief-overview)
-* [Wavefunctions](#wavefunctions)
-* [Electron Density | Probability Density](#electron-density--probability-density)
-* [Atomic Orbitals](#atomic-orbitals)
-* [Quantum Numbers](#quantum-numbers)
-* [Schrödinger Equation for Hydrogen Atom Wavefunction](#schrödinger-equation-for-hydrogen-atom-wavefunction)
+* [Quantum Mechanics and Atomic Systems: A Brief Overview](#1-quantum-mechanics-and-atomic-systems-a-brief-overview)
+* [Wavefunctions](#11-wavefunctions)
+* [Electron Density | Probability Density](#12-electron-density--probability-density)
+* [Atomic Orbitals](#13-atomic-orbitals)
+* [Quantum Numbers](#14-quantum-numbers)
+* [Schrödinger Equation for Hydrogen Atom Wavefunction](#2-schrödinger-equation-for-hydrogen-atom-wavefunction)
   
 #### Practical Implementation
 * [Usage and Demos](#usage-and-demos)
 
 ---
 
-### Quantum Mechanics and Atomic Systems: A Brief Overview
+### 1. Quantum Mechanics and Atomic Systems: A Brief Overview
 
 Quantum mechanics (QM) is the fundamental theory in physics that provides a 
 description of the physical properties of nature at the scale of atoms and subatomic particles. 
@@ -43,7 +44,7 @@ Solutions for the hydrogen atom pave the way for understanding more complex atom
 
 ---
 
-#### Wavefunctions
+#### 1.1 Wavefunctions
 
 Central to the theory of quantum mechanics is the concept of the wavefunction ($\psi$), 
 which provides a complete description of a quantum system's state. It's a mathematical function 
@@ -55,7 +56,7 @@ The wavefunction encodes all the information we can know about a given quantum s
 
 ---
 
-#### Electron Density | Probability Density
+#### 1.2 Electron Density | Probability Density
 
 The probability density ($|\psi|^2$), also known as the electron density, 
 describes the likelihood of finding a particle at a given position in space. 
@@ -71,7 +72,7 @@ it describes the spatial distribution of the probability of locating the electro
 
 ---
 
-#### Atomic Orbitals
+#### 1.3 Atomic Orbitals
 
 Atomic orbitals are mathematical functions that describe the wave-like 
 behavior of either one electron or a pair of electrons in an atom. These 
@@ -80,7 +81,7 @@ any specific region around the atom's nucleus.
 
 ---
 
-#### Quantum Numbers
+#### 1.4 Quantum Numbers
 
 Quantum numbers are a set of numerical values that provide a complete description of a 
 quantum particle's state. For electrons in an atom, there are typically four quantum numbers: 
@@ -89,17 +90,17 @@ quantum particle's state. For electrons in an atom, there are typically four qua
 
 Represents the electron's energy level and relative size of the orbital.
 
-<br>
+
 - Azimuthal quantum number ($l$): `( 0 <= l <= n-1 )`
 
 Relates to the shape of the atomic orbital.
 
-<br>
+
 - Magnetic quantum number ($m_l$): `( -l <= m <= l )`
 
 Specifies the orientation of the orbital in space.
 
-<br>
+
 - Spin quantum number ($m_s$): `( +1/2 or -1/2 )`
 
 Describes the electron's intrinsic spin.
@@ -128,7 +129,7 @@ distribution of the electron cloud.
 
 ---
 
-#### Schrödinger Equation for Hydrogen Atom Wavefunction
+### 2. Schrödinger Equation for Hydrogen Atom Wavefunction
 
 The Schrödinger equation serves as the foundation of quantum mechanics,
 it is a differential equation that determines the wavefunctions of a quantum system. 
@@ -143,7 +144,7 @@ Given the spherical symmetry of the hydrogen atom, we choose spherical coordinat
 This choice facilitates the separation of variables, allowing us to decouple the radial and angular 
 components of the problem.
 
-#### 1. Radial Component
+#### 2.1 Radial Component
 
 $R_{n \ell}(r) = \sqrt{\left( \frac{2}{n a_0} \right)^3 \frac{(n-\ell-1)!}{2n(n+\ell)!}} e^{-\frac{r}{n a_0}} \left( \frac{2r}{n a_0} \right)^{\ell} L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
 
@@ -169,7 +170,7 @@ the number of nodes in the radial distribution.
 These polynomials contribute to the finer structure of the radial part, 
 especially defining nodes (regions where the probability is zero).
 
-#### 2. Angular Component
+#### 2.2 Angular Component
 
 $Y_{\ell}^{m}(\theta, \varphi) = (-1)^m \sqrt{\frac{(2\ell+1)}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}} P_{\ell}^{m}(\cos\theta) e^{im\varphi}$
 
@@ -190,9 +191,7 @@ helping to define the characteristic shapes (s, p, d, etc.) we often associate w
 This term provides the orientation of the orbital in the azimuthal plane, as 
 determined by the magnetic quantum number $m$.
 
----
-
-#### Normalized wavefunction
+#### 2.3 Normalized wavefunction
 
 Combining the solutions of the radial and angular parts, we obtain 
 the normalized wavefunction for the hydrogen atom:
