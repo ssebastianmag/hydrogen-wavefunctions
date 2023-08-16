@@ -84,27 +84,26 @@ any specific region around the atom's nucleus.
 #### 1.4 Quantum Numbers
 
 Quantum numbers are a set of numerical values that provide a complete description of a 
-quantum particle's state. For electrons in an atom, there are typically four quantum numbers: 
+quantum particle's state. For electrons in an atom, there are typically four quantum numbers:
+<br><br>
 
+*1. Principal quantum number* ($n$): `( 1 <= n )`
 <br>
-
-- Principal quantum number ($n$): `( 1 <= n )`
-
 Represents the electron's energy level and relative size of the orbital.
 
 
-- Azimuthal quantum number ($l$): `( 0 <= l <= n-1 )`
-
+*2. Azimuthal quantum number* ($l$): `( 0 <= l <= n-1 )`
+<br>
 Relates to the shape of the atomic orbital.
 
 
-- Magnetic quantum number ($m_l$): `( -l <= m <= l )`
-
+*3. Magnetic quantum number ($m_l$)*: `( -l <= m <= l )`
+<br>
 Specifies the orientation of the orbital in space.
 
 
-- Spin quantum number ($m_s$): `( +1/2 or -1/2 )`
-
+*4. Spin quantum number ($m_s$)*: `( +1/2 or -1/2 )`
+<br>
 Describes the electron's intrinsic spin.
 
 <br>
@@ -130,7 +129,7 @@ The Schrödinger equation serves as the foundation of quantum mechanics,
 it is a differential equation that determines the wavefunctions of a quantum system. 
 For the hydrogen atom, it can be represented as:
 
-$\hat{H} \psi = E \psi$
+### $\hat{H} \psi = E \psi$
 
 Solving this equation yields the wavefunctions which are usually 
 expressed in terms of radial and angular parts.
@@ -138,11 +137,11 @@ expressed in terms of radial and angular parts.
 Given the spherical symmetry of the hydrogen atom, we choose spherical coordinates ($r, \theta, \varphi).
 This choice facilitates the separation of variables, allowing us to decouple the radial and angular 
 components of the problem.
-<br>
+<br><br>
 
 #### 2.1 Radial Component
 
-$R_{n \ell}(r) = \sqrt{\left( \frac{2}{n a_0} \right)^3 \frac{(n-\ell-1)!}{2n(n+\ell)!}} e^{-\frac{r}{n a_0}} \left( \frac{2r}{n a_0} \right)^{\ell} L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
+### $R_{n \ell}(r) = \sqrt{\left( \frac{2}{n a_0} \right)^3 \frac{(n-\ell-1)!}{2n(n+\ell)!}} e^{-\frac{r}{n a_0}} \left( \frac{2r}{n a_0} \right)^{\ell} L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
 
 The radial wavefunction gives us information about the probability
 distribution of the electron as a function of distance $r$ from the 
@@ -165,11 +164,11 @@ the number of nodes in the radial distribution.
 
 These polynomials contribute to the finer structure of the radial part, 
 especially defining nodes (regions where the probability is zero).
-<br>
+<br><br>
 
 #### 2.2 Angular Component
 
-$Y_{\ell}^{m}(\theta, \varphi) = (-1)^m \sqrt{\frac{(2\ell+1)}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}} P_{\ell}^{m}(\cos\theta) e^{im\varphi}$
+### $Y_{\ell}^{m}(\theta, \varphi) = (-1)^m \sqrt{\frac{(2\ell+1)}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}} P_{\ell}^{m}(\cos\theta) e^{im\varphi}$
 
 Yields the spherical harmonics, which gives the angular dependence of the wavefunction in 
 terms of the polar ($\theta$) and azimuthal ($\phi$) angles.
@@ -187,7 +186,7 @@ helping to define the characteristic shapes (s, p, d, etc.) we often associate w
 
 This term provides the orientation of the orbital in the azimuthal plane, as 
 determined by the magnetic quantum number $m$.
-<br>
+<br><br>
 
 #### 2.3 Normalized wavefunction
 
@@ -204,7 +203,7 @@ indicating a certainty of finding the electron somewhere in space.
 To determine the probability density of the electron being in a certain location,
 we take the magnitude squared of the wavefunction: $|\psi_{n \ell m}|^2$
 
-$P(r, \theta, \varphi) = |\psi_{n,l,m_l}(r, \theta, \varphi)|^2$
+### $P(r, \theta, \varphi) = |\psi_{n,l,m_l}(r, \theta, \varphi)|^2$
 
 By analyzing this probability density, we gain a thorough understanding 
 of atomic orbitals' shapes and sizes. These visual representations, often 
