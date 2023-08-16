@@ -47,19 +47,22 @@ Solutions for the hydrogen atom pave the way for understanding more complex atom
 #### 1.1 Wavefunctions
 
 Central to the theory of quantum mechanics is the concept of the wavefunction ($\psi$), 
-which provides a complete description of a quantum system's state. It's a mathematical function 
-that associates a probability amplitude to every point in the configuration space of the system, 
-serving as a mathematical representation of a particle’s state and it 
-probabilistic behavior in space and time. 
+which provides a complete description of a quantum system's state. 
 
-The wavefunction encodes all the information we can know about a given quantum system.
+It's a mathematical function that associates a probability amplitude to every point in the configuration space of the system, 
+serving as a mathematical representation of a particle’s state and it 
+probabilistic behavior in space and time.
+
+---
 
 #### 1.2 Electron Density | Probability Density
 
 The probability density ($|\psi|^2$), also known as the electron density, 
 describes the likelihood of finding a particle at a given position in space. 
-It is the square of the magnitude of the wavefunction. For an electron in an atom, 
-it describes the spatial distribution of the probability of locating the electron.
+It is the square of the magnitude of the wavefunction. 
+
+For an electron in an atom, it describes the spatial distribution 
+of the probability of locating the electron.
 
 <p align='center'>
     <img src='img/(3,2,1)[lt].png' width=50% />
@@ -68,44 +71,48 @@ it describes the spatial distribution of the probability of locating the electro
     <i>Electron density plot showing regions of varying electron probability</i>
 </p>
 
+---
+
 #### 1.3 Atomic Orbitals
 
 Atomic orbitals are mathematical functions that describe the wave-like 
-behavior of either one electron or a pair of electrons in an atom. These 
-functions can be used to determine the probability of finding an electron in 
-any specific region around the atom's nucleus.
+behavior of either one electron or a pair of electrons in an atom.
+
+These functions can be used to determine the probability of finding an 
+electron in any specific region around the atom's nucleus.
+
+---
 
 #### 1.4 Quantum Numbers
 
-Quantum numbers are a set of numerical values that provide a complete description of a 
-quantum particle's state. For electrons in an atom, there are typically four quantum numbers:
+Quantum numbers are a set of numerical values that provide a complete 
+description of a quantum particle's state. 
+For electrons in an atom, there are typically four quantum numbers:
 <br><br>
 
-*1. Principal quantum number* ($n$): `( 1 <= n )`<br>
+- Principal quantum number ($n$): `( 1 <= n )`<br>
 Represents the electron's energy level and relative size of the orbital.
 
 
-*2. Azimuthal quantum number* ($l$): `( 0 <= l <= n-1 )`<br>
+- Azimuthal quantum number ($l$): `( 0 <= l <= n-1 )`<br>
 Relates to the shape of the atomic orbital.
 
 
-*3. Magnetic quantum number* ($m_l$): `( -l <= m <= l )`<br>
+- Magnetic quantum number ($m_l$): `( -l <= m <= l )`<br>
 Specifies the orientation of the orbital in space.
 
 
-*4. Spin quantum number* ($m_s$): `( +1/2 or -1/2 )`<br>
+- Spin quantum number ($m_s$): `( +1/2 or -1/2 )`<br>
 Describes the electron's intrinsic spin.
 
 <br>
 In the hydrogen atom, or any atom with a single electron (like ionized helium, lithium, etc.), 
 the electron's spin doesn't interact with anything else to affect its spatial distribution. 
+
 This is because there's only one electron, and thus no possibility of electron-electron spin 
 interactions which become relevant in multi-electron systems.
+<br>
 
-In multi-electron atoms, electron spin becomes significant when considering Pauli's 
-exclusion principle, which states that no two electrons can occupy the same quantum 
-state simultaneously. This principle ensures that each electron in an atom has a unique set 
-of quantum numbers.
 
 For our specific application with the hydrogen atom, we will focus on the first three quantum numbers: 
 $n$, $l$, and $m_l$. As the electron's spin, represented by $m_s$ doesn't influence the shape or 
@@ -124,10 +131,15 @@ For the hydrogen atom, it can be represented as:
 Solving this equation yields the wavefunctions which are usually 
 expressed in terms of radial and angular parts.
 
-Given the spherical symmetry of the hydrogen atom, we choose spherical coordinates ($r, \theta, \varphi).
-This choice facilitates the separation of variables, allowing us to decouple the radial and angular 
+Given the spherical symmetry of the hydrogen atom, we choose spherical 
+coordinates ($r, \theta, \varphi).
+
+This choice facilitates the separation of variables, allowing 
+us to decouple the radial and angular 
 components of the problem.
 <br><br>
+
+---
 
 #### 2.1 Radial Component
 
@@ -137,30 +149,34 @@ The radial wavefunction gives us information about the probability
 distribution of the electron as a function of distance $r$ from the 
 nucleus. Its form encompasses three major terms:
 
-- **Exponential Decay**: 
+- **Exponential Decay**
 
-#### $e^{-\frac{r}{n a_0}}$ 
+### $e^{-\frac{r}{n a_0}}$ 
 
-Signifies the probability decay of finding an electron as we move away from the nucleus. 
+Signifies the probability decay of finding an electron as we move away 
+from the nucleus. 
+
 Here, $a_0$ is the Bohr radius which sets a characteristic scale for atomic dimensions.
 <br>
 
-- **Power term**: 
+- **Power term**
 
-#### $\left( \frac{2r}{n a_0} \right)^{\ell}$ 
+### $\left( \frac{2r}{n a_0} \right)^{\ell}$ 
 
 Dictates how the probability changes with $r$. 
 The azimuthal quantum number $\ell$ plays a significant role in determining 
 the number of nodes in the radial distribution.
 <br>
 
-- **Associated Laguerre Polynomials**: 
+- **Associated Laguerre Polynomials**
 
-#### $L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
+### $L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
 
 These polynomials contribute to the finer structure of the radial part, 
 especially defining nodes (regions where the probability is zero).
 <br><br>
+
+---
 
 #### 2.2 Angular Component
 
@@ -170,19 +186,26 @@ Yields the spherical harmonics, which gives the angular dependence of the wavefu
 terms of the polar ($\theta$) and azimuthal ($\phi$) angles.
 
 These spherical harmonics provide a detailed account of the shapes and orientations of atomic orbitals,
-characterizing how electron probability distributions are spread out in space. It has two components:
+characterizing how electron probability distributions are spread out in space. 
+It has two components:
 
-- **Associated Legendre Polynomials**: $P_{\ell}^{m}(\cos\theta)$
+- **Associated Legendre Polynomials**
+
+### $P_{\ell}^{m}(\cos\theta)$
 
 These dictate the shape of the orbital in the polar ($\theta$) direction,
 helping to define the characteristic shapes (s, p, d, etc.) we often associate with atomic orbitals.
 <br>
 
-- **Exponential Azimuthal Term**: $e^{im\varphi}$
+- **Exponential Azimuthal Term**
+
+### $e^{im\varphi}$
 
 This term provides the orientation of the orbital in the azimuthal plane, as 
 determined by the magnetic quantum number $m$.
 <br><br>
+
+---
 
 #### 2.3 Normalized wavefunction
 
@@ -202,11 +225,7 @@ we take the magnitude squared of the wavefunction: $|\psi_{n \ell m}|^2$
 ### $P(r, \theta, \varphi) = |\psi_{n,l,m_l}(r, \theta, \varphi)|^2$
 
 By analyzing this probability density, we gain a thorough understanding 
-of atomic orbitals' shapes and sizes. These visual representations, often 
-showcased in textbooks as "clouds," give an immediate sense of where electrons 
-are most likely to be located. 
-
-Furthermore, these visual representations bridge 
+of atomic orbitals' shapes and sizes as these visual representations bridge 
 the gap between the abstract realm of quantum mechanics and our intuitive 
 understanding of phenomena dictating macroscopic events.
 
