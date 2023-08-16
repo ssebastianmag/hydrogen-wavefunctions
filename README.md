@@ -86,6 +86,8 @@ any specific region around the atom's nucleus.
 Quantum numbers are a set of numerical values that provide a complete description of a 
 quantum particle's state. For electrons in an atom, there are typically four quantum numbers: 
 
+<br>
+
 - Principal quantum number ($n$): `( 1 <= n )`
 
 Represents the electron's energy level and relative size of the orbital.
@@ -120,13 +122,6 @@ For our specific application with the hydrogen atom, we will focus on the first 
 $n$, $l$, and $m_l$. As the electron's spin, represented by $m_s$ doesn't influence the shape or 
 distribution of the electron cloud.
 
-<p align='center'>
-    <img src='img/(2,1,1)[lt].png' width=50% />
-</p>
-<p align='center'>
-    <i> Lighter shades signify regions of high electron probability</i>
-</p>
-
 ---
 
 ### 2. Schrödinger Equation for Hydrogen Atom Wavefunction
@@ -143,6 +138,7 @@ expressed in terms of radial and angular parts.
 Given the spherical symmetry of the hydrogen atom, we choose spherical coordinates ($r, \theta, \varphi).
 This choice facilitates the separation of variables, allowing us to decouple the radial and angular 
 components of the problem.
+<br>
 
 #### 2.1 Radial Component
 
@@ -169,6 +165,7 @@ the number of nodes in the radial distribution.
 
 These polynomials contribute to the finer structure of the radial part, 
 especially defining nodes (regions where the probability is zero).
+<br>
 
 #### 2.2 Angular Component
 
@@ -190,17 +187,19 @@ helping to define the characteristic shapes (s, p, d, etc.) we often associate w
 
 This term provides the orientation of the orbital in the azimuthal plane, as 
 determined by the magnetic quantum number $m$.
+<br>
 
 #### 2.3 Normalized wavefunction
 
 Combining the solutions of the radial and angular parts, we obtain 
 the normalized wavefunction for the hydrogen atom:
 
-$\psi_{nlm_l}(r, \theta, \varphi) = R_{n,l}(r) Y_{l}^{m_l}(\theta, \varphi)$
+### $\psi_{nlm_l}(r, \theta, \varphi) = R_{n,l}(r) Y_{l}^{m_l}(\theta, \varphi)$
 
 Normalization of the wavefunction is essential in quantum mechanics. 
 This ensures that when we integrate $|\psi_{n \ell m}|^2$ over all space, the result is 1, 
 indicating a certainty of finding the electron somewhere in space.
+<br>
 
 To determine the probability density of the electron being in a certain location,
 we take the magnitude squared of the wavefunction: $|\psi_{n \ell m}|^2$
