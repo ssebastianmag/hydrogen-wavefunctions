@@ -55,22 +55,15 @@ Solutions for the hydrogen atom pave the way for understanding more complex atom
 
 #### 1.1 Wavefunctions
 
-Central to the theory of quantum mechanics is the concept of the wavefunction ($\psi$), 
-which provides a complete description of a quantum system's state. 
-
-It's a mathematical function that associates a probability amplitude to every point in the configuration space of the system, 
-serving as a mathematical representation of a particle’s state and it 
-probabilistic behavior in space and time.
+A wavefunction, often denoted as ($\psi$), represents the quantum state of a particle in a system. 
+It provides information about the probability amplitude of position and momentum states of the particle. 
 
 ---
 
 #### 1.2 Electron Density | Probability Density
 
-The probability density ($|\psi|^2$), also known as the electron density, 
-describes the likelihood of finding a particle at a given position in space. 
-It is the square of the magnitude of the wavefunction. 
-
-For an electron in an atom, it describes the spatial distribution 
+The square magnitude of the wavefunction, ($|\psi|^2$), gives the probability density for 
+the particle's position in space. For an electron in an atom, it describes the spatial distribution 
 of the probability of locating the electron.
 
 ---
@@ -140,6 +133,8 @@ and $E$ is the total energy of the system.
 
 Given the spherical symmetry of the hydrogen atom, we may express it in terms of 
 spherical coordinates $(r, \theta, \varphi)$ instead of rectangular coordinates $(x, y, z)$.
+
+
 $r$ is the radial coordinate, $\theta$ is the polar angle (relative to the vertical z-axis), 
 and $\varphi$ is the azimuthal angle (relative to the x-axis).
 
