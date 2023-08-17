@@ -104,7 +104,7 @@ def compute_probability_density(psi):
     return np.abs(psi) ** 2
 
 
-def plot_wf_probability_density(n, l, m, a0_scale_factor, dark_theme=False, color_palette='rocket'):
+def plot_wf_probability_density(n, l, m, a0_scale_factor, dark_theme=False, colormap='rocket'):
     """ Plot the probability density of the hydrogen
     atom's wavefunction for a given quantum state (n,l,m).
 
@@ -114,7 +114,7 @@ def plot_wf_probability_density(n, l, m, a0_scale_factor, dark_theme=False, colo
         m (int): magnetic quantum number, defines the orientation of the orbital
         a0_scale_factor (float): Bohr radius scale factor
         dark_theme (bool): If True, uses a dark background for the plot, defaults to False
-        color_palette (str): Seaborn plot color palette, defaults to 'rocket'
+        colormap (str): Seaborn plot colormap, defaults to 'rocket'
     """
 
     # Quantum numbers validation
@@ -125,11 +125,11 @@ def plot_wf_probability_density(n, l, m, a0_scale_factor, dark_theme=False, colo
     if not isinstance(m, int) or not (-l <= m <= l):
         raise ValueError('m should be an integer satisfying the condition: -l <= m <= l')
 
-    # Color palette validation
+    # Colormap validation
     try:
-        sns.color_palette(color_palette)
+        sns.color_palette(colormap)
     except ValueError:
-        raise ValueError(f'{color_palette} is not a recognized Seaborn color palette.')
+        raise ValueError(f'{colormap} is not a recognized Seaborn colormap.')
 
     # Configure plot aesthetics using matplotlib rcParams settings
     plt.rcParams['font.family'] = 'STIXGeneral'
@@ -150,7 +150,7 @@ def plot_wf_probability_density(n, l, m, a0_scale_factor, dark_theme=False, colo
     # Compute and visualize the wavefunction probability density
     psi = compute_wavefunction(n, l, m, a0_scale_factor)
     prob_density = compute_probability_density(psi)
-    im = ax.imshow(np.sqrt(prob_density), cmap=sns.color_palette(color_palette, as_cmap=True))
+    im = ax.imshow(np.sqrt(prob_density), cmap=sns.color_palette(colormap, as_cmap=True))
 
     cbar = plt.colorbar(im, fraction=0.046, pad=0.03)
     cbar.set_ticks([])
@@ -159,7 +159,7 @@ def plot_wf_probability_density(n, l, m, a0_scale_factor, dark_theme=False, colo
     if dark_theme:
         theme = 'dt'
         background_color = sorted(
-            sns.color_palette(color_palette, n_colors=100),
+            sns.color_palette(colormap, n_colors=100),
             key=lambda color: 0.2126 * color[0] + 0.7152 * color[1] + 0.0722 * color[2]
         )[0]
         plt.rcParams['text.color'] = '#dfdfdf'
@@ -205,6 +205,6 @@ if __name__ == '__main__':
     plot_wf_probability_density(3, 2, 1, 0.3, True)
     plot_wf_probability_density(3, 2, 1, 0.3)
 
-    plot_wf_probability_density(4, 3, 0, 0.2, dark_theme=True, color_palette='magma')
-    plot_wf_probability_density(4, 3, 0, 0.2, color_palette='magma')
-    plot_wf_probability_density(4, 3, 1, 0.2, dark_theme=True, color_palette='mako')
+    plot_wf_probability_density(4, 3, 0, 0.2, dark_theme=True, colormap='magma')
+    plot_wf_probability_density(4, 3, 0, 0.2, colormap='magma')
+    plot_wf_probability_density(4, 3, 1, 0.2, dark_theme=True, colormap='mako')
