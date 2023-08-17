@@ -23,7 +23,7 @@ electron probability density.
 * [Schrödinger Equation for Hydrogen Atom Wavefunction](#2-schrödinger-equation-for-hydrogen-atom-wavefunction)
   
 #### Practical Implementation
-* [Usage and Demos](#usage-and-demos)
+* [Execution](#execution)
 
 ---
 
@@ -218,18 +218,11 @@ the radial and angular components:
 <br>
 
 To determine the probability density of the electron being in a certain location,
-we take the magnitude squared of the wavefunction: $|\psi_{n \ell m}|^2$
+we integrate the square magnitude of the wavefunction over all space: $|\psi_{n \ell m}|^2$
 
 ### $$P(r, \theta, \varphi) = |\psi_{n,l,m_l}(r, \theta, \varphi)|^2$$
 
-> [!NOTE]
-> Normalization of the wavefunction is essential in quantum mechanics. 
-This ensures that when we integrate the square magnitude of the wavefunction over all space, 
-the result is 1, indicating a certainty of finding the electron somewhere in space.
-
----
-
-> Through analysis of the hydrogen atom wavefunction model, the behavior and distribution of electron density
+Through analysis of the hydrogen atom wavefunction model, the behavior and distribution of electron density
 within atomic systems becomes apparent, shedding light upon the inherent uncertainty of quantum mechanics. 
 These visual representations bridge the gap between the abstract realm of
 quantum theory and our intuitive understanding of phenomena dictating macroscopic events.
@@ -238,7 +231,7 @@ quantum theory and our intuitive understanding of phenomena dictating macroscopi
 
 ## Implementation
 
-### Usage and demos
+### Execution
 
 * [Standalone Module:](hydrogen_wavefunction.py)
 Run in your preferred IDE or code editor.
