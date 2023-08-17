@@ -20,7 +20,7 @@ electron probability density.
 ## Content
 #### Theoretical Background
 * [Quantum Mechanics and Atomic Systems: A Brief Overview](#1-quantum-mechanics-and-atomic-systems-a-brief-overview)
-* [Schrödinger Equation for Hydrogen Atom Wavefunction](#2-schrödinger-equation-for-hydrogen-atom-wavefunction)
+* [Schrödinger Equation for Hydrogen Atom Wavefunctions](#2-schrödinger-equation-for-hydrogen-atom-wavefunctions)
   
 #### Practical Implementation
 * [Execution](#execution)
@@ -35,8 +35,7 @@ Unlike classical mechanics which describes macroscopic phenomena, QM addresses t
 of matter and energy on the quantum (smallest discrete) level.
 
 The hydrogen atom is especially significant as it is the simplest atom, containing just one electron. 
-Its wavefunction can be treated analytically, providing profound insights into the nature of quantum systems. 
-Solutions for the hydrogen atom pave the way for understanding more complex atomic and molecular structures.
+Its wavefunction can be treated analytically, providing profound insights into the nature of quantum systems.
 
 <br>
 
@@ -58,7 +57,7 @@ It provides information about the probability amplitude of position and momentum
 
 #### 1.2 Electron Density | Probability Density
 
-The square magnitude of the wavefunction, $|\psi|^2$, gives the probability density for 
+The square magnitude of the wavefunction $|\psi|^2$, gives the probability density for 
 the particle's position in space. For an electron in an atom, it describes the spatial distribution 
 of the probability of locating the electron.
 
@@ -116,7 +115,7 @@ distribution of the electron cloud.
 
 ---
 
-### 2. Schrödinger Equation for Hydrogen Atom Wavefunction
+### 2. Schrödinger Equation for Hydrogen Atom Wavefunctions
 
 The Schrödinger equation serves as the foundation of quantum mechanics,
 it is a differential equation that determines the wavefunctions of a quantum system. 
@@ -146,7 +145,7 @@ each depending on one of the three coordinates:
 
 ### $$\psi(r, \theta, \varphi) = R(r) Y(\theta, \varphi)$$
 
-When the Hamiltonian is expressed in spherical coordinates, it contains both radial and angular parts,
+When the Hamiltonian is expressed in spherical coordinates, it contains both radial and angular parts.
 By substituting this into the Schrödinger equation, we separate the equation into two parts: 
 one that depends only on $r$ (the radial part) and another that depends on $\theta$ and $\varphi$ (the angular part).
 
@@ -187,7 +186,7 @@ especially defining nodes (regions where the probability is zero):
 
 #### $$Y_{\ell}^{m}(\theta, \varphi) = (-1)^m \sqrt{\frac{(2\ell+1)}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}} P_{\ell}^{m}(\cos\theta) e^{im\varphi}$$
 
-Yields the spherical harmonics, which gives the angular dependence of the wavefunction in 
+The angular wavefunction yields the spherical harmonics, which gives the angular dependence of the wavefunction in 
 terms of the polar ($\theta$) and azimuthal ($\phi$) angles.
 
 These spherical harmonics provide a detailed account of the shapes and orientations of atomic orbitals,
@@ -213,20 +212,18 @@ determined by the magnetic quantum number $m$:
 The resultant normalized wavefunction for the hydrogen atom is the product of the solutions of 
 the radial and angular components:
 
-### $$\psi_{nlm_l}(r, \theta, \varphi) = R_{n,l}(r) Y_{l}^{m_l}(\theta, \varphi)$$
+### $$\psi_{n \ell m}(r, \theta, \varphi) = R_{n \ell}(r) Y_{\ell}^{m}(\theta, \varphi)$$
 
 <br>
 
 To determine the probability density of the electron being in a certain location,
 we integrate the square magnitude of the wavefunction over all space: $|\psi_{n \ell m}|^2$
 
-### $$P(r, \theta, \varphi) = |\psi_{n,l,m_l}(r, \theta, \varphi)|^2$$
+### $$P(r, \theta, \varphi) = |\psi_{n \ell m}(r, \theta, \varphi)|^2$$
 
-Through analysis of the hydrogen atom wavefunction model, the behavior and distribution of electron density
-within atomic systems becomes apparent, shedding light upon the inherent uncertainty of quantum mechanics. 
-These visual representations bridge the gap between the abstract realm of
-quantum theory and our intuitive understanding of phenomena dictating macroscopic events.
-
+---
+> Through analysis of the hydrogen atom wavefunction model, the behavior and distribution of electron density
+within atomic systems becomes apparent, shedding light upon the inherent uncertainty of quantum mechanics.
 ---
 
 ## Implementation
