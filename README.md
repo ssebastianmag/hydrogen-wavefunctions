@@ -111,7 +111,7 @@ the electron's spin doesn't interact with anything else to affect its spatial di
 This is because there's only one electron, and thus no possibility of electron-electron spin 
 interactions which become relevant in multi-electron systems.
 
-> NOTE
+> [!NOTE]
 > For our specific application with the hydrogen atom, we will focus on the first three quantum numbers. 
 > As the electron's spin doesn't influence the shape or 
 distribution of the electron cloud.
@@ -129,7 +129,7 @@ For the hydrogen atom, it can be represented as:
 Solving this equation yields the wavefunctions which are usually 
 expressed in terms of radial and angular parts.
 
-> NOTE
+> [!NOTE]  
 > Given the spherical symmetry of the hydrogen atom, we choose spherical 
 coordinates. 
 > 
