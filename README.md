@@ -135,12 +135,12 @@ For the hydrogen atom, we use the following representation of the time-independe
 
 ### $$\hat{H} \psi = E \psi$$
 
-Here $H$ is the Hamiltonian operator, which represents the total energy (kinetic + potential) of the system, 
+$H$ is the Hamiltonian operator, which represents the total energy (kinetic + potential) of the system, 
 and $E$ is the total energy of the system.
 
 Given the spherical symmetry of the hydrogen atom, we may express it in terms of 
-spherical coordinates $(r, \theta, \varphi)$ instead of rectangular coordinates $(x, y, z)$
-Here $r$ is the radial coordinate, $\theta$ is the polar angle (relative to the vertical z-axis), 
+spherical coordinates $(r, \theta, \varphi)$ instead of rectangular coordinates $(x, y, z)$.
+$r$ is the radial coordinate, $\theta$ is the polar angle (relative to the vertical z-axis), 
 and $\varphi$ is the azimuthal angle (relative to the x-axis).
 
 <p align='center'>
@@ -150,8 +150,10 @@ and $\varphi$ is the azimuthal angle (relative to the x-axis).
     <i>Relationship between the spherical and rectangular coordinate systems</i>
 </p>
 
-The wavefunction $psi(r, \theta, \varphi)$ can be represented as a product of functions, 
-each depending on one of the three coordinates: $psi(r, \theta, \varphi) = R(r) Y(\theta, \varphi)$
+The wavefunction $\psi(r, \theta, \varphi)$ can be represented as a product of functions, 
+each depending on one of the three coordinates: 
+
+### $$\psi(r, \theta, \varphi) = R(r) Y(\theta, \varphi)$$
 
 When the Hamiltonian is expressed in spherical coordinates, it contains both radial and angular parts,
 By substituting this into the Schrödinger equation, we separate the equation into two parts: 
