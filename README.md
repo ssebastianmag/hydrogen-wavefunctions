@@ -210,14 +210,11 @@ determined by the magnetic quantum number $m$:
 
 #### 2.3 Normalized wavefunction
 
-Combining the solutions of the radial and angular parts, we obtain 
-the normalized wavefunction for the hydrogen atom:
+The resultant normalized wavefunction for the hydrogen atom is the product of the solutions of 
+the radial and angular components:
 
 ### $$\psi_{nlm_l}(r, \theta, \varphi) = R_{n,l}(r) Y_{l}^{m_l}(\theta, \varphi)$$
 
-Normalization of the wavefunction is essential in quantum mechanics. 
-This ensures that when we integrate $|\psi_{n \ell m}|^2$ over all space, the result is 1, 
-indicating a certainty of finding the electron somewhere in space.
 <br>
 
 To determine the probability density of the electron being in a certain location,
@@ -225,10 +222,17 @@ we take the magnitude squared of the wavefunction: $|\psi_{n \ell m}|^2$
 
 ### $$P(r, \theta, \varphi) = |\psi_{n,l,m_l}(r, \theta, \varphi)|^2$$
 
-By analyzing this probability density, we gain a thorough understanding 
-of atomic orbitals' shapes and sizes as these visual representations bridge 
-the gap between the abstract realm of quantum mechanics and our intuitive 
-understanding of phenomena dictating macroscopic events.
+> [!NOTE]
+> Normalization of the wavefunction is essential in quantum mechanics. 
+This ensures that when we integrate the square magnitude of the wavefunction over all space, 
+the result is 1, indicating a certainty of finding the electron somewhere in space.
+
+---
+
+Through analysis of the hydrogen atom wavefunction model, the behavior and distribution of electron density
+within atomic systems becomes apparent, shedding light upon the inherent uncertainty of quantum mechanics. 
+These visual representations bridge the gap between the abstract realm of
+quantum theory and our intuitive understanding of phenomena dictating macroscopic events.
 
 ---
 
