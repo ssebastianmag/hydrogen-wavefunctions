@@ -58,15 +58,15 @@ Solutions for the hydrogen atom pave the way for understanding more complex atom
 A wavefunction, often denoted as ($\psi$), represents the quantum state of a particle in a system. 
 It provides information about the probability amplitude of position and momentum states of the particle. 
 
----
+
 
 #### 1.2 Electron Density | Probability Density
 
-The square magnitude of the wavefunction, ($|\psi|^2$), gives the probability density for 
+The square magnitude of the wavefunction, $|\psi|^2$, gives the probability density for 
 the particle's position in space. For an electron in an atom, it describes the spatial distribution 
 of the probability of locating the electron.
 
----
+
 
 #### 1.3 Atomic Orbitals
 
