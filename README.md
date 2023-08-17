@@ -156,7 +156,7 @@ nucleus. Its form encompasses three major terms:
 electron as we move away from the nucleus. Here, $a_0$ is the Bohr 
 radius which sets a characteristic scale for atomic dimensions.
 
-### $e^{-\frac{r}{n a_0}}$ 
+### $$e^{-\frac{r}{n a_0}}$$
 
 <br>
 
@@ -164,7 +164,7 @@ radius which sets a characteristic scale for atomic dimensions.
 The azimuthal quantum number $\ell$ plays a significant role in determining 
 the number of nodes in the radial distribution.
 
-### $\left( \frac{2r}{n a_0} \right)^{\ell}$ 
+### $$\left( \frac{2r}{n a_0} \right)^{\ell}$$
 
 <br>
 
