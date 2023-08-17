@@ -104,18 +104,16 @@ Specifies the orientation of the orbital in space.
 - Spin quantum number ($m_s$): `( +1/2 or -1/2 )`<br>
 Describes the electron's intrinsic spin.
 
-<br>
+
 In the hydrogen atom, or any atom with a single electron (like ionized helium, lithium, etc.), 
 the electron's spin doesn't interact with anything else to affect its spatial distribution. 
-<br>
 
 This is because there's only one electron, and thus no possibility of electron-electron spin 
 interactions which become relevant in multi-electron systems.
-<br>
 
-
-For our specific application with the hydrogen atom, we will focus on the first three quantum numbers: 
-$n$, $l$, and $m_l$. As the electron's spin, represented by $m_s$ doesn't influence the shape or 
+> NOTE
+> For our specific application with the hydrogen atom, we will focus on the first three quantum numbers. 
+> As the electron's spin doesn't influence the shape or 
 distribution of the electron cloud.
 
 ---
@@ -131,10 +129,11 @@ For the hydrogen atom, it can be represented as:
 Solving this equation yields the wavefunctions which are usually 
 expressed in terms of radial and angular parts.
 
-Given the spherical symmetry of the hydrogen atom, we choose spherical 
-coordinates ($r, \theta, \varphi$).
-
-This choice facilitates the separation of variables, allowing 
+> NOTE
+> Given the spherical symmetry of the hydrogen atom, we choose spherical 
+coordinates. 
+> 
+>This choice facilitates the separation of variables, allowing 
 us to decouple the radial and angular 
 components of the problem.
 
