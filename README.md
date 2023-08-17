@@ -1,4 +1,4 @@
-# Hydrogen Wavefunctions & Electron Density
+# Hydrogen Wavefunctions & Electron Density Plots
 
 Modeling and visualization of hydrogen atom wavefunctions and 
 electron probability density.
@@ -42,6 +42,15 @@ The hydrogen atom is especially significant as it is the simplest atom, containi
 Its wavefunction can be treated analytically, providing profound insights into the nature of quantum systems. 
 Solutions for the hydrogen atom pave the way for understanding more complex atomic and molecular structures.
 
+<br>
+
+<p align='center'>
+  <img src='img/hydrogen_probability_densities.png' width=85% />
+</p>
+<p align='center'>
+    <i>Electron probability density for hydrogen atom electron orbitals shown as cross-sections</i>
+</p>
+
 ---
 
 #### 1.1 Wavefunctions
@@ -52,13 +61,6 @@ which provides a complete description of a quantum system's state.
 It's a mathematical function that associates a probability amplitude to every point in the configuration space of the system, 
 serving as a mathematical representation of a particle’s state and it 
 probabilistic behavior in space and time.
-
-<p align='center'>
-  <img src='img/hydrogen_probability_densities.png' width=90% />
-</p>
-<p align='center'>
-    <i>Electron probability density for hydrogen atom electron orbitals shown as cross-sections.</i>
-</p>
 
 ---
 
@@ -71,13 +73,6 @@ It is the square of the magnitude of the wavefunction.
 For an electron in an atom, it describes the spatial distribution 
 of the probability of locating the electron.
 
-<p align='center'>
-    <img src='img/(3,2,1)[lt].png' width=50% />
-</p>
-<p align='center'>
-    <i>Electron density plot showing regions of varying electron probability</i>
-</p>
-
 ---
 
 #### 1.3 Atomic Orbitals
@@ -86,6 +81,15 @@ Atomic orbitals are mathematical functions that describe the wave-like
 behavior of either one electron or a pair of electrons in an atom. These 
 functions can be used to determine the probability of finding an 
 electron in any specific region around the atom's nucleus.
+
+<br>
+
+<p align='center'>
+    <img src='img/(3,2,1)[lt].png' width=50% />
+</p>
+<p align='center'>
+    <i>Electron density plot showing regions of varying electron probability</i>
+</p>
 
 ---
 
@@ -111,13 +115,14 @@ Specifies the orientation of the orbital in space.
 - Spin quantum number ($m_s$): `( +1/2 or -1/2 )`<br>
 Describes the electron's intrinsic spin.
 
-
-In the hydrogen atom, or any atom with a single electron (like ionized helium, lithium, etc.), 
-the electron's spin doesn't interact with anything else to affect its spatial distribution. 
+<br>
 
 > [!NOTE]
+> In the hydrogen atom, or any atom with a single electron (like ionized helium, lithium, etc.), 
+the electron's spin doesn't interact with anything else to affect its spatial distribution.
+> 
 > For our specific application with the hydrogen atom, we will focus on the first three quantum numbers. 
-> As the electron's spin doesn't influence the shape or 
+As the electron's spin doesn't influence the shape or 
 distribution of the electron cloud.
 
 ---
@@ -133,18 +138,18 @@ For the hydrogen atom, it can be represented as:
 Solving this equation yields the wavefunctions which are usually 
 expressed in terms of radial and angular parts.
 
+> [!NOTE]  
+> Given the spherical symmetry of the hydrogen atom, we use spherical 
+coordinates. This choice facilitates the separation of variables, allowing 
+us to decouple the radial and angular 
+components of the problem.
+
 <p align='center'>
   <img src='img/coordinate_system.png' width=38% />
 </p>
 <p align='center'>
     <i>Relationship between the spherical and rectangular coordinate systems</i>
 </p>
-
-> [!NOTE]  
-> Given the spherical symmetry of the hydrogen atom, we use spherical 
-coordinates. This choice facilitates the separation of variables, allowing 
-us to decouple the radial and angular 
-components of the problem.
 
 ---
 
@@ -156,7 +161,7 @@ The radial wavefunction gives us information about the probability
 distribution of the electron as a function of distance $r$ from the 
 nucleus. Its form encompasses three major terms:
 
-**Exponential Decay**: Signifies the probability decay of finding an 
+**2.1.1 Exponential Decay**: Signifies the probability decay of finding an 
 electron as we move away from the nucleus. Here, $a_0$ is the Bohr 
 radius which sets a characteristic scale for atomic dimensions.
 
@@ -164,7 +169,7 @@ radius which sets a characteristic scale for atomic dimensions.
 
 <br>
 
-**Power term**: Dictates how the probability changes with $r$. 
+**2.1.2 Power term**: Dictates how the probability changes with $r$. 
 The azimuthal quantum number $\ell$ plays a significant role in determining 
 the number of nodes in the radial distribution.
 
@@ -172,7 +177,7 @@ the number of nodes in the radial distribution.
 
 <br>
 
-**Associated Laguerre Polynomials**: These polynomials contribute to the finer structure of the radial part, 
+**2.1.3 Associated Laguerre Polynomials**: These polynomials contribute to the finer structure of the radial part, 
 especially defining nodes (regions where the probability is zero).
 
 ### $$L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$$
@@ -190,14 +195,14 @@ These spherical harmonics provide a detailed account of the shapes and orientati
 characterizing how electron probability distributions are spread out in space. 
 It has two components:
 
-**Associated Legendre Polynomials**: These dictate the shape of the orbital in the polar ($\theta$) direction,
+**2.2.1 Associated Legendre Polynomials**: These dictate the shape of the orbital in the polar ($\theta$) direction,
 helping to define the characteristic shapes (s, p, d, etc.) we often associate with atomic orbitals.
 
 ### $$P_{\ell}^{m}(\cos\theta)$$
 
 <br>
 
-**Exponential Azimuthal Term**: This term provides the orientation of the orbital in the azimuthal plane, as 
+**2.2.2 Exponential Azimuthal Term**: This term provides the orientation of the orbital in the azimuthal plane, as 
 determined by the magnetic quantum number $m$.
 
 ### $$e^{im\varphi}$$
