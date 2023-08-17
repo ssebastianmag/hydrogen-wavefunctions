@@ -76,9 +76,8 @@ of the probability of locating the electron.
 #### 1.3 Atomic Orbitals
 
 Atomic orbitals are mathematical functions that describe the wave-like 
-behavior of either one electron or a pair of electrons in an atom.
-
-These functions can be used to determine the probability of finding an 
+behavior of either one electron or a pair of electrons in an atom. These 
+functions can be used to determine the probability of finding an 
 electron in any specific region around the atom's nucleus.
 
 ---
@@ -108,6 +107,7 @@ Describes the electron's intrinsic spin.
 <br>
 In the hydrogen atom, or any atom with a single electron (like ionized helium, lithium, etc.), 
 the electron's spin doesn't interact with anything else to affect its spatial distribution. 
+<br>
 
 This is because there's only one electron, and thus no possibility of electron-electron spin 
 interactions which become relevant in multi-electron systems.
@@ -132,12 +132,11 @@ Solving this equation yields the wavefunctions which are usually
 expressed in terms of radial and angular parts.
 
 Given the spherical symmetry of the hydrogen atom, we choose spherical 
-coordinates ($r, \theta, \varphi).
+coordinates ($r, \theta, \varphi$).
 
 This choice facilitates the separation of variables, allowing 
 us to decouple the radial and angular 
 components of the problem.
-<br><br>
 
 ---
 
@@ -149,32 +148,26 @@ The radial wavefunction gives us information about the probability
 distribution of the electron as a function of distance $r$ from the 
 nucleus. Its form encompasses three major terms:
 
-- **Exponential Decay**
+- **Exponential Decay**: Signifies the probability decay of finding an 
+electron as we move away from the nucleus. Here, $a_0$ is the Bohr 
+radius which sets a characteristic scale for atomic dimensions.
 
 ### $e^{-\frac{r}{n a_0}}$ 
 
-Signifies the probability decay of finding an electron as we move away 
-from the nucleus. 
-
-Here, $a_0$ is the Bohr radius which sets a characteristic scale for atomic dimensions.
 <br>
 
-- **Power term**
+- **Power term**: Dictates how the probability changes with $r$. 
+The azimuthal quantum number $\ell$ plays a significant role in determining 
+the number of nodes in the radial distribution.
 
 ### $\left( \frac{2r}{n a_0} \right)^{\ell}$ 
 
-Dictates how the probability changes with $r$. 
-The azimuthal quantum number $\ell$ plays a significant role in determining 
-the number of nodes in the radial distribution.
 <br>
 
-- **Associated Laguerre Polynomials**
+- **Associated Laguerre Polynomials**: These polynomials contribute to the finer structure of the radial part, 
+especially defining nodes (regions where the probability is zero).
 
 ### $L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
-
-These polynomials contribute to the finer structure of the radial part, 
-especially defining nodes (regions where the probability is zero).
-<br><br>
 
 ---
 
@@ -189,21 +182,17 @@ These spherical harmonics provide a detailed account of the shapes and orientati
 characterizing how electron probability distributions are spread out in space. 
 It has two components:
 
-- **Associated Legendre Polynomials**
+- **Associated Legendre Polynomials**: These dictate the shape of the orbital in the polar ($\theta$) direction,
+helping to define the characteristic shapes (s, p, d, etc.) we often associate with atomic orbitals.
 
 ### $P_{\ell}^{m}(\cos\theta)$
 
-These dictate the shape of the orbital in the polar ($\theta$) direction,
-helping to define the characteristic shapes (s, p, d, etc.) we often associate with atomic orbitals.
 <br>
 
-- **Exponential Azimuthal Term**
+- **Exponential Azimuthal Term**: This term provides the orientation of the orbital in the azimuthal plane, as 
+determined by the magnetic quantum number $m$.
 
 ### $e^{im\varphi}$
-
-This term provides the orientation of the orbital in the azimuthal plane, as 
-determined by the magnetic quantum number $m$.
-<br><br>
 
 ---
 
