@@ -129,15 +129,20 @@ For the hydrogen atom, it can be represented as:
 Solving this equation yields the wavefunctions which are usually 
 expressed in terms of radial and angular parts.
 
+---
+
+<p align='center'>
+  <img src='img/coordinate_system.png' width=38% />
+</p>
+<p align='center'>
+    <i>Relationship between the spherical and rectangular coordinate systems</i>
+</p>
+
 > [!NOTE]  
-> Given the spherical symmetry of the hydrogen atom, we choose spherical 
-coordinates. 
-> 
->This choice facilitates the separation of variables, allowing 
+> Given the spherical symmetry of the hydrogen atom, we use spherical 
+coordinates. This choice facilitates the separation of variables, allowing 
 us to decouple the radial and angular 
 components of the problem.
-
----
 
 #### 2.1 Radial Component
 
