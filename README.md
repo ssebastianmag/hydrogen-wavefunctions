@@ -229,7 +229,7 @@ the result is 1, indicating a certainty of finding the electron somewhere in spa
 
 ---
 
-Through analysis of the hydrogen atom wavefunction model, the behavior and distribution of electron density
+> Through analysis of the hydrogen atom wavefunction model, the behavior and distribution of electron density
 within atomic systems becomes apparent, shedding light upon the inherent uncertainty of quantum mechanics. 
 These visual representations bridge the gap between the abstract realm of
 quantum theory and our intuitive understanding of phenomena dictating macroscopic events.
