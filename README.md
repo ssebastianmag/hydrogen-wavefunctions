@@ -135,14 +135,12 @@ For the hydrogen atom, it can be represented as:
 
 ### $$\hat{H} \psi = E \psi$$
 
-Solving this equation yields the wavefunctions which are usually 
-expressed in terms of radial and angular parts.
+We may solve the Schrödinger equation more easily if we express it in terms of the spherical coordinates 
+$(r, \theta, \varphi)$ instead of rectangular coordinates $(x, y, z)$.
 
-> [!NOTE]  
-> Given the spherical symmetry of the hydrogen atom, we use spherical 
-coordinates. This choice facilitates the separation of variables, allowing 
-us to decouple the radial and angular 
-components of the problem.
+In spherical coordinates, the variable $r$ is the radial coordinate, 
+$\theta$ is the polar angle (relative to the vertical z-axis), 
+and $\varphi$ is the azimuthal angle (relative to the x-axis).
 
 <p align='center'>
   <img src='img/coordinate_system.png' width=38% />
@@ -150,6 +148,14 @@ components of the problem.
 <p align='center'>
     <i>Relationship between the spherical and rectangular coordinate systems</i>
 </p>
+
+Solving this equation yields the wavefunctions which are usually 
+expressed in terms of radial and angular parts.
+
+> [!NOTE]  
+> Given the spherical symmetry of the hydrogen atom, we use spherical 
+coordinates. This choice facilitates the separation of variables, allowing 
+us to decouple the radial and angular components of the problem.
 
 ---
 
@@ -161,24 +167,24 @@ The radial wavefunction gives us information about the probability
 distribution of the electron as a function of distance $r$ from the 
 nucleus. Its form encompasses three major terms:
 
-**2.1.1 Exponential Decay**: Signifies the probability decay of finding an 
+- **2.1.1 Exponential Decay**: Signifies the probability decay of finding an 
 electron as we move away from the nucleus. Here, $a_0$ is the Bohr 
-radius which sets a characteristic scale for atomic dimensions.
+radius which sets a characteristic scale for atomic dimensions:
 
 ### $$e^{-\frac{r}{n a_0}}$$
 
 <br>
 
-**2.1.2 Power term**: Dictates how the probability changes with $r$. 
+- **2.1.2 Power term**: Dictates how the probability changes with $r$. 
 The azimuthal quantum number $\ell$ plays a significant role in determining 
-the number of nodes in the radial distribution.
+the number of nodes in the radial distribution:
 
 ### $$\left( \frac{2r}{n a_0} \right)^{\ell}$$
 
 <br>
 
-**2.1.3 Associated Laguerre Polynomials**: These polynomials contribute to the finer structure of the radial part, 
-especially defining nodes (regions where the probability is zero).
+- **2.1.3 Associated Laguerre Polynomials**: These polynomials contribute to the finer structure of the radial part, 
+especially defining nodes (regions where the probability is zero):
 
 ### $$L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$$
 
@@ -195,15 +201,15 @@ These spherical harmonics provide a detailed account of the shapes and orientati
 characterizing how electron probability distributions are spread out in space. 
 It has two components:
 
-**2.2.1 Associated Legendre Polynomials**: These dictate the shape of the orbital in the polar ($\theta$) direction,
-helping to define the characteristic shapes (s, p, d, etc.) we often associate with atomic orbitals.
+- **2.2.1 Associated Legendre Polynomials**: These dictate the shape of the orbital in the polar ($\theta$) direction,
+helping to define the characteristic shapes (s, p, d, etc.) we often associate with atomic orbitals:
 
 ### $$P_{\ell}^{m}(\cos\theta)$$
 
 <br>
 
-**2.2.2 Exponential Azimuthal Term**: This term provides the orientation of the orbital in the azimuthal plane, as 
-determined by the magnetic quantum number $m$.
+- **2.2.2 Exponential Azimuthal Term**: This term provides the orientation of the orbital in the azimuthal plane, as 
+determined by the magnetic quantum number $m$:
 
 ### $$e^{im\varphi}$$
 
