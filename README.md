@@ -20,10 +20,6 @@ electron probability density.
 ## Content
 #### Theoretical Background
 * [Quantum Mechanics and Atomic Systems: A Brief Overview](#1-quantum-mechanics-and-atomic-systems-a-brief-overview)
-* [Wavefunctions](#11-wavefunctions)
-* [Electron Density | Probability Density](#12-electron-density--probability-density)
-* [Atomic Orbitals](#13-atomic-orbitals)
-* [Quantum Numbers](#14-quantum-numbers)
 * [Schrödinger Equation for Hydrogen Atom Wavefunction](#2-schrödinger-equation-for-hydrogen-atom-wavefunction)
   
 #### Practical Implementation
