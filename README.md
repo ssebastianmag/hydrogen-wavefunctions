@@ -184,7 +184,7 @@ especially defining nodes (regions where the probability is zero):
 ### $Y_{\ell}^{m}(\theta, \varphi) = (-1)^m \sqrt{\frac{(2\ell+1)}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}} P_{\ell}^{m}(\cos\theta) e^{im\varphi}$
 
 The angular wavefunction yields the spherical harmonics, which gives the angular dependence of the wavefunction in 
-terms of the polar ($\theta$) and azimuthal ($\phi$) angles.
+terms of the polar ($\theta$) and azimuthal ($\varphi) angles.
 
 These spherical harmonics provide a detailed account of the shapes and orientations of atomic orbitals,
 characterizing how electron probability distributions are spread out in space. 
