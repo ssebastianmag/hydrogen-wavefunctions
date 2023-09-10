@@ -162,7 +162,7 @@ nucleus. Its form encompasses three major terms:
 electron as we move away from the nucleus. Here, $a_0$ is the Bohr 
 radius which sets a characteristic scale for atomic dimensions:
 
-### $$e^{-\frac{r}{n a_0}}$$
+### $e^{-\frac{r}{n a_0}}$
 
 <br>
 
@@ -170,14 +170,14 @@ radius which sets a characteristic scale for atomic dimensions:
 The azimuthal quantum number $\ell$ plays a significant role in determining 
 the number of nodes in the radial distribution:
 
-### $$\left( \frac{2r}{n a_0} \right)^{\ell}$$
+### $\left( \frac{2r}{n a_0} \right)^{\ell}$
 
 <br>
 
 - **2.1.3 Associated Laguerre Polynomials**: These polynomials contribute to the finer structure of the radial part, 
 especially defining nodes (regions where the probability is zero):
 
-### $$L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$$
+### $L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
 
 ---
 
@@ -195,14 +195,14 @@ It has two components:
 - **2.2.1 Associated Legendre Polynomials**: These dictate the shape of the orbital in the polar ($\theta$) direction,
 helping to define the characteristic shapes (s, p, d, etc.) we often associate with atomic orbitals:
 
-### $$P_{\ell}^{m}(\cos\theta)$$
+### $P_{\ell}^{m}(\cos\theta)$
 
 <br>
 
 - **2.2.2 Exponential Azimuthal Term**: This term provides the orientation of the orbital in the azimuthal plane, as 
 determined by the magnetic quantum number $m$:
 
-### $$e^{im\varphi}$$
+### $e^{im\varphi}$
 
 ---
 
