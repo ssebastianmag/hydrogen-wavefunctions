@@ -121,15 +121,13 @@ The Schrödinger equation serves as the foundation of quantum mechanics,
 it is a differential equation that determines the wavefunctions of a quantum system. 
 For the hydrogen atom, we use the following representation of the time-independent Schrödinger equation:
 
-### $$\hat{H} \psi = E \psi$$
+### $\hat{H} \psi = E \psi$
 
 $H$ is the Hamiltonian operator, which represents the total energy (kinetic + potential) of the system, 
 and $E$ is the total energy of the system.
 
 Given the spherical symmetry of the hydrogen atom, we may express it in terms of 
-spherical coordinates $(r, \theta, \varphi)$ instead of rectangular coordinates $(x, y, z)$.
-
-
+spherical coordinates $(r, \theta, \varphi)$ instead of rectangular coordinates $(x, y, z)$. 
 $r$ is the radial coordinate, $\theta$ is the polar angle (relative to the vertical z-axis), 
 and $\varphi$ is the azimuthal angle (relative to the x-axis).
 
@@ -142,7 +140,7 @@ and $\varphi$ is the azimuthal angle (relative to the x-axis).
 
 The wavefunction $\psi(r, \theta, \varphi)$ can be represented as a product of radial and angular functions:
 
-### $$\psi(r, \theta, \varphi) = R(r) Y(\theta, \varphi)$$
+### $\psi(r, \theta, \varphi) = R(r) Y(\theta, \varphi)$
 
 When the Hamiltonian is expressed in spherical coordinates, it contains both radial and angular parts.
 By substituting this into the Schrödinger equation, we separate the equation into two parts: 
@@ -152,7 +150,7 @@ one that depends only on $r$ (the radial part) and another that depends on $\the
 
 #### 2.1 Radial Component
 
-#### $$R_{n \ell}(r) = \sqrt{\left( \frac{2}{n a_0} \right)^3 \frac{(n-\ell-1)!}{2n(n+\ell)!}} e^{-\frac{r}{n a_0}} \left( \frac{2r}{n a_0} \right)^{\ell} L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$$
+#### $R_{n \ell}(r) = \sqrt{\left( \frac{2}{n a_0} \right)^3 \frac{(n-\ell-1)!}{2n(n+\ell)!}} e^{-\frac{r}{n a_0}} \left( \frac{2r}{n a_0} \right)^{\ell} L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
 
 The radial wavefunction gives us information about the probability
 distribution of the electron as a function of distance $r$ from the 
@@ -183,7 +181,7 @@ especially defining nodes (regions where the probability is zero):
 
 #### 2.2 Angular Component
 
-#### $$Y_{\ell}^{m}(\theta, \varphi) = (-1)^m \sqrt{\frac{(2\ell+1)}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}} P_{\ell}^{m}(\cos\theta) e^{im\varphi}$$
+#### $Y_{\ell}^{m}(\theta, \varphi) = (-1)^m \sqrt{\frac{(2\ell+1)}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}} P_{\ell}^{m}(\cos\theta) e^{im\varphi}$
 
 The angular wavefunction yields the spherical harmonics, which gives the angular dependence of the wavefunction in 
 terms of the polar ($\theta$) and azimuthal ($\phi$) angles.
@@ -211,14 +209,14 @@ determined by the magnetic quantum number $m$:
 The resultant normalized wavefunction for the hydrogen atom is the product of the solutions of 
 the radial and angular components:
 
-### $$\psi_{n \ell m}(r, \theta, \varphi) = R_{n \ell}(r) Y_{\ell}^{m}(\theta, \varphi)$$
+### $\psi_{n \ell m}(r, \theta, \varphi) = R_{n \ell}(r) Y_{\ell}^{m}(\theta, \varphi)$
 
 <br>
 
 To determine the probability density of the electron being in a certain location,
 we integrate the square magnitude of the wavefunction over all space: $|\psi_{n \ell m}|^2$
 
-### $$P(r, \theta, \varphi) = |\psi_{n \ell m}(r, \theta, \varphi)|^2$$
+### $P(r, \theta, \varphi) = |\psi_{n \ell m}(r, \theta, \varphi)|^2$
 
 ---
 > Through analysis of the hydrogen atom wavefunction model, the behavior and distribution of electron density
