@@ -158,7 +158,7 @@ The radial wavefunction gives us information about the probability
 distribution of the electron as a function of distance $r$ from the 
 nucleus. Its form encompasses three major terms:
 
-- **2.1.1 Exponential Decay**: Signifies the probability decay of finding an 
+**2.1.1 Exponential Decay**: Signifies the probability decay of finding an 
 electron as we move away from the nucleus. Here, $a_0$ is the Bohr 
 radius which sets a characteristic scale for atomic dimensions:
 
@@ -166,7 +166,7 @@ radius which sets a characteristic scale for atomic dimensions:
 
 <br>
 
-- **2.1.2 Power term**: Dictates how the probability changes with $r$. 
+**2.1.2 Power term**: Dictates how the probability changes with $r$. 
 The azimuthal quantum number $\ell$ plays a significant role in determining 
 the number of nodes in the radial distribution:
 
@@ -174,7 +174,7 @@ the number of nodes in the radial distribution:
 
 <br>
 
-- **2.1.3 Associated Laguerre Polynomials**: These polynomials contribute to the finer structure of the radial part, 
+**2.1.3 Associated Laguerre Polynomials**: These polynomials contribute to the finer structure of the radial part, 
 especially defining nodes (regions where the probability is zero):
 
 ### $L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
@@ -192,14 +192,14 @@ These spherical harmonics provide a detailed account of the shapes and orientati
 characterizing how electron probability distributions are spread out in space. 
 It has two components:
 
-- **2.2.1 Associated Legendre Polynomials**: These dictate the shape of the orbital in the polar ($\theta$) direction,
+**2.2.1 Associated Legendre Polynomials**: These dictate the shape of the orbital in the polar ($\theta$) direction,
 helping to define the characteristic shapes (s, p, d, etc.) we often associate with atomic orbitals:
 
 ### $P_{\ell}^{m}(\cos\theta)$
 
 <br>
 
-- **2.2.2 Exponential Azimuthal Term**: This term provides the orientation of the orbital in the azimuthal plane, as 
+**2.2.2 Exponential Azimuthal Term**: This term provides the orientation of the orbital in the azimuthal plane, as 
 determined by the magnetic quantum number $m$:
 
 ### $e^{im\varphi}$
