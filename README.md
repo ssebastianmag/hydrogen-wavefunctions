@@ -127,7 +127,9 @@ $H$ is the Hamiltonian operator, which represents the total energy (kinetic + po
 and $E$ is the total energy of the system.
 
 Given the spherical symmetry of the hydrogen atom, we may express it in terms of 
-spherical coordinates $(r, \theta, \varphi)$ instead of rectangular coordinates $(x, y, z)$.
+spherical coordinates $(r, \theta, \varphi)$ instead of rectangular coordinates $(x, y, z)$. 
+Where $r$ is the radial coordinate, $\theta$ is the polar angle (relative to the vertical z-axis), 
+and $\varphi$ is the azimuthal angle (relative to the x-axis).
 
 <p align='center'>
   <img src='img/coordinate_system.png' width=38% />
@@ -135,9 +137,6 @@ spherical coordinates $(r, \theta, \varphi)$ instead of rectangular coordinates 
 <p align='center'>
     <i>Relationship between the spherical and rectangular coordinate systems</i>
 </p>
-
-$r$ is the radial coordinate, $\theta$ is the polar angle (relative to the vertical z-axis), 
-and $\varphi$ is the azimuthal angle (relative to the x-axis).
 
 The wavefunction $\psi(r, \theta, \varphi)$ can be represented as a product of radial and angular functions:
 
