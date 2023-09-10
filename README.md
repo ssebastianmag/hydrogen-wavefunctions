@@ -140,8 +140,7 @@ and $\varphi$ is the azimuthal angle (relative to the x-axis).
     <i>Relationship between the spherical and rectangular coordinate systems</i>
 </p>
 
-The wavefunction $\psi(r, \theta, \varphi)$ can be represented as a product of radial and angular functions, 
-each depending on one of the three coordinates: 
+The wavefunction $\psi(r, \theta, \varphi)$ can be represented as a product of radial and angular functions:
 
 ### $$\psi(r, \theta, \varphi) = R(r) Y(\theta, \varphi)$$
 
