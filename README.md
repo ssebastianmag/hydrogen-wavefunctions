@@ -127,9 +127,7 @@ $H$ is the Hamiltonian operator, which represents the total energy (kinetic + po
 and $E$ is the total energy of the system.
 
 Given the spherical symmetry of the hydrogen atom, we may express it in terms of 
-spherical coordinates $(r, \theta, \varphi)$ instead of rectangular coordinates $(x, y, z)$. 
-<br>$r$ is the radial coordinate, $\theta$ is the polar angle (relative to the vertical z-axis), 
-and $\varphi$ is the azimuthal angle (relative to the x-axis).
+spherical coordinates $(r, \theta, \varphi)$ instead of rectangular coordinates $(x, y, z)$.
 
 <p align='center'>
   <img src='img/coordinate_system.png' width=38% />
@@ -137,6 +135,9 @@ and $\varphi$ is the azimuthal angle (relative to the x-axis).
 <p align='center'>
     <i>Relationship between the spherical and rectangular coordinate systems</i>
 </p>
+
+$r$ is the radial coordinate, $\theta$ is the polar angle (relative to the vertical z-axis), 
+and $\varphi$ is the azimuthal angle (relative to the x-axis).
 
 The wavefunction $\psi(r, \theta, \varphi)$ can be represented as a product of radial and angular functions:
 
@@ -181,7 +182,7 @@ especially defining nodes (regions where the probability is zero):
 
 #### 2.2 Angular Component
 
-#### $Y_{\ell}^{m}(\theta, \varphi) = (-1)^m \sqrt{\frac{(2\ell+1)}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}} P_{\ell}^{m}(\cos\theta) e^{im\varphi}$
+### $Y_{\ell}^{m}(\theta, \varphi) = (-1)^m \sqrt{\frac{(2\ell+1)}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}} P_{\ell}^{m}(\cos\theta) e^{im\varphi}$
 
 The angular wavefunction yields the spherical harmonics, which gives the angular dependence of the wavefunction in 
 terms of the polar ($\theta$) and azimuthal ($\phi$) angles.
