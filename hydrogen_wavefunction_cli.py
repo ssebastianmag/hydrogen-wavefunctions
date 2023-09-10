@@ -2,7 +2,7 @@
 # Hydrogen Atom - Wavefunction and Electron Density Visualization
 
 # Sebastian Mag | August 2023
-# https://github.com/sebastianmagns/hydrogen-wavefunctions
+# https://github.com/ssebastianmag/hydrogen-wavefunctions
 
 # Modeling and visualization of hydrogen atom wavefunctions
 # and electron probability density.
