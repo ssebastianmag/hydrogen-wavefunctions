@@ -128,7 +128,7 @@ and $E$ is the total energy of the system.
 
 Given the spherical symmetry of the hydrogen atom, we may express it in terms of 
 spherical coordinates $(r, \theta, \varphi)$ instead of rectangular coordinates $(x, y, z)$. 
-$r$ is the radial coordinate, $\theta$ is the polar angle (relative to the vertical z-axis), 
+<br>$r$ is the radial coordinate, $\theta$ is the polar angle (relative to the vertical z-axis), 
 and $\varphi$ is the azimuthal angle (relative to the x-axis).
 
 <p align='center'>
@@ -150,7 +150,7 @@ one that depends only on $r$ (the radial part) and another that depends on $\the
 
 #### 2.1 Radial Component
 
-#### $R_{n \ell}(r) = \sqrt{\left( \frac{2}{n a_0} \right)^3 \frac{(n-\ell-1)!}{2n(n+\ell)!}} e^{-\frac{r}{n a_0}} \left( \frac{2r}{n a_0} \right)^{\ell} L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
+### $R_{n \ell}(r) = \sqrt{\left( \frac{2}{n a_0} \right)^3 \frac{(n-\ell-1)!}{2n(n+\ell)!}} e^{-\frac{r}{n a_0}} \left( \frac{2r}{n a_0} \right)^{\ell} L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
 
 The radial wavefunction gives us information about the probability
 distribution of the electron as a function of distance $r$ from the 
