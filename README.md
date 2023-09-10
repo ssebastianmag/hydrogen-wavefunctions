@@ -365,6 +365,16 @@ options:
 
 ---
 
+As we examine the electron density plots corresponding to the quantum numbers above, 
+we notice that with increasing principal quantum number $n$, 
+the complexity of the wavefunction grows Specifically:
+
+- The number of nodes (regions where the probability density is zero) increases.
+- The electron's spatial distribution expands, covering larger regions around the nucleus. 
+- The overall shape of the atomic orbital becomes more intricate and detailed.
+
+---
+
 #### Input args:
     $ python hydrogen_wavefunction_cli.py 9 6 1 0.04 --dark_theme --colormap "mako"
 
@@ -402,5 +412,13 @@ options:
 <p align='left'>
   <img src='img/(20,10,5)[dt].png' width=60% />
 </p>
+
+---
+
+For extremely high quantum numbers, the following effects can be observed:
+
+- The complexity increases even further, resulting in numerous nodes and intricate patterns.
+- Evaluating the wavefunction over a vast spatial domain becomes computationally intensive.
+- Visualization can become cluttered, making it harder to discern specific details or features.
 
 ---
