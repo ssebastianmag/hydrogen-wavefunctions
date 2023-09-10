@@ -363,8 +363,6 @@ options:
   <img src='img/(4,3,1)[dt].png' width=60% />
 </p>
 
----
-
 As we examine the electron density plots corresponding to the quantum numbers above, 
 we notice that with increasing principal quantum number $n$, 
 the complexity of the wavefunction grows Specifically:
@@ -412,8 +410,6 @@ the complexity of the wavefunction grows Specifically:
 <p align='left'>
   <img src='img/(20,10,5)[dt].png' width=60% />
 </p>
-
----
 
 For extremely high quantum numbers, the following effects can be observed:
 
