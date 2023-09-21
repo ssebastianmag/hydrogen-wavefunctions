@@ -184,7 +184,7 @@ $\large L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
 $\large Y_{\ell}^{m}(\theta, \varphi) = (-1)^m \sqrt{\frac{(2\ell+1)}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}} P_{\ell}^{m}(\cos\theta) e^{im\varphi}$
 
 The angular wavefunction yields the spherical harmonics, which gives the angular dependence of the wavefunction in 
-terms of the polar ($\theta$) and azimuthal ($\varphi) angles.
+terms of the polar ($\theta$) and azimuthal ($\varphi$) angles.
 
 These spherical harmonics provide a detailed account of the shapes and orientations of atomic orbitals,
 characterizing how electron probability distributions are spread out in space. 
