@@ -121,7 +121,7 @@ The Schrödinger equation serves as the foundation of quantum mechanics,
 it is a differential equation that determines the wavefunctions of a quantum system. 
 For the hydrogen atom, we use the following representation of the time-independent Schrödinger equation:
 
-### $\hat{H} \psi = E \psi$
+$\large \hat{H} \psi = E \psi$
 
 $H$ is the Hamiltonian operator, which represents the total energy (kinetic + potential) of the system, 
 and $E$ is the total energy of the system.
@@ -140,7 +140,7 @@ and $\varphi$ is the azimuthal angle (relative to the x-axis).
 
 The wavefunction $\psi(r, \theta, \varphi)$ can be represented as a product of radial and angular functions:
 
-### $\psi(r, \theta, \varphi) = R(r) Y(\theta, \varphi)$
+$\large \psi(r, \theta, \varphi) = R(r) Y(\theta, \varphi)$
 
 When the Hamiltonian is expressed in spherical coordinates, it contains both radial and angular parts.
 By substituting this into the Schrödinger equation, we separate the equation into two parts: 
@@ -150,7 +150,7 @@ one that depends only on $r$ (the radial part) and another that depends on $\the
 
 #### 2.1 Radial Component
 
-### $R_{n \ell}(r) = \sqrt{\left( \frac{2}{n a_0} \right)^3 \frac{(n-\ell-1)!}{2n(n+\ell)!}} e^{-\frac{r}{n a_0}} \left( \frac{2r}{n a_0} \right)^{\ell} L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
+$\large R_{n \ell}(r) = \sqrt{\left( \frac{2}{n a_0} \right)^3 \frac{(n-\ell-1)!}{2n(n+\ell)!}} e^{-\frac{r}{n a_0}} \left( \frac{2r}{n a_0} \right)^{\ell} L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
 
 The radial wavefunction gives us information about the probability
 distribution of the electron as a function of distance $r$ from the 
@@ -160,7 +160,7 @@ nucleus. Its form encompasses three major terms:
 electron as we move away from the nucleus. Here, $a_0$ is the Bohr 
 radius which sets a characteristic scale for atomic dimensions:
 
-### $e^{-\frac{r}{n a_0}}$
+$\large e^{-\frac{r}{n a_0}}$
 
 <br>
 
@@ -168,20 +168,20 @@ radius which sets a characteristic scale for atomic dimensions:
 The azimuthal quantum number $\ell$ plays a significant role in determining 
 the number of nodes in the radial distribution:
 
-### $\left( \frac{2r}{n a_0} \right)^{\ell}$
+$\large \left( \frac{2r}{n a_0} \right)^{\ell}$
 
 <br>
 
 **2.1.3 Associated Laguerre Polynomials**: These polynomials contribute to the finer structure of the radial part, 
 especially defining nodes (regions where the probability is zero):
 
-### $L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
+$\large L_{n-\ell-1}^{2\ell+1}\left(\frac{2r}{n a_0}\right)$
 
 ---
 
 #### 2.2 Angular Component
 
-### $Y_{\ell}^{m}(\theta, \varphi) = (-1)^m \sqrt{\frac{(2\ell+1)}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}} P_{\ell}^{m}(\cos\theta) e^{im\varphi}$
+$\large Y_{\ell}^{m}(\theta, \varphi) = (-1)^m \sqrt{\frac{(2\ell+1)}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}} P_{\ell}^{m}(\cos\theta) e^{im\varphi}$
 
 The angular wavefunction yields the spherical harmonics, which gives the angular dependence of the wavefunction in 
 terms of the polar ($\theta$) and azimuthal ($\varphi) angles.
@@ -193,14 +193,14 @@ It has two components:
 **2.2.1 Associated Legendre Polynomials**: These dictate the shape of the orbital in the polar ($\theta$) direction,
 helping to define the characteristic shapes (s, p, d, etc.) we often associate with atomic orbitals:
 
-### $P_{\ell}^{m}(\cos\theta)$
+$\large P_{\ell}^{m}(\cos\theta)$
 
 <br>
 
 **2.2.2 Exponential Azimuthal Term**: This term provides the orientation of the orbital in the azimuthal plane, as 
 determined by the magnetic quantum number $m$:
 
-### $e^{im\varphi}$
+$\large e^{im\varphi}$
 
 ---
 
@@ -209,14 +209,14 @@ determined by the magnetic quantum number $m$:
 The resultant normalized wavefunction for the hydrogen atom is the product of the solutions of 
 the radial and angular components:
 
-### $\psi_{n \ell m}(r, \theta, \varphi) = R_{n \ell}(r) Y_{\ell}^{m}(\theta, \varphi)$
+$\large \psi_{n \ell m}(r, \theta, \varphi) = R_{n \ell}(r) Y_{\ell}^{m}(\theta, \varphi)$
 
 <br>
 
 To determine the probability density of the electron being in a certain location,
 we integrate the square magnitude of the wavefunction over all space: $|\psi_{n \ell m}|^2$
 
-### $P(r, \theta, \varphi) = |\psi_{n \ell m}(r, \theta, \varphi)|^2$
+$\large P(r, \theta, \varphi) = |\psi_{n \ell m}(r, \theta, \varphi)|^2$
 
 ---
 > Through analysis of the hydrogen atom wavefunction model, the behavior and distribution of electron density
