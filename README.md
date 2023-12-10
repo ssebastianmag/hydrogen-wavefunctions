@@ -43,7 +43,7 @@ Its wavefunction can be treated analytically, providing profound insights into t
   <img src='img/hydrogen_probability_densities.png' width=85% />
 </p>
 <p align='center'>
-    <i>Electron probability density for hydrogen atom electron orbitals shown as cross-sections</i>
+    <i>Electron probability density for hydrogen atom orbitals shown as cross-sections</i>
 </p>
 
 ---
@@ -65,7 +65,7 @@ of the probability of locating the electron.
 
 #### 1.3 Atomic Orbitals
 
-Atomic orbitals are mathematical functions that describe the wave-like 
+These are mathematical functions that describe the wave-like 
 behavior of either one electron or a pair of electrons in an atom. These 
 functions can be used to determine the probability of finding an 
 electron in any specific region around the atom's nucleus.
@@ -83,7 +83,7 @@ electron in any specific region around the atom's nucleus.
 
 #### 1.4 Quantum Numbers
 
-Quantum numbers are a set of numerical values that provide a complete 
+We can describe quantum numbers as a set of numerical values that provide a complete 
 description of a quantum particle's state. 
 For electrons in an atom, there are typically four quantum numbers:
 <br>
