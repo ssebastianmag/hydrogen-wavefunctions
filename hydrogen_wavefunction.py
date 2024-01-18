@@ -76,20 +76,20 @@ def compute_wavefunction(n, l, m, a0_scale_factor):
     # Scale Bohr radius for effective visualization
     a0 = a0_scale_factor * physical_constants['Bohr radius'][0] * 1e+12
 
-    # x-y grid to represent electron spatial distribution
+    # z-x plane grid to represent electron spatial distribution
     grid_extent = 480
     grid_resolution = 680
-    x = y = np.linspace(-grid_extent, grid_extent, grid_resolution)
-    x, y = np.meshgrid(x, y)
+    z = x = np.linspace(-grid_extent, grid_extent, grid_resolution)
+    z, x = np.meshgrid(z, x)
 
     # Use epsilon to avoid division by zero during angle calculations
     eps = np.finfo(float).eps
 
     # Ψnlm(r,θ,φ) = Rnl(r).Ylm(θ,φ)
     psi = radial_function(
-        n, l, np.sqrt((x ** 2 + y ** 2)), a0
+        n, l, np.sqrt((x ** 2 + z ** 2)), a0
     ) * angular_function(
-        m, l, np.arctan(x / (y + eps)), 0
+        m, l, np.arctan(x / (z + eps)), 0
     )
     return psi
 
@@ -150,7 +150,9 @@ def plot_wf_probability_density(n, l, m, a0_scale_factor, dark_theme=False, colo
     # Compute and visualize the wavefunction probability density
     psi = compute_wavefunction(n, l, m, a0_scale_factor)
     prob_density = compute_probability_density(psi)
-    im = ax.imshow(np.sqrt(prob_density), cmap=sns.color_palette(colormap, as_cmap=True))
+
+    # Here we transpose the array to align the calculated z-x plane with Matplotlib's y-x imshow display
+    im = ax.imshow(np.sqrt(prob_density).T, cmap=sns.color_palette(colormap, as_cmap=True))
 
     cbar = plt.colorbar(im, fraction=0.046, pad=0.03)
     cbar.set_ticks([])

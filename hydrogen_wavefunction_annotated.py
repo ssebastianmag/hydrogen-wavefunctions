@@ -117,12 +117,12 @@ def compute_wavefunction(n, l, m, a0_scale_factor):
     # By scaling it, we adapt the wavefunction's spatial extent for effective visualization
     a0 = a0_scale_factor * physical_constants['Bohr radius'][0] * 1e+12
 
-    # Establish a grid in the x-y plane, allowing the wavefunction to assign a probability
+    # Establish a grid in the z-x plane, allowing the wavefunction to assign a probability
     # value to each point. This grid aids in visualizing the electron's spatial distribution
     grid_extent = 480
     grid_resolution = 680
-    x = y = np.linspace(-grid_extent, grid_extent, grid_resolution)
-    x, y = np.meshgrid(x, y)
+    z = x = np.linspace(-grid_extent, grid_extent, grid_resolution)
+    z, x = np.meshgrid(z, x)
 
     # Using an epsilon value to prevent division by zero during the calculation of angles
     eps = np.finfo(float).eps
@@ -132,9 +132,9 @@ def compute_wavefunction(n, l, m, a0_scale_factor):
     # looks into the spatial orientation. Together, they define the electron's behavior
     # in the atom's vicinity
     psi = radial_function(
-        n, l, np.sqrt((x ** 2 + y ** 2)), a0
+        n, l, np.sqrt((x ** 2 + z ** 2)), a0
     ) * angular_function(
-        m, l, np.arctan(x / (y + eps)), 0
+        m, l, np.arctan(x / (z + eps)), 0
     )
 
     # Return the computed wavefunction, which encapsulates the quantum state
@@ -209,7 +209,9 @@ def plot_wf_probability_density(n, l, m, a0_scale_factor, dark_theme=False, colo
     #   in low and medium probability regions more distinguishable
     psi = compute_wavefunction(n, l, m, a0_scale_factor)
     prob_density = compute_probability_density(psi)
-    im = ax.imshow(np.sqrt(prob_density), cmap=sns.color_palette(colormap, as_cmap=True))
+
+    # Here we transpose the array to align the calculated z-x plane with Matplotlib's y-x imshow display
+    im = ax.imshow(np.sqrt(prob_density).T, cmap=sns.color_palette(colormap, as_cmap=True))
 
     # Add a colorbar
     cbar = plt.colorbar(im, fraction=0.046, pad=0.03)
