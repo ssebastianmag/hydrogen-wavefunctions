@@ -73,7 +73,7 @@ electron in any specific region around the atom's nucleus.
 <br>
 
 <p align='center'>
-    <img src='img/(3,2,1)[lt].png' width=50% />
+    <img src='https://github.com/ssebastianmag/hydrogen-wavefunctions/blob/edda6d746cbe2163f2e92e1191126d0fe7d6488a/img/(3%2C2%2C1)%5Blt%5D.png' width=50% />
 </p>
 <p align='center'>
     <i>Electron density plot showing regions of varying electron probability</i>
@@ -280,7 +280,7 @@ options:
 #### Output:
 
 <p align='left'>
-  <img src='img/(3,2,1)[lt].png' width=60% />
+  <img src='https://github.com/ssebastianmag/hydrogen-wavefunctions/blob/edda6d746cbe2163f2e92e1191126d0fe7d6488a/img/(3%2C2%2C1)%5Blt%5D.png' width=60% />
 </p>
 
 ---
@@ -300,7 +300,7 @@ options:
 #### Output:
 
 <p align='left'>
-  <img src='img/(3,2,1)[dt].png' width=60% />
+  <img src='https://github.com/ssebastianmag/hydrogen-wavefunctions/blob/edda6d746cbe2163f2e92e1191126d0fe7d6488a/img/(3%2C2%2C1)%5Bdt%5D.png' width=60% />
 </p>
 
 ---
@@ -320,7 +320,7 @@ options:
 #### Output:
 
 <p align='left'>
-  <img src='img/(4,3,0)[lt].png' width=60% />
+  <img src='https://github.com/ssebastianmag/hydrogen-wavefunctions/blob/edda6d746cbe2163f2e92e1191126d0fe7d6488a/img/(4%2C3%2C0)%5Blt%5D.png' width=60% />
 </p>
 
 ---
@@ -340,7 +340,7 @@ options:
 #### Output:
 
 <p align='left'>
-  <img src='img/(4,3,0)[dt].png' width=60% />
+  <img src='https://github.com/ssebastianmag/hydrogen-wavefunctions/blob/edda6d746cbe2163f2e92e1191126d0fe7d6488a/img/(4%2C3%2C0)%5Bdt%5D.png' width=60% />
 </p>
 
 ---
@@ -360,7 +360,7 @@ options:
 #### Output:
 
 <p align='left'>
-  <img src='img/(4,3,1)[dt].png' width=60% />
+  <img src='https://github.com/ssebastianmag/hydrogen-wavefunctions/blob/edda6d746cbe2163f2e92e1191126d0fe7d6488a/img/(4%2C3%2C1)%5Bdt%5D.png' width=60% />
 </p>
 
 As we examine the electron density plots corresponding to the quantum numbers above, 
@@ -388,7 +388,7 @@ the complexity of the wavefunction grows Specifically:
 #### Output:
 
 <p align='left'>
-  <img src='img/(9,6,1)[dt].png' width=60% />
+  <img src='https://github.com/ssebastianmag/hydrogen-wavefunctions/blob/edda6d746cbe2163f2e92e1191126d0fe7d6488a/img/(9%2C6%2C1)%5Bdt%5D.png' width=60% />
 </p>
 
 ---
@@ -408,7 +408,7 @@ the complexity of the wavefunction grows Specifically:
 #### Output:
 
 <p align='left'>
-  <img src='img/(20,10,5)[dt].png' width=60% />
+  <img src='https://github.com/ssebastianmag/hydrogen-wavefunctions/blob/edda6d746cbe2163f2e92e1191126d0fe7d6488a/img/(20%2C10%2C5)%5Bdt%5D.png' width=60% />
 </p>
 
 For extremely high quantum numbers, the following effects can be observed:
