@@ -188,6 +188,19 @@ def reduced_electron_nucleus_mass(Z: int, M: Optional[float] = None):
     return (m_e * M) / (m_e + M)
 
 
+def reduced_bohr_radius(mu: float):
+    """ Compute Bohr radius evaluated with a reduced mass.
+
+        Parameters:
+            mu (float): Electron–nucleus reduced mass μ in kg.
+
+        Returns:
+            float: Reduced-mass Bohr radius a_μ in meters.
+    """
+    a0 = physical_constants["Bohr radius"][0]
+    return a0 * (m_e / mu)
+
+
 def plot_wf_probability_density(n, l, m, a0_scale_factor, dark_theme=False, colormap='rocket'):
     """ Plot the probability density of the hydrogen
     atom's wavefunction for a given quantum state (n,l,m).
