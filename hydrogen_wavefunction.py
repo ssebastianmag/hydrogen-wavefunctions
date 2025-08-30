@@ -152,6 +152,19 @@ def compute_probability_density(psi: np.ndarray):
     return np.abs(psi) ** 2
 
 
+def compute_radial_probability_distribution(R: np.ndarray, r: np.ndarray):
+    """ Retrieve Radial probability distribution P_{n,l}(r) = r^2 * |R_{n,l}(r)|^2.
+
+        Parameters:
+            R (np.ndarray): Real-valued radial eigenfunction samples R_{n,l}(r).
+            r (np.ndarray): Radial coordinate(s) in meters.
+
+        Returns:
+            P_r (np.ndarray): Real-valued P_{n,l}(r) with the same shape as r.
+    """
+    return (r**2) * np.abs(R) ** 2
+
+
 def plot_wf_probability_density(n, l, m, a0_scale_factor, dark_theme=False, colormap='rocket'):
     """ Plot the probability density of the hydrogen
     atom's wavefunction for a given quantum state (n,l,m).
