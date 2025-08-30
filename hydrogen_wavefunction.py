@@ -165,6 +165,29 @@ def compute_radial_probability_distribution(R: np.ndarray, r: np.ndarray):
     return (r**2) * np.abs(R) ** 2
 
 
+def reduced_electron_nucleus_mass(Z: int, M: Optional[float] = None):
+    """ Compute electron–nucleus reduced mass μ.
+
+        Parameters:
+            Z (int): Nuclear charge number. (Z=1 for Hydrogen, Z>1 for hydrogenic ions).
+            M (float): Nuclear mass in kg.
+
+        Returns:
+            float: Two-body (electron + nucleus) system reduced mass μ in kilograms.
+
+        Notes:
+            - If Z>1, M must be provided.
+            - If Z=1 and M is not provided, proton mass m_p is assumed.
+    """
+    if M is None:
+        if Z == 1:
+            M = m_p
+        else:
+            raise ValueError("'M' must be provided if Z>1")
+
+    return (m_e * M) / (m_e + M)
+
+
 def plot_wf_probability_density(n, l, m, a0_scale_factor, dark_theme=False, colormap='rocket'):
     """ Plot the probability density of the hydrogen
     atom's wavefunction for a given quantum state (n,l,m).
