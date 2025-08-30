@@ -1,41 +1,55 @@
-# --- --- --- --- --- --- --- --- ---
-# Hydrogen Atom - Wavefunction and Electron Density Visualization
+from typing import Optional, Literal
 
-# Sebastian Mag | August 2023
-# https://github.com/ssebastianmag/hydrogen-wavefunctions
-
-# Modeling and visualization of hydrogen atom wavefunctions
-# and electron probability density.
-# --- --- --- --- --- --- --- --- ---
-
-from scipy.constants import physical_constants
-import matplotlib.pyplot as plt
-import scipy.special as sp
-import seaborn as sns
 import numpy as np
+import scipy.special as sp
+from scipy.constants import physical_constants, m_e, m_p
+from scipy import integrate as sci_integrate
 
 
-def radial_function(n, l, r, a0):
-    """ Compute the normalized radial part of the wavefunction using
-    Laguerre polynomials and an exponential decay factor.
+def radial_wavefunction_Rnl(
+        n: int,
+        l: int,
+        r: np.ndarray,
+        Z: int = 1,
+        use_reduced_mass: bool = True,
+        M: Optional[float] = None
+):
+    """ Normalized hydrogenic radial wavefunction R_{n,l}(r).
 
-    Args:
-        n (int): principal quantum number
-        l (int): azimuthal quantum number
-        r (numpy.ndarray): radial coordinate
-        a0 (float): scaled Bohr radius
-    Returns:
-        numpy.ndarray: wavefunction radial component
+        Parameters:
+            n (int): Principal quantum number (n ≥ 1).
+            l (int): Orbital angular-momentum quantum number (0 ≤ l ≤ n-1).
+            r (np.ndarray): Radial coordinate(s) in meters.
+            Z (int): Nuclear charge number. (Z=1 for Hydrogen, Z>1 for hydrogenic ions).
+            use_reduced_mass (bool): Reduced-mass μ correction in Bohr radius.
+            M (float): Nuclear mass in kg.
+
+        Returns:
+            R (np.ndarray): Real-valued radial eigenfunction samples with broadcasted shape of (r).
+
+        Notes:
+            - If use_reduced_mass = True, evaluate the Bohr radius with an electron–nucleus reduced mass μ,
+              otherwise, use invariant electron mass m_e (μ = m_e ∴ a_μ = a₀) in the infinite–mass approximation.
+            - If Z>1 and use_reduced_mass = True, M must be provided.
+            - If Z=1 and M is not provided, proton mass m_p is assumed.
     """
+    if not (n >= 1 and 0 <= l <= n - 1):
+        raise ValueError("(!) Quantum numbers (n,l) must satisfy n ≥ 1 and 0 ≤ l ≤ n-1")
 
-    laguerre = sp.genlaguerre(n - l - 1, 2 * l + 1)
-    p = 2 * r / (n * a0)
+    mu = reduced_electron_nucleus_mass(Z, M) if use_reduced_mass else m_e
+    a_mu = reduced_bohr_radius(mu)
 
-    constant_factor = np.sqrt(
-        ((2 / n * a0) ** 3 * (sp.factorial(n - l - 1))) /
-        (2 * n * (sp.factorial(n + l)))
-    )
-    return constant_factor * np.exp(-p / 2) * (p ** l) * laguerre(p)
+    rho = 2.0 * Z * r / (n * a_mu)
+    L = sp.eval_genlaguerre(n - l - 1, 2 * l + 1, rho)
+
+    # Stable normalization prefactor using log-gamma
+    # pref = (2Z/(n a_mu))^(3/2) * sqrt( (n-l-1)! / (2n * (n+l)!))
+
+    log_pref = 1.5 * np.log(2.0 * Z / (n * a_mu))
+    log_pref += 0.5 * (sp.gammaln(n - l) - (np.log(2.0 * n) + sp.gammaln(n + l + 1)))
+    pref = np.exp(log_pref)
+    R = pref * np.exp(-rho / 2.0) * np.power(rho, l) * L
+    return R
 
 
 def angular_function(m, l, theta, phi):
