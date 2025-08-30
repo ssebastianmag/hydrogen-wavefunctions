@@ -140,12 +140,14 @@ def compute_psi_xz_slice(
     return Xg, Zg, psi, a_mu
 
 
-def compute_probability_density(psi):
-    """ Compute the probability density of a given wavefunction.
-    Args:
-        psi (numpy.ndarray): wavefunction
-    Returns:
-        numpy.ndarray: wavefunction probability density
+def compute_probability_density(psi: np.ndarray):
+    """ Retrieve probability density |psi|^2.
+
+        Parameters:
+            psi (np.ndarray): Complex-valued coordinate-space wavefunction samples psi(x,z) on y=0.
+
+        Returns:
+            P (np.ndarray): Real-valued |psi|^2 with the same shape as psi.
     """
     return np.abs(psi) ** 2
 
