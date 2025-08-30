@@ -73,38 +73,71 @@ def spherical_harmonic_Ylm(l: int, m: int, theta: np.ndarray, phi: np.ndarray):
     return Y
 
 
-def compute_wavefunction(n, l, m, a0_scale_factor):
-    """ Compute the normalized wavefunction as a product
-    of its radial and angular components.
+def compute_psi_xz_slice(
+    n: int,
+    l: int,
+    m: int,
+    Z: int = 1,
+    use_reduced_mass: bool = True,
+    M: Optional[float] = None,
+    extent_a_mu: float = 20.0,
+    grid_points: int = 600,
+    phi_value: float = 0.0,
+    phi_mode: Literal["plane", "constant"] = "plane",
+):
+    """ Evaluate psi_{n,l,m}(x,0,z), hydrogenic eigenfunction restricted to the y=0 (x–z) plane.
 
-    Args:
-        n (int): principal quantum number
-        l (int): azimuthal quantum number
-        m (int): magnetic quantum number
-        a0_scale_factor (float): Bohr radius scale factor
-    Returns:
-        numpy.ndarray: wavefunction
+        Parameters:
+            n (int): Principal quantum number (n ≥ 1).
+            l (int): Orbital angular-momentum quantum number (0 ≤ l ≤ n-1).
+            m (int): Magnetic quantum number (-l ≤ m ≤ l).
+            Z (int): Nuclear charge number. (Z=1 for Hydrogen, Z>1 for hydrogenic ions).
+            use_reduced_mass (bool): Reduced-mass μ correction in Bohr radius.
+            M (float): Nuclear mass in kg.
+            extent_a_mu (float): Half-width of the square grid in units of the reduced-mass Bohr radius.
+            grid_points (int): Number of points per Cartesian axis.
+            phi_value (float): Azimuth phi (radians); Only used if phi_mode="constant".
+            phi_mode (str): Azimuthal prescription on y=0.
+
+        Notes:
+            - If use_reduced_mass = True, evaluate the Bohr radius with an electron–nucleus reduced mass μ,
+              otherwise, use invariant electron mass m_e (μ = m_e ∴ a_μ = a₀) in the infinite–mass approximation.
+            - If Z>1 and use_reduced_mass = True, M must be provided.
+            - If Z=1 and M is not provided, proton mass m_p is assumed.
+            - Xg, Zg (meters) and psi have the shape (grid_points, grid_points).
+            - If phi_mode = "plane", phi=0 for x ≥ 0, phi = π for x < 0.
+            - If phi_mode = "constant", phi ≡ phi_value across the grid.
+
+        Returns:
+            Xg (np.ndarray): 2D Cartesian x-coordinate grid (y=0).
+            Zg (np.ndarray): 2D Cartesian z-coordinate grid (y=0).
+            psi (np.ndarray): Complex-valued coordinate-space wavefunction samples psi(x,z) on y=0.
+            a_mu (float): Reduced-mass Bohr radius a_μ in meters.
     """
+    if not (n >= 1 and 0 <= l <= n - 1 and -l <= m <= l):
+        raise ValueError("(!) Quantum numbers (n,l,m) must satisfy n ≥ 1, 0 ≤ l ≤ n-1, and -l ≤ m ≤ l")
 
-    # Scale Bohr radius for effective visualization
-    a0 = a0_scale_factor * physical_constants['Bohr radius'][0] * 1e+12
+    mu = reduced_electron_nucleus_mass(Z, M) if use_reduced_mass else m_e
+    a_mu = reduced_bohr_radius(mu)
 
-    # z-x plane grid to represent electron spatial distribution
-    grid_extent = 480
-    grid_resolution = 680
-    z = x = np.linspace(-grid_extent, grid_extent, grid_resolution)
-    z, x = np.meshgrid(z, x)
+    r_max = extent_a_mu * a_mu
+    axis = np.linspace(-r_max, r_max, grid_points)
+    Zg, Xg = np.meshgrid(axis, axis, indexing="ij")
 
-    # Use epsilon to avoid division by zero during angle calculations
-    eps = np.finfo(float).eps
+    r = np.hypot(Xg, Zg)
+    cos_theta = np.empty_like(r)
+    np.divide(Zg, r, out=cos_theta, where=(r > 0))
+    cos_theta[r == 0] = 1.0
 
-    # Ψnlm(r,θ,φ) = Rnl(r).Ylm(θ,φ)
-    psi = radial_function(
-        n, l, np.sqrt((x ** 2 + z ** 2)), a0
-    ) * angular_function(
-        m, l, np.arctan(x / (z + eps)), 0
-    )
-    return psi
+    theta = np.arccos(np.clip(cos_theta, -1.0, 1.0))
+    phi = np.where(Xg >= 0.0, 0.0, np.pi) if phi_mode == "plane" else np.full_like(r, float(phi_value))
+
+    # Compute psi_{n,l,m}(r,theta,phi) = R_{n,l}(r) · Y_{l,m}(theta,phi)
+    R = radial_wavefunction_Rnl(n, l, r, Z=Z, use_reduced_mass=use_reduced_mass, M=M)
+    Y = spherical_harmonic_Ylm(l, m, theta, phi)
+    psi = R * Y
+
+    return Xg, Zg, psi, a_mu
 
 
 def compute_probability_density(psi):
