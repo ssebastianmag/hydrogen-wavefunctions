@@ -52,26 +52,25 @@ def radial_wavefunction_Rnl(
     return R
 
 
-def angular_function(m, l, theta, phi):
-    """ Compute the normalized angular part of the wavefunction using
-    Legendre polynomials and a phase-shifting exponential factor.
+def spherical_harmonic_Ylm(l: int, m: int, theta: np.ndarray, phi: np.ndarray):
+    """ Complex spherical harmonic Y_{l,m}(theta,phi); orthonormal on S².
 
-    Args:
-        m (int): magnetic quantum number
-        l (int): azimuthal quantum number
-        theta (numpy.ndarray): polar angle
-        phi (int): azimuthal angle
-    Returns:
-        numpy.ndarray: wavefunction angular component
+        Parameters:
+            l (int): Orbital angular-momentum quantum number (l ≥ 0).
+            m (int): Magnetic quantum number (-l ≤ m ≤ l).
+            theta (np.ndarray): Polar angle(s) in radians in the interval theta ∈ [0, π].
+            phi (np.ndarray): Azimuthal angle(s) in radians in the interval phi ∈ [0, 2π).
+
+        Returns:s
+            Y (np.ndarray): Complex-valued spherical harmonic with broadcasted shape of (theta, phi).
     """
+    if not (l >= 0 and -l <= m <= l):
+        raise ValueError("(!) Quantum numbers (l,m) must satisfy l ≥ 0 and -l ≤ m ≤ l")
 
-    legendre = sp.lpmv(m, l, np.cos(theta))
-
-    constant_factor = ((-1) ** m) * np.sqrt(
-        ((2 * l + 1) * sp.factorial(l - np.abs(m))) /
-        (4 * np.pi * sp.factorial(l + np.abs(m)))
-    )
-    return constant_factor * legendre * np.real(np.exp(1.j * m * phi))
+    theta = np.asarray(theta, dtype=float)
+    phi = np.asarray(phi, dtype=float)
+    Y = sp.sph_harm_y(l, m, theta, phi)
+    return Y
 
 
 def compute_wavefunction(n, l, m, a0_scale_factor):
