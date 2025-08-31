@@ -3,6 +3,7 @@ File: hwf_plots.py
 Description: Plotting utilities for hydrogenic wavefunctions.
 """
 
+from datetime import datetime
 from typing import Optional, Literal
 from pydantic import BaseModel
 
@@ -163,7 +164,9 @@ def plot_hydrogen_wavefunction_xz(
     )
 
     # Save and display figure
-    plt.savefig(f"({wf.n},{wf.l},{wf.m}).png", bbox_inches="tight")
+    ts = datetime.now().strftime("%Y%m%d%H%M%S")
+    filename = f"({wf.n},{wf.l},{wf.m})_{ts}"
+    plt.savefig(filename, bbox_inches="tight")
     plt.show()
 
 
