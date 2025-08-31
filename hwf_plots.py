@@ -116,22 +116,23 @@ def plot_hydrogen_wavefunction_xz(
 
     # Axis labels
     x_z_units = r"a_\mu" if wf.use_reduced_mass else r"a_0"
-    ax.set_xlabel(rf"$x / {x_z_units}$", fontsize=40, color=text_color)
-    ax.set_ylabel(rf"$z / {x_z_units}$", fontsize=40, color=text_color)
-    ax.xaxis.set_label_coords(0.94, -0.075)
+    ax.set_xlabel(rf"$x / {x_z_units}$", fontsize=43, color=text_color)
+    ax.set_ylabel(rf"$z / {x_z_units}$", fontsize=45, color=text_color)
+    ax.xaxis.set_label_coords(x=0.5, y=-0.075)
+    ax.yaxis.set_label_coords(x=-0.06, y=0.5)
 
     # Title and subtitle
     ax.set_title("Hydrogen Wavefunction", pad=130, fontsize=44, loc="left", color=title_color)
 
     fig.text(
-        x=ax.get_position().x0, y=0.885,
+        x=ax.get_position().x0 + 0.058, y=0.868,
         s=r"$|\psi_{n\ell m}(r,\theta,\phi)|^{2} = |R_{n\ell}(r)\,Y_{\ell m}(\theta,\phi)|^{2}$",
         fontsize=36, color=title_color
     )
 
     # Colormap colorbar
-    cbar = plt.colorbar(im, fraction=0.046, pad=0.03)
-    cbar.set_label(r"$|\psi|^{2}\ \mathrm{(m^{-3})}$", fontsize=36, color=text_color, labelpad=14)
+    cbar = plt.colorbar(im, fraction=0.046, pad=0.02)
+    cbar.set_label(r"Probability density $|\psi|^{2}$ [m$^{-3}$]", fontsize=37, color=text_color, labelpad=14)
     cbar.ax.tick_params(labelsize=26, colors=text_color)
     cbar.ax.set_frame_on(not use_dark_theme)
 
@@ -140,11 +141,15 @@ def plot_hydrogen_wavefunction_xz(
     cbar.formatter = sf
     cbar.update_ticks()
 
+    fig.canvas.draw()
     off = cbar.ax.yaxis.get_offset_text()
-    off.set_horizontalalignment("center")
-    off.set_x(0.5)
-    off.set_color(text_color)
-    off.set_fontsize(20)
+    offset_str = off.get_text()
+    off.set_visible(False)
+    cbar.ax.text(
+        0.7, 1.02, offset_str,
+        transform=cbar.ax.transAxes, ha="center", va="bottom",
+        fontsize=28, color=text_color
+    )
 
     # Quantum numbers (n,l,m) annotation
     h, w = A.shape
@@ -157,7 +162,7 @@ def plot_hydrogen_wavefunction_xz(
     qn_outline = "#000000" if qn_color == "#ffffff" else "#ffffff"
 
     ax.text(
-        x=0.02, y=0.98, s=f"({wf.n}, {wf.l}, {wf.m})",
+        x=0.03, y=0.962, s=f"({wf.n}, {wf.l}, {wf.m})",
         transform=ax.transAxes, ha="left", va="top",
         fontsize=42, color=qn_color,
         path_effects=[pe.withStroke(linewidth=3.0, foreground=qn_outline)]
