@@ -76,8 +76,8 @@ def plot_hydrogen_wavefunction_xz(
     plt.rcParams["ytick.labelsize"] = 30
     plt.rcParams["axes.linewidth"] = 4
 
-    fig, ax = plt.subplots(figsize=(16, 16.5))
-    plt.subplots_adjust(top=0.82, right=0.905, left=-0.1)
+    fig, ax = plt.subplots(figsize=(17, 16.5))
+    plt.subplots_adjust(top=0.82, right=0.86, left=-0.10)
 
     # Theme styles
     if use_dark_theme:
@@ -125,14 +125,14 @@ def plot_hydrogen_wavefunction_xz(
     ax.set_title("Hydrogen Wavefunction", pad=130, fontsize=44, loc="left", color=title_color)
 
     fig.text(
-        x=ax.get_position().x0 + 0.058, y=0.868,
+        x=ax.get_position().x0 + 0.07, y=0.868,
         s=r"$|\psi_{n\ell m}(r,\theta,\phi)|^{2} = |R_{n\ell}(r)\,Y_{\ell m}(\theta,\phi)|^{2}$",
-        fontsize=36, color=title_color
+        fontsize=40, color=title_color
     )
 
     # Colormap colorbar
-    cbar = plt.colorbar(im, fraction=0.046, pad=0.02)
-    cbar.set_label(r"Probability density $|\psi|^{2}$ [m$^{-3}$]", fontsize=37, color=text_color, labelpad=14)
+    cbar = plt.colorbar(im, fraction=0.046, pad=0.025)
+    cbar.set_label(r"Probability density $|\psi|^{2}$ [m$^{-3}$]", fontsize=40, color=text_color, labelpad=34)
     cbar.ax.tick_params(labelsize=26, colors=text_color)
     cbar.ax.set_frame_on(not use_dark_theme)
 
@@ -162,7 +162,7 @@ def plot_hydrogen_wavefunction_xz(
     qn_outline = "#000000" if qn_color == "#ffffff" else "#ffffff"
 
     ax.text(
-        x=0.03, y=0.962, s=f"({wf.n}, {wf.l}, {wf.m})",
+        x=0.04, y=0.94, s=f"({wf.n}, {wf.l}, {wf.m})",
         transform=ax.transAxes, ha="left", va="top",
         fontsize=42, color=qn_color,
         path_effects=[pe.withStroke(linewidth=3.0, foreground=qn_outline)]
@@ -171,7 +171,7 @@ def plot_hydrogen_wavefunction_xz(
     # Save and display figure
     ts = datetime.now().strftime("%Y%m%d%H%M%S")
     filename = f"({wf.n},{wf.l},{wf.m})_{ts}"
-    plt.savefig(filename, bbox_inches="tight")
+    plt.savefig(filename)
     plt.show()
 
 
