@@ -162,7 +162,7 @@ def plot_hydrogen_wavefunction_xz(
     qn_outline = "#000000" if qn_color == "#ffffff" else "#ffffff"
 
     ax.text(
-        x=0.04, y=0.96, s=f"({wf.n}, {wf.l}, {wf.m})",
+        x=0.04, y=0.95, s=f"({wf.n}, {wf.l}, {wf.m})",
         transform=ax.transAxes, ha="left", va="top",
         fontsize=42, color=qn_color,
         path_effects=[pe.withStroke(linewidth=3.0, foreground=qn_outline)]
