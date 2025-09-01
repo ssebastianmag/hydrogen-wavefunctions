@@ -126,7 +126,7 @@ def plot_hydrogen_wavefunction_xz(
 
     fig.text(
         x=ax.get_position().x0 + 0.07, y=0.868,
-        s=r"$|\psi_{n\ell m}(r,\theta,\phi)|^{2} = |R_{n\ell}(r)\,Y_{\ell m}(\theta,\phi)|^{2}$",
+        s=r"$|\psi_{n\ell m}(r,\theta,\phi)|^{2} = |R_{n\ell}(r) Y_{\ell}^{m}(\theta,\phi)|^2$",
         fontsize=40, color=title_color
     )
 
