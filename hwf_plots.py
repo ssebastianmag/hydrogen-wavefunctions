@@ -122,7 +122,10 @@ def plot_hydrogen_wavefunction_xz(
     ax.yaxis.set_label_coords(x=-0.06, y=0.5)
 
     # Title and subtitle
-    ax.set_title("Hydrogen Wavefunction", pad=130, fontsize=44, loc="left", color=title_color)
+    ax.set_title(
+        "Hydrogen Wavefunction - Probability Denstity",
+        pad=130, fontsize=44, loc="left", color=title_color
+    )
 
     fig.text(
         x=ax.get_position().x0 + 0.07, y=0.868,
