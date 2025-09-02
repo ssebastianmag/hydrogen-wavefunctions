@@ -7,9 +7,9 @@ from datetime import datetime
 from typing import Optional, Literal
 from pydantic import BaseModel
 
+from matplotlib import patheffects, ticker, colors
 import matplotlib.pyplot as plt
-import matplotlib.ticker as mticker
-import matplotlib.patheffects as pe
+
 import seaborn as sns
 import numpy as np
 
@@ -36,7 +36,8 @@ def plot_hydrogen_wavefunction_xz(
         wf: WaveFunction,
         colormap: str = "rocket",
         use_dark_theme: bool = False,
-        k: Optional[float] = None
+        k: Optional[float] = None,
+        exposure: Optional[float] = 0.0
 ):
     """ Plot hydrogen wavefunction restricted to the y=0 (x–z) plane.
 
@@ -45,6 +46,7 @@ def plot_hydrogen_wavefunction_xz(
             colormap (str): Seaborn colormap name.
             use_dark_theme (bool): Plot theme rendering mode.
             k (float): Framing scale factor for extent calculation.
+            exposure (float): Exposure correction factor for low-probability regions.
     """
     try:
         _ = sns.color_palette(colormap)
@@ -116,8 +118,21 @@ def plot_hydrogen_wavefunction_xz(
         float(np.max(Zg) / a_mu),
     )
 
-    A = P
-    im = ax.imshow(A, extent=extent, origin="lower", aspect="equal", cmap=cmap)
+    # Apply exposure correction (if provided)
+    # Higher exposure -> Increase visibility in low-probability regions
+
+    finite = P[np.isfinite(P)]
+    vmin, vmax = 0.0, (float(np.percentile(finite, 99.9)) if finite.size else 1.0)
+    vmax = float(finite.max()) if (finite.size and (not np.isfinite(vmax) or vmax <= vmin)) else vmax
+
+    exp = max(0.0, float(exposure))
+    gamma = max(0.10, 1.0 / (1.0 + exp))
+
+    norm_linear = colors.Normalize(vmin=vmin, vmax=vmax, clip=True)
+    norm_exposed = colors.PowerNorm(gamma=gamma, vmin=vmin, vmax=vmax, clip=True)
+    norm = norm_exposed if exp > 0.0 else norm_linear
+
+    im = ax.imshow(P, extent=extent, origin="lower", aspect="equal", cmap=cmap, norm=norm)
 
     # Axis labels
     x_z_units = r"a_\mu" if wf.use_reduced_mass else r"a_0"
@@ -144,7 +159,7 @@ def plot_hydrogen_wavefunction_xz(
     cbar.ax.tick_params(labelsize=26, colors=text_color)
     cbar.ax.set_frame_on(not use_dark_theme)
 
-    sf = mticker.ScalarFormatter(useMathText=True)
+    sf = ticker.ScalarFormatter(useMathText=True)
     sf.set_powerlimits((0, 0))
     cbar.formatter = sf
     cbar.update_ticks()
@@ -160,9 +175,9 @@ def plot_hydrogen_wavefunction_xz(
     )
 
     # Quantum numbers (n,l,m) label
-    h, w = A.shape
-    patch = A[max(h - 40, 0):h, 0:min(40, w)]  # Sample top-left corner patch to gauge brightness
-    patch_val = np.nanmean(A) if patch.size == 0 else float(np.nanmean(patch))
+    h, w = P.shape
+    patch = P[max(h - 40, 0):h, 0:min(40, w)]  # Sample top-left corner patch to gauge brightness
+    patch_val = np.nanmean(P) if patch.size == 0 else float(np.nanmean(patch))
 
     r, g, b, _ = im.cmap(im.norm(patch_val))  # Compute luminance of patch color
     luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
@@ -173,7 +188,7 @@ def plot_hydrogen_wavefunction_xz(
         x=0.04, y=0.95, s=f"({wf.n}, {wf.l}, {wf.m})",
         transform=ax.transAxes, ha="left", va="top",
         fontsize=42, color=qn_color,
-        path_effects=[pe.withStroke(linewidth=3.0, foreground=qn_outline)]
+        path_effects=[patheffects.withStroke(linewidth=3.0, foreground=qn_outline)]
     )
 
     # Save and display figure
