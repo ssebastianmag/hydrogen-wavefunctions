@@ -128,7 +128,7 @@ def plot_hydrogen_wavefunction_xz(
 
     # Title and subtitle
     ax.set_title(
-        "Hydrogen Wavefunction - Probability Denstity",
+        "Hydrogen Wavefunction - Probability Density",
         pad=130, fontsize=44, loc="left", color=title_color
     )
 
