@@ -35,7 +35,8 @@ class WaveFunction(BaseModel):
 def plot_hydrogen_wavefunction_xz(
         wf: WaveFunction,
         colormap: str = "rocket",
-        use_dark_theme: bool = False
+        use_dark_theme: bool = False,
+        k: Optional[float] = None
 ):
     """ Plot hydrogen wavefunction restricted to the y=0 (x–z) plane.
 
@@ -43,11 +44,15 @@ def plot_hydrogen_wavefunction_xz(
             wf (WaveFunction): Wavefunction parameters.
             colormap (str): Seaborn colormap name.
             use_dark_theme (bool): Plot theme rendering mode.
+            k (float): Framing scale factor for extent calculation.
     """
     try:
         _ = sns.color_palette(colormap)
     except Exception:
         raise ValueError(f"(!) {colormap!r} is not a recognized Seaborn colormap.")
+
+    if k is not None:  # Compute extent from framing scale factor (if provided)
+        wf.extent_a_mu = float(k * (3 * wf.n * wf.n - wf.l * (wf.l + 1)) / (2 * wf.Z))
 
     # Retrieve X-Z grid, psi, reduced Bohr radius and P = |psi|^2
     Xg, Zg, psi, a_mu = hwf.compute_psi_xz_slice(
@@ -154,7 +159,7 @@ def plot_hydrogen_wavefunction_xz(
         fontsize=28, color=text_color
     )
 
-    # Quantum numbers (n,l,m) annotation
+    # Quantum numbers (n,l,m) label
     h, w = A.shape
     patch = A[max(h - 40, 0):h, 0:min(40, w)]  # Sample top-left corner patch to gauge brightness
     patch_val = np.nanmean(A) if patch.size == 0 else float(np.nanmean(patch))
@@ -176,11 +181,3 @@ def plot_hydrogen_wavefunction_xz(
     filename = f"({wf.n},{wf.l},{wf.m})_{ts}"
     plt.savefig(filename)
     plt.show()
-
-
-# r = np.linspace(0, 40*a_mu, 4000)
-# P_r = compute_radial_probability_distribution(R=radial_wavefunction_Rnl(n=3, l=2, r=r, Z=1), r=r)
-# plt.figure()
-# plt.plot(r/a_mu, P_r)
-# plt.xlabel("r / a_mu"); plt.ylabel("P_{n,l}(r) = r^2 |R|^2")
-# plt.show()
