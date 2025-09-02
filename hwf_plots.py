@@ -116,7 +116,7 @@ def plot_hydrogen_wavefunction_xz(
         float(np.max(Zg) / a_mu),
     )
 
-    A = P.T
+    A = P
     im = ax.imshow(A, extent=extent, origin="lower", aspect="equal", cmap=cmap)
 
     # Axis labels
