@@ -82,7 +82,7 @@ def plot_hydrogen_wavefunction_xz(
     plt.rcParams["axes.linewidth"] = 4
 
     fig, ax = plt.subplots(figsize=(17, 16.5))
-    plt.subplots_adjust(top=0.82, right=0.86, left=-0.10)
+    plt.subplots_adjust(top=0.82, right=0.87, left=-0.10)
 
     # Theme styles
     if use_dark_theme:
@@ -124,7 +124,7 @@ def plot_hydrogen_wavefunction_xz(
     ax.set_xlabel(rf"$x / {x_z_units}$", fontsize=43, color=text_color)
     ax.set_ylabel(rf"$z / {x_z_units}$", fontsize=45, color=text_color)
     ax.xaxis.set_label_coords(x=0.5, y=-0.075)
-    ax.yaxis.set_label_coords(x=-0.06, y=0.5)
+    ax.yaxis.set_label_coords(x=-0.08, y=0.5)
 
     # Title and subtitle
     ax.set_title(
