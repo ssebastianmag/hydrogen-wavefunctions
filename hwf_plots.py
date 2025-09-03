@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
-import hydrogen_wavefunction as hwf
+from hydrogen_wavefunction import compute_psi_xz_slice, compute_probability_density
 
 
 class WaveFunction(BaseModel):
@@ -57,7 +57,7 @@ def plot_hydrogen_wavefunction_xz(
         wf.extent_a_mu = float(k * (3 * wf.n * wf.n - wf.l * (wf.l + 1)) / (2 * wf.Z))
 
     # Retrieve X-Z grid, psi, reduced Bohr radius and P = |psi|^2
-    Xg, Zg, psi, a_mu = hwf.compute_psi_xz_slice(
+    Xg, Zg, psi, a_mu = compute_psi_xz_slice(
         n=wf.n, l=wf.l, m=wf.m, Z=wf.Z,
         use_reduced_mass=wf.use_reduced_mass,
         M=wf.M,
@@ -67,7 +67,7 @@ def plot_hydrogen_wavefunction_xz(
         phi_mode=wf.phi_mode,
     )
 
-    P = hwf.compute_probability_density(psi)
+    P = compute_probability_density(psi)
 
     # Global styles
     plt.rcParams["font.family"] = "STIXGeneral"
