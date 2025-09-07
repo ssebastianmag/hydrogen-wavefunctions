@@ -168,7 +168,7 @@ nucleus. Its form encompasses three major terms:
 
 <br>
 
-**Exponential Decay**
+**2.1.1 Exponential Decay**
 
 Signifies the probability decay of finding an 
 electron as we move away from the nucleus. Here, $a_{\mu}$ is the reduced-mass Bohr 
@@ -178,7 +178,7 @@ $\large e^{-\frac{Z r}{n a_{\mu}}}$
 
 <br>
 
-**Power term**
+**2.1.2 Power term**
 
 Dictates how the probability changes with $r$. 
 The azimuthal quantum number $\ell$ governs the near-origin behavior and number of radial nodes:
@@ -187,7 +187,7 @@ $\large \left( \frac{2 Z r}{n a_{\mu}} \right)^{\ell}$
 
 <br>
 
-**Associated Laguerre Polynomials**
+**2.1.3 Associated Laguerre Polynomials**
 
 These polynomials contribute to the finer structure of the radial part, especially defining nodes (regions where the probability is zero):
 
@@ -205,7 +205,7 @@ It has two components:
 
 <br>
 
-**Associated Legendre Polynomials**
+**2.2.1 Associated Legendre Polynomials**
 
 These dictate the shape of the orbital in the polar ($\theta$) direction,
 helping to define the characteristic shapes (s, p, d, etc.) we often associate with atomic orbitals:
@@ -214,7 +214,7 @@ $\large P_{\ell}^{m}(\cos\theta)$
 
 <br>
 
-**Exponential Azimuthal Term**
+**2.2.2 Exponential Azimuthal Term**
 
 This term provides the orientation of the orbital in the azimuthal plane, as 
 determined by the magnetic quantum number $m$:
@@ -406,6 +406,54 @@ the complexity of the wavefunction grows. Specifically:
 - The number of nodes (regions where the probability density is zero) increases.
 - The electron's spatial distribution expands, covering larger regions around the nucleus. 
 - The overall shape of the atomic orbital becomes more intricate and detailed.
+
+---
+
+#### $\large n=9, \ell=6, m=1, Z=1$
+
+```python
+wf = WaveFunction(n=9, l=6, m=1)
+plot_hydrogen_wavefunction_xz(wf, colormap="mako", k=2, exposure=0.5)
+```
+
+<p align='left'>
+  <img src='figures/(9,6,1)_20250906211527.png' width=60% />
+</p>
+
+```python
+plot_hydrogen_wavefunction_xz(wf, colormap="mako", use_dark_theme=True, k=2, exposure=0.5)
+```
+
+<p align='left'>
+  <img src='figures/(9,6,1)_20250906211530.png' width=60% />
+</p>
+
+---
+
+#### $\large n=32, \ell=16, m=1, Z=1$
+
+```python
+wf = WaveFunction(n=32, l=16, m=1)
+plot_hydrogen_wavefunction_xz(wf, colormap="magma", k=1.8, exposure=0.5)
+```
+
+<p align='left'>
+  <img src='figures/(32,16,1)_20250906205851.png' width=60% />
+</p>
+
+```python
+plot_hydrogen_wavefunction_xz(wf, colormap="magma", use_dark_theme=True, k=1.8, exposure=0.5)
+```
+
+<p align='left'>
+  <img src='figures/(32,16,1)_20250906205854.png' width=60% />
+</p>
+
+For extremely high quantum numbers, the following effects can be observed:
+
+- The complexity increases even further, resulting in numerous nodes and intricate patterns.
+- Evaluating the wavefunction over a vast spatial domain becomes computationally intensive.
+- Visualization can become cluttered, making it harder to discern specific details or features.
 
 ---
 
