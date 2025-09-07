@@ -1,212 +1,231 @@
-# --- --- --- --- --- --- --- --- ---
-# Hydrogen Atom - Wavefunction and Electron Density Visualization
+"""
+File: hydrogen_wavefunction.py
+Description: Vectorized computational core for hydrogenic bound-state eigenfunctions.
 
-# Sebastian Mag | August 2023
-# https://github.com/ssebastianmag/hydrogen-wavefunctions
+Model computations:
+   - Normalized radial functions with stable log-gamma normalization & complex spherical harmonics.
+   - Stationary-state wavefunction on an x–z plane grid (y=0).
+   - Probability densities and radial probability distributions.
+   - Reduced-mass Bohr radius and electron–nucleus reduced mass.
 
-# Modeling and visualization of hydrogen atom wavefunctions
-# and electron probability density.
-# --- --- --- --- --- --- --- --- ---
+Model assumptions:
+   - Non-relativistic, point nucleus, Schrödinger hydrogenic Hamiltonian with Coulomb potential.
+   - No spin/fine-structure, external fields, or finite-nuclear-size effects.
+   - Shapes broadcast; R is real-valued, Y and psi are complex.
 
-from scipy.constants import physical_constants
-import matplotlib.pyplot as plt
-import scipy.special as sp
-import seaborn as sns
+   - SI Units implied:
+     · Wavefunctions psi have units of m^{-3/2}; R has units of m^{-3/2}; Y and Z are dimensionless.
+     · Cartesian coordinates (x,y,z) and radial distance r are in meters; Masses are in kilograms.
+
+Author: Sebastian Mag
+Date: August 2025
+Repository: https://github.com/ssebastianmag/hydrogen-wavefunctions
+"""
+
+from typing import Optional, Literal
+
 import numpy as np
+import scipy.special as sp
+from scipy.constants import physical_constants, m_e, m_p
 
 
-def radial_function(n, l, r, a0):
-    """ Compute the normalized radial part of the wavefunction using
-    Laguerre polynomials and an exponential decay factor.
+def radial_wavefunction_Rnl(
+        n: int,
+        l: int,
+        r: np.ndarray,
+        Z: int = 1,
+        use_reduced_mass: bool = True,
+        M: Optional[float] = None
+):
+    """ Normalized hydrogenic radial wavefunction R_{n,l}(r).
 
-    Args:
-        n (int): principal quantum number
-        l (int): azimuthal quantum number
-        r (numpy.ndarray): radial coordinate
-        a0 (float): scaled Bohr radius
-    Returns:
-        numpy.ndarray: wavefunction radial component
+        Parameters:
+            n (int): Principal quantum number (n ≥ 1).
+            l (int): Orbital angular-momentum quantum number (0 ≤ l ≤ n-1).
+            r (np.ndarray): Radial coordinate(s) in meters.
+            Z (int): Nuclear charge number. (Z=1 for Hydrogen, Z>1 for hydrogenic ions).
+            use_reduced_mass (bool): Reduced-mass μ correction in Bohr radius.
+            M (float): Nuclear mass in kg.
+
+        Returns:
+            R (np.ndarray): Real-valued radial eigenfunction samples with broadcasted shape of (r).
+
+        Notes:
+            - R has units of m^{-3/2}.
+            - If use_reduced_mass = True, evaluate the Bohr radius with an electron–nucleus reduced mass μ,
+              otherwise, use invariant electron mass m_e (μ = m_e ∴ a_μ = a₀) in the infinite–mass approximation.
+            - If Z>1 and use_reduced_mass = True, M must be provided.
+            - If Z=1 and M is not provided, proton mass m_p is assumed.
     """
+    if not (n >= 1 and 0 <= l <= n - 1):
+        raise ValueError("(!) Quantum numbers (n,l) must satisfy n ≥ 1 and 0 ≤ l ≤ n-1")
 
-    laguerre = sp.genlaguerre(n - l - 1, 2 * l + 1)
-    p = 2 * r / (n * a0)
+    mu = reduced_electron_nucleus_mass(Z, M) if use_reduced_mass else m_e
+    a_mu = reduced_bohr_radius(mu)
 
-    constant_factor = np.sqrt(
-        ((2 / n * a0) ** 3 * (sp.factorial(n - l - 1))) /
-        (2 * n * (sp.factorial(n + l)))
-    )
-    return constant_factor * np.exp(-p / 2) * (p ** l) * laguerre(p)
+    rho = 2.0 * Z * r / (n * a_mu)
+    L = sp.eval_genlaguerre(n - l - 1, 2 * l + 1, rho)
+
+    # Stable normalization prefactor using log-gamma
+    # pref = (2Z/(n a_mu))^(3/2) * sqrt( (n-l-1)! / (2n * (n+l)!))
+
+    log_pref = 1.5 * np.log(2.0 * Z / (n * a_mu))
+    log_pref += 0.5 * (sp.gammaln(n - l) - (np.log(2.0 * n) + sp.gammaln(n + l + 1)))
+    pref = np.exp(log_pref)
+    R = pref * np.exp(-rho / 2.0) * np.power(rho, l) * L
+    return R
 
 
-def angular_function(m, l, theta, phi):
-    """ Compute the normalized angular part of the wavefunction using
-    Legendre polynomials and a phase-shifting exponential factor.
+def spherical_harmonic_Ylm(
+        l: int,
+        m: int,
+        theta: np.ndarray,
+        phi: np.ndarray
+):
+    """ Complex spherical harmonic Y_{l,m}(theta,phi); orthonormal on S².
 
-    Args:
-        m (int): magnetic quantum number
-        l (int): azimuthal quantum number
-        theta (numpy.ndarray): polar angle
-        phi (int): azimuthal angle
-    Returns:
-        numpy.ndarray: wavefunction angular component
+        Parameters:
+            l (int): Orbital angular-momentum quantum number (l ≥ 0).
+            m (int): Magnetic quantum number (-l ≤ m ≤ l).
+            theta (np.ndarray): Polar angle(s) in radians in the interval theta ∈ [0, π].
+            phi (np.ndarray): Azimuthal angle(s) in radians in the interval phi ∈ [0, 2π).
+
+        Returns:
+            Y (np.ndarray): Complex-valued spherical harmonic with broadcasted shape of (theta, phi).
     """
+    if not (l >= 0 and -l <= m <= l):
+        raise ValueError("(!) Quantum numbers (l,m) must satisfy l ≥ 0 and -l ≤ m ≤ l")
 
-    legendre = sp.lpmv(m, l, np.cos(theta))
-
-    constant_factor = ((-1) ** m) * np.sqrt(
-        ((2 * l + 1) * sp.factorial(l - np.abs(m))) /
-        (4 * np.pi * sp.factorial(l + np.abs(m)))
-    )
-    return constant_factor * legendre * np.real(np.exp(1.j * m * phi))
+    theta = np.asarray(theta, dtype=float)
+    phi = np.asarray(phi, dtype=float)
+    Y = sp.sph_harm_y(l, m, theta, phi)
+    return Y
 
 
-def compute_wavefunction(n, l, m, a0_scale_factor):
-    """ Compute the normalized wavefunction as a product
-    of its radial and angular components.
+def compute_psi_xz_slice(
+    n: int,
+    l: int,
+    m: int,
+    Z: int = 1,
+    use_reduced_mass: bool = True,
+    M: Optional[float] = None,
+    extent_a_mu: float = 20.0,
+    grid_points: int = 600,
+    phi_value: float = 0.0,
+    phi_mode: Literal["plane", "constant"] = "plane"
+):
+    """ Evaluate psi_{n,l,m}(x,0,z), hydrogenic eigenfunction restricted to the y=0 (x–z) plane.
 
-    Args:
-        n (int): principal quantum number
-        l (int): azimuthal quantum number
-        m (int): magnetic quantum number
-        a0_scale_factor (float): Bohr radius scale factor
-    Returns:
-        numpy.ndarray: wavefunction
+        Parameters:
+            n (int): Principal quantum number (n ≥ 1).
+            l (int): Orbital angular-momentum quantum number (0 ≤ l ≤ n-1).
+            m (int): Magnetic quantum number (-l ≤ m ≤ l).
+            Z (int): Nuclear charge number. (Z=1 for Hydrogen, Z>1 for hydrogenic ions).
+            use_reduced_mass (bool): Reduced-mass μ correction in Bohr radius.
+            M (float): Nuclear mass in kg.
+            extent_a_mu (float): Half-width of the square grid in units of the reduced-mass Bohr radius.
+            grid_points (int): Number of points per Cartesian axis.
+            phi_value (float): Azimuth phi (radians); Only used if phi_mode="constant".
+            phi_mode (str): Azimuthal prescription on y=0.
+
+        Returns:
+            Xg (np.ndarray): 2D Cartesian x-coordinate grid (y=0) in meters.
+            Zg (np.ndarray): 2D Cartesian z-coordinate grid (y=0) in meters.
+            psi (np.ndarray): Complex-valued coordinate-space wavefunction samples psi(x,z) on y=0.
+            a_mu (float): Reduced-mass Bohr radius a_μ in meters.
+
+        Notes:
+            - psi has units of m^{-3/2}.
+            - If use_reduced_mass = True, evaluate the Bohr radius with an electron–nucleus reduced mass μ,
+              otherwise, use invariant electron mass m_e (μ = m_e ∴ a_μ = a₀) in the infinite–mass approximation.
+            - If Z>1 and use_reduced_mass = True, M must be provided.
+            - If Z=1 and M is not provided, proton mass m_p is assumed.
+            - Xg, Zg and psi have the shape (grid_points, grid_points).
+            - If phi_mode = "plane", phi=0 for x ≥ 0, phi = π for x < 0.
+            - If phi_mode = "constant", phi ≡ phi_value across the grid.
     """
+    if not (n >= 1 and 0 <= l <= n - 1 and -l <= m <= l):
+        raise ValueError("(!) Quantum numbers (n,l,m) must satisfy n ≥ 1, 0 ≤ l ≤ n-1, and -l ≤ m ≤ l")
 
-    # Scale Bohr radius for effective visualization
-    a0 = a0_scale_factor * physical_constants['Bohr radius'][0] * 1e+12
+    mu = reduced_electron_nucleus_mass(Z, M) if use_reduced_mass else m_e
+    a_mu = reduced_bohr_radius(mu)
 
-    # z-x plane grid to represent electron spatial distribution
-    grid_extent = 480
-    grid_resolution = 680
-    z = x = np.linspace(-grid_extent, grid_extent, grid_resolution)
-    z, x = np.meshgrid(z, x)
+    r_max = extent_a_mu * a_mu
+    axis = np.linspace(-r_max, r_max, grid_points)
+    Zg, Xg = np.meshgrid(axis, axis, indexing="ij")
 
-    # Use epsilon to avoid division by zero during angle calculations
-    eps = np.finfo(float).eps
+    r = np.hypot(Xg, Zg)
+    cos_theta = np.empty_like(r)
+    np.divide(Zg, r, out=cos_theta, where=(r > 0))
+    cos_theta[r == 0] = 1.0
 
-    # Ψnlm(r,θ,φ) = Rnl(r).Ylm(θ,φ)
-    psi = radial_function(
-        n, l, np.sqrt((x ** 2 + z ** 2)), a0
-    ) * angular_function(
-        m, l, np.arctan(x / (z + eps)), 0
-    )
-    return psi
+    theta = np.arccos(np.clip(cos_theta, -1.0, 1.0))
+    phi = np.where(Xg >= 0.0, 0.0, np.pi) if phi_mode == "plane" else np.full_like(r, float(phi_value))
+
+    # Compute psi_{n,l,m}(r,theta,phi) = R_{n,l}(r) · Y_{l,m}(theta,phi)
+    R = radial_wavefunction_Rnl(n, l, r, Z=Z, use_reduced_mass=use_reduced_mass, M=M)
+    Y = spherical_harmonic_Ylm(l, m, theta, phi)
+    psi = R * Y
+
+    return Xg, Zg, psi, a_mu
 
 
-def compute_probability_density(psi):
-    """ Compute the probability density of a given wavefunction.
-    Args:
-        psi (numpy.ndarray): wavefunction
-    Returns:
-        numpy.ndarray: wavefunction probability density
+def compute_probability_density(psi: np.ndarray):
+    """ Retrieve probability density |psi|^2.
+
+        Parameters:
+            psi (np.ndarray): Complex-valued coordinate-space wavefunction samples psi(x,z) on y=0.
+
+        Returns:
+            P (np.ndarray): Real-valued |psi|^2 with the same shape as psi.
     """
     return np.abs(psi) ** 2
 
 
-def plot_wf_probability_density(n, l, m, a0_scale_factor, dark_theme=False, colormap='rocket'):
-    """ Plot the probability density of the hydrogen
-    atom's wavefunction for a given quantum state (n,l,m).
+def compute_radial_probability_distribution(R: np.ndarray, r: np.ndarray):
+    """ Retrieve Radial probability distribution P_{n,l}(r) = r^2 * |R_{n,l}(r)|^2.
 
-    Args:
-        n (int): principal quantum number, determines the energy level and size of the orbital
-        l (int): azimuthal quantum number, defines the shape of the orbital
-        m (int): magnetic quantum number, defines the orientation of the orbital
-        a0_scale_factor (float): Bohr radius scale factor
-        dark_theme (bool): If True, uses a dark background for the plot, defaults to False
-        colormap (str): Seaborn plot colormap, defaults to 'rocket'
+        Parameters:
+            R (np.ndarray): Real-valued radial eigenfunction samples R_{n,l}(r).
+            r (np.ndarray): Radial coordinate(s) in meters.
+
+        Returns:
+            P_r (np.ndarray): Real-valued P_{n,l}(r) with the same shape as r.
     """
-
-    # Quantum numbers validation
-    if not isinstance(n, int) or n < 1:
-        raise ValueError('n should be an integer satisfying the condition: n >= 1')
-    if not isinstance(l, int) or not (0 <= l < n):
-        raise ValueError('l should be an integer satisfying the condition: 0 <= l < n')
-    if not isinstance(m, int) or not (-l <= m <= l):
-        raise ValueError('m should be an integer satisfying the condition: -l <= m <= l')
-
-    # Colormap validation
-    try:
-        sns.color_palette(colormap)
-    except ValueError:
-        raise ValueError(f'{colormap} is not a recognized Seaborn colormap.')
-
-    # Configure plot aesthetics using matplotlib rcParams settings
-    plt.rcParams['font.family'] = 'STIXGeneral'
-    plt.rcParams['mathtext.fontset'] = 'stix'
-    plt.rcParams['xtick.major.width'] = 4
-    plt.rcParams['ytick.major.width'] = 4
-    plt.rcParams['xtick.major.size'] = 15
-    plt.rcParams['ytick.major.size'] = 15
-    plt.rcParams['xtick.labelsize'] = 30
-    plt.rcParams['ytick.labelsize'] = 30
-    plt.rcParams['axes.linewidth'] = 4
-
-    fig, ax = plt.subplots(figsize=(16, 16.5))
-    plt.subplots_adjust(top=0.82)
-    plt.subplots_adjust(right=0.905)
-    plt.subplots_adjust(left=-0.1)
-
-    # Compute and visualize the wavefunction probability density
-    psi = compute_wavefunction(n, l, m, a0_scale_factor)
-    prob_density = compute_probability_density(psi)
-
-    # Here we transpose the array to align the calculated z-x plane with Matplotlib's y-x imshow display
-    im = ax.imshow(np.sqrt(prob_density).T, cmap=sns.color_palette(colormap, as_cmap=True))
-
-    cbar = plt.colorbar(im, fraction=0.046, pad=0.03)
-    cbar.set_ticks([])
-
-    # Apply dark theme parameters
-    if dark_theme:
-        theme = 'dt'
-        background_color = sorted(
-            sns.color_palette(colormap, n_colors=100),
-            key=lambda color: 0.2126 * color[0] + 0.7152 * color[1] + 0.0722 * color[2]
-        )[0]
-        plt.rcParams['text.color'] = '#dfdfdf'
-        title_color = '#dfdfdf'
-        fig.patch.set_facecolor(background_color)
-        cbar.outline.set_visible(False)
-        ax.tick_params(axis='x', colors='#c4c4c4')
-        ax.tick_params(axis='y', colors='#c4c4c4')
-        for spine in ax.spines.values():
-            spine.set_color('#c4c4c4')
-
-    else:  # Apply light theme parameters
-        theme = 'lt'
-        plt.rcParams['text.color'] = '#000000'
-        title_color = '#000000'
-        ax.tick_params(axis='x', colors='#000000')
-        ax.tick_params(axis='y', colors='#000000')
-
-    ax.set_title('Hydrogen Atom - Wavefunction Electron Density', pad=130, fontsize=44, loc='left', color=title_color)
-    ax.text(0, 722, (
-        r'$|\psi_{n \ell m}(r, \theta, \varphi)|^{2} ='
-        r' |R_{n\ell}(r) Y_{\ell}^{m}(\theta, \varphi)|^2$'
-    ), fontsize=36)
-    ax.text(30, 615, r'$({0}, {1}, {2})$'.format(n, l, m), color='#dfdfdf', fontsize=42)
-    ax.text(770, 140, 'Electron probability distribution', rotation='vertical', fontsize=40)
-    ax.text(705, 700, 'Higher\nprobability', fontsize=24)
-    ax.text(705, -60, 'Lower\nprobability', fontsize=24)
-    ax.text(775, 590, '+', fontsize=34)
-    ax.text(769, 82, '−', fontsize=34, rotation='vertical')
-    ax.invert_yaxis()
-
-    # Save and display the plot
-    plt.savefig(f'({n},{l},{m})[{theme}].png')
-    plt.show()
+    return (r**2) * np.abs(R) ** 2
 
 
-# - - - Example probability densities for various quantum states (n,l,m)
-if __name__ == '__main__':
+def reduced_electron_nucleus_mass(Z: int, M: Optional[float] = None):
+    """ Compute electron–nucleus reduced mass μ.
 
-    plot_wf_probability_density(2, 1, 1, 0.6, True)
-    plot_wf_probability_density(2, 1, 1, 0.6)
+        Parameters:
+            Z (int): Nuclear charge number. (Z=1 for Hydrogen, Z>1 for hydrogenic ions).
+            M (float): Nuclear mass in kg.
 
-    plot_wf_probability_density(3, 2, 1, 0.3, True)
-    plot_wf_probability_density(3, 2, 1, 0.3)
+        Returns:
+            float: Two-body (electron + nucleus) system reduced mass μ in kilograms.
 
-    plot_wf_probability_density(4, 3, 0, 0.2, dark_theme=True, colormap='magma')
-    plot_wf_probability_density(4, 3, 0, 0.2, colormap='magma')
-    plot_wf_probability_density(4, 3, 1, 0.2, dark_theme=True, colormap='mako')
+        Notes:
+            - If Z>1, M must be provided.
+            - If Z=1 and M is not provided, proton mass m_p is assumed.
+    """
+    if M is None:
+        if Z == 1:
+            M = m_p
+        else:
+            raise ValueError("'M' must be provided if Z>1")
+
+    return (m_e * M) / (m_e + M)
+
+
+def reduced_bohr_radius(mu: float):
+    """ Compute Bohr radius evaluated with a reduced mass.
+
+        Parameters:
+            mu (float): Electron–nucleus reduced mass μ in kg.
+
+        Returns:
+            float: Reduced-mass Bohr radius a_μ in meters.
+    """
+    a0 = physical_constants["Bohr radius"][0]
+    return a0 * (m_e / mu)
