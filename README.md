@@ -73,7 +73,7 @@ of the probability of locating the electron.
 These are mathematical functions that describe the wave-like 
 behavior of either one electron or a pair of electrons in an atom. These 
 functions can be used to determine the probability of finding an 
-electron in any specific region around the atom's nucleus.
+electron in any specific region around the atom's nucleus; Their angular structure is carried by spherical harmonics and their radial structure by associated Laguerre polynomials.
 
 <br>
 
@@ -83,8 +83,6 @@ electron in any specific region around the atom's nucleus.
 <p align='center'>
     <i>Electron density plot showing regions of varying electron probability</i>
 </p>
-
-Their angular structure is carried by spherical harmonics and their radial structure by associated Laguerre polynomials.
 
 ---
 
@@ -166,11 +164,11 @@ L_{n-\ell-1}^{\,2\ell+1}\!\left(\frac{2 Z r}{n a_{\mu}}\right)$
 
 The radial wavefunction gives us information about the probability
 distribution of the electron as a function of distance $r$ from the 
-nucleus. Its form encompasses three major terms: 
+nucleus. Its form encompasses three major terms. 
 
 <br>
 
-**Exponential Decay**
+**a) Exponential Decay**
 
 Signifies the probability decay of finding an 
 electron as we move away from the nucleus. Here, $a_{\mu}$ is the reduced-mass Bohr 
@@ -180,7 +178,7 @@ $\large e^{-\frac{Z r}{n a_{\mu}}}$
 
 <br>
 
-**Power term**
+**b) Power term**
 
 Dictates how the probability changes with $r$. 
 The azimuthal quantum number $\ell$ governs the near-origin behavior and number of radial nodes:
@@ -189,7 +187,7 @@ $\large \left( \frac{2 Z r}{n a_{\mu}} \right)^{\ell}$
 
 <br>
 
-**Associated Laguerre Polynomials**
+**c) Associated Laguerre Polynomials**
 
 These polynomials contribute to the finer structure of the radial part, especially defining nodes (regions where the probability is zero):
 
@@ -203,11 +201,11 @@ $\large Y_{\ell}^{m}(\theta, \phi) = (-1)^m \sqrt{\frac{(2\ell+1)}{4\pi}\frac{(\
 
 The angular wavefunction yields the spherical harmonics, which gives the angular dependence of the wavefunction in terms of the polar ($\theta$) and azimuthal ($\phi$) angles. These spherical harmonics provide a detailed account of the shapes and orientations of atomic orbitals,
 characterizing how electron probability distributions are spread out in space. 
-It has two components:
+It has two components.
 
 <br>
 
-**Associated Legendre Polynomials**
+**a) Associated Legendre Polynomials**
 
 These dictate the shape of the orbital in the polar ($\theta$) direction,
 helping to define the characteristic shapes (s, p, d, etc.) we often associate with atomic orbitals:
@@ -216,7 +214,7 @@ $\large P_{\ell}^{m}(\cos\theta)$
 
 <br>
 
-**Exponential Azimuthal Term**
+**b) Exponential Azimuthal Term**
 
 This term provides the orientation of the orbital in the azimuthal plane, as 
 determined by the magnetic quantum number $m$:
@@ -256,9 +254,9 @@ $\large P_{n\ell}(r) = r^2\, |R_{n\ell}(r)|^2$
 - Cartesian coordinates $(x,y,z)$ and radial distance $r$ are in meters.
 - Masses are in kilograms.
 
-<br>
+---
 
-#### Reduced-mass correction and effective Bohr radius
+#### 3.1 Reduced-mass correction and effective Bohr radius
 
 To account for the finite nuclear mass, the model uses the electron–nucleus reduced mass $\mu$ and the corresponding reduced-mass Bohr radius $a_{\mu}$:
 
@@ -268,18 +266,18 @@ Here $m_e$ is the electron mass, $M$ is the nuclear mass (for Hydrogen $M \appro
 
 Setting $a_{\mu}\!\to\! a_0$ recovers the infinite–nuclear–mass approximation.
 
-<br>
+---
 
-#### Hydrogenic ions and $Z$-scaling
+#### 3.2 Hydrogenic ions and $Z$-scaling
 
 The same formalism applies for hydrogenic ions with nuclear charge $Z$.
 
 All radial length scales contract by $Z$ and the normalized radial function is given with $Z$ and $a_{\mu}$ explicitly included.  
 (When $Z>1$, the nuclear mass $M$ must be specified to evaluate $\mu$ and $a_{\mu}$.)
 
-<br>
+---
 
-#### $x–z$ plane slice used for plotting
+#### 3.3 $x–z$ plane slice used for plotting
 
 For visualization, the model evaluates stationary states on the plane $y=0$:
 
@@ -288,10 +286,22 @@ $\large \psi_{n\ell m}(x,0,z) = R_{n\ell}(r)\, Y_{\ell}^{m}(\theta,\phi), \quad 
 The azimuth $\phi$ on the $y=0$ plane is prescribed in two modes:
 
 - **Plane mode** (default): 
+
+  $$
+  \phi = \begin{cases}
+  0, & x \ge 0 \\
+  \pi, & x < 0
+  \end{cases}
+  $$
+
+
 $\large \phi = \begin{cases} 
 0, & x \ge 0 \\ 
 \pi, & x < 0 
 \end{cases}$
+
+- **Plane mode** (default): $\phi = \begin{cases} 0, & x \ge 0 \\\\ \pi, & x < 0 \end{cases}$
+
 
 - **Constant mode**: $\large \phi \equiv \phi_0$ (user-specified constant).
 
@@ -315,6 +325,8 @@ The function `plot_hydrogen_wavefunction_xz` from the `hwf_plots` module can be 
 | `use_dark_theme` |                  Theme rendering mode.                  |     `bool`     |
 |       `k`        |      Framing scale factor for extent calculation.       |    `float`     |
 |    `exposure`    | Exposure correction factor for low-probability regions. |    `float`     |
+
+<br>
 
 ---
 
