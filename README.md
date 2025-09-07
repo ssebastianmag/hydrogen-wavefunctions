@@ -75,8 +75,6 @@ behavior of either one electron or a pair of electrons in an atom. These
 functions can be used to determine the probability of finding an 
 electron in any specific region around the atom's nucleus.
 
-Their angular structure is carried by spherical harmonics and their radial structure by associated Laguerre polynomials.
-
 <br>
 
 <p align='center'>
@@ -85,6 +83,8 @@ Their angular structure is carried by spherical harmonics and their radial struc
 <p align='center'>
     <i>Electron density plot showing regions of varying electron probability</i>
 </p>
+
+Their angular structure is carried by spherical harmonics and their radial structure by associated Laguerre polynomials.
 
 ---
 
