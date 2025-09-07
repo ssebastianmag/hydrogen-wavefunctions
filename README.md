@@ -8,15 +8,11 @@ Modeling and visualization of bound-state hydrogen eigenfunctions and electron p
 * NumPy 2.3.2
 * SciPy 1.16.1
 
----
-
 ### Model computations:
 - Normalized radial functions with stable log-gamma normalization & complex spherical harmonics.
-- Stationary-state wavefunction on an $x$–$z$ plane grid ($y=0$).
+- Stationary-state wavefunction on an $x–z$ plane grid $(y=0)$.
 - Probability densities and radial probability distributions.
 - Reduced-mass Bohr radius and electron–nucleus reduced mass.
-
----
 
 ### Project Files
 * [hydrogen_wavefunction.py - Wavefunction computational modeling](hydrogen_wavefunction.py)
@@ -196,9 +192,7 @@ $\large L_{n-\ell-1}^{\,2\ell+1}\!\left(\frac{2 Z r}{n a_{\mu}}\right)$
 
 $\large Y_{\ell}^{m}(\theta, \phi) = (-1)^m \sqrt{\frac{(2\ell+1)}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}}\, P_{\ell}^{m}(\cos\theta)\, e^{i m \phi}$
 
-The angular wavefunction yields the spherical harmonics, which gives the angular dependence of the wavefunction in terms of the polar ($\theta$) and azimuthal ($\phi$) angles.
-
-These spherical harmonics provide a detailed account of the shapes and orientations of atomic orbitals,
+The angular wavefunction yields the spherical harmonics, which gives the angular dependence of the wavefunction in terms of the polar ($\theta$) and azimuthal ($\phi$) angles. These spherical harmonics provide a detailed account of the shapes and orientations of atomic orbitals,
 characterizing how electron probability distributions are spread out in space. 
 It has two components:
 
