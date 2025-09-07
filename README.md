@@ -27,6 +27,7 @@ Modeling and visualization of bound-state hydrogen eigenfunctions and electron p
 * [Quantum Mechanics and Atomic Systems: A Brief Overview](#1-quantum-mechanics-and-atomic-systems-a-brief-overview)
 * [Schrödinger Equation for Hydrogen Atom Wavefunctions](#2-schrödinger-equation-for-hydrogen-atom-wavefunctions)
 * [Model assumptions](#3-model-assumptions)
+* [References](#references)
   
 #### Showcase
 * [Modeling Examples](#4-modeling-examples)
@@ -372,5 +373,19 @@ the complexity of the wavefunction grows Specifically:
 - The number of nodes (regions where the probability density is zero) increases.
 - The electron's spatial distribution expands, covering larger regions around the nucleus. 
 - The overall shape of the atomic orbital becomes more intricate and detailed.
+
+---
+
+### References
+
+ - Griffiths, D.J. (2016) Introduction to quantum mechanics. 3rd edn. Harlow: Pearson. 
+ - Atkins, P. and Friedman, R. (2011) Molecular quantum mechanics. 5th edn. Oxford: Oxford University Press. 
+ - Bransden, B.H. and Joachain, C.J. (2003) Quantum mechanics. 2nd edn. Harlow: Pearson Education. 
+ - Zettili, N. (2009) Quantum mechanics: concepts and applications. 2nd edn. Chichester: Wiley. 
+ - Eisberg, R. and Resnick, R. (1985) Quantum physics of atoms, molecules, solids, nuclei, and particles. 2nd edn. New York: Wiley.
+- Bethe, H.A. & Salpeter, E.E. (1957) Quantum Mechanics of One- and Two-Electron Atoms. Berlin: Springer.
+- Landau, L.D. & Lifshitz, E.M. (1977) Quantum Mechanics: Non-Relativistic Theory. 3rd edn. Oxford: Pergamon.
+- Edmonds, A.R. (1960) Angular Momentum in Quantum Mechanics. 2nd edn. Princeton, NJ: Princeton University Press.
+ - Freie Universität Berlin (2015) Theoretical chemistry, Available at: https://www.bcp.fu-berlin.de/en/chemie/chemie/forschung/PhysTheoChem/agkeller/_Docs/TC_WS15_Ex07.pdf
 
 ---
