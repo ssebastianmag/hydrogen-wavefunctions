@@ -14,6 +14,8 @@ Modeling and visualization of bound-state hydrogen eigenfunctions and electron p
 - Probability densities and radial probability distributions.
 - Reduced-mass Bohr radius and electron–nucleus reduced mass.
 
+---
+
 ### Project Files
 * [hydrogen_wavefunction.py - Wavefunction computational modeling](hydrogen_wavefunction.py)
 * [hwf_plots.py - Plotting module](hwf_plots.py)
@@ -174,12 +176,16 @@ radius, which sets the characteristic length scale; the decay constant scales wi
 
 $\large e^{-\frac{Z r}{n a_{\mu}}}$
 
+<br>
+
 **Power term**
 
 Dictates how the probability changes with $r$. 
 The azimuthal quantum number $\ell$ governs the near-origin behavior and number of radial nodes:
 
 $\large \left( \frac{2 Z r}{n a_{\mu}} \right)^{\ell}$
+
+<br>
 
 **Associated Laguerre Polynomials**
 
@@ -204,15 +210,14 @@ helping to define the characteristic shapes (s, p, d, etc.) we often associate w
 
 $\large P_{\ell}^{m}(\cos\theta)$
 
+<br>
+
 **Exponential Azimuthal Term**
 
 This term provides the orientation of the orbital in the azimuthal plane, as 
 determined by the magnetic quantum number $m$:
 
 $\large e^{i m \phi}$
-
-> [!NOTE]
-> We use the complex orthonormal spherical harmonics with the Condon–Shortley phase, so that $\int |Y_{\ell}^{m}|^2\, d\Omega = 1$.
 
 ---
 
@@ -222,10 +227,14 @@ The resultant normalized wavefunction for the hydrogen atom (and hydrogenic ions
 
 $\large \psi_{n \ell m}(r, \theta, \phi) = R_{n \ell}(r)\; Y_{\ell}^{m}(\theta, \phi)$
 
+<br>
+
 To determine the probability density $|\psi_{n \ell m}|^2$ of the electron being in a certain location,
 we take the square magnitude of the wavefunction:
 
 $\large P(r, \theta, \phi) = |\psi_{n \ell m}(r, \theta, \phi)|^2$
+
+<br>
 
 In addition, the radial probability distribution describes the probability of finding the electron between $r$ and $r+dr$:
 
@@ -245,26 +254,28 @@ $\large P_{n\ell}(r) = r^2\, |R_{n\ell}(r)|^2$
 
 ---
 
-#### 3.1 Reduced-mass correction and effective Bohr radius
+#### Reduced-mass correction and effective Bohr radius
 
 To account for the finite nuclear mass, the model uses the electron–nucleus reduced mass $\mu$ and the corresponding reduced-mass Bohr radius $a_{\mu}$:
 
 $\large \mu = \frac{m_e M}{m_e + M}, \qquad a_{\mu} = a_0 \frac{m_e}{\mu}$
 
-Here $m_e$ is the electron mass, $M$ is the nuclear mass (for Hydrogen $M \approx m_p$), and $a_0$ is the Bohr radius.  
+Here $m_e$ is the electron mass, $M$ is the nuclear mass (for Hydrogen $M \approx m_p$), and $a_0$ is the Bohr radius.
+
 Setting $a_{\mu}\!\to\! a_0$ recovers the infinite–nuclear–mass approximation.
 
 ---
 
 #### 3.2 Hydrogenic ions and $Z$-scaling
 
-The same formalism applies for hydrogenic ions with nuclear charge $Z$.  
+The same formalism applies for hydrogenic ions with nuclear charge $Z$.
+
 All radial length scales contract by $Z$ and the normalized radial function is given with $Z$ and $a_{\mu}$ explicitly included.  
 (When $Z>1$, the nuclear mass $M$ must be specified to evaluate $\mu$ and $a_{\mu}$.)
 
 ---
 
-#### 3.3 $x$–$z$ plane slice used for plotting
+#### 3.3 $x–z$ plane slice used for plotting
 
 For visualization, the model evaluates stationary states on the plane $y=0$:
 
@@ -273,15 +284,21 @@ $\large \psi_{n\ell m}(x,0,z) = R_{n\ell}(r)\, Y_{\ell}^{m}(\theta,\phi), \quad 
 The azimuth $\phi$ on the $y=0$ plane is prescribed in two modes:
 
 - **Plane mode** (default): $\large \phi = \begin{cases} 0, & x \ge 0 \\ \pi, & x<0 \end{cases}$
-- **Constant mode**: $\large \phi \equiv \phi_0$ (user-specified constant)
+
+- **Constant mode**: $\large \phi \equiv \phi_0$ (user-specified constant).
 
 This keeps the angular dependence well defined on the slice while preserving the complex phase of $Y_{\ell}^{m}$.
+
+> [!NOTE]
+> We use the complex orthonormal spherical harmonics with the Condon–Shortley phase, so that $\int |Y_{\ell}^{m}|^2\, d\Omega = 1$.
 
 ---
 
 ### 4. Modeling Examples
 
-The function `plot_hydrogen_wavefunction_xz` from the `hwf_plots` module can be used to generate 2D color-mapped plots of the electron probability density $|\psi|^2$:
+The function `plot_hydrogen_wavefunction_xz` from the `hwf_plots` module can be used to generate 2D color-mapped plots of the electron probability density $|\psi|^2$ with the following parameters:
+
+<br>
 
 |  Plot Parameter  |                       Description                       |      Type      |
 |:----------------:|:-------------------------------------------------------:|:--------------:|
@@ -300,12 +317,15 @@ Below there are some example plots generated for various quantum states of the h
 ```python
 wf = WaveFunction(n=3, l=2, m=1)
 plot_hydrogen_wavefunction_xz(wf, colormap="rocket", k=2)
-plot_hydrogen_wavefunction_xz(wf, colormap="rocket", use_dark_theme=True, k=2)
 ```
 
 <p align='left'>
   <img src='figures/(3,2,1)_20250902155733.png' width=60% />
 </p>
+
+```python
+plot_hydrogen_wavefunction_xz(wf, colormap="rocket", use_dark_theme=True, k=2)
+```
 
 <p align='left'>
   <img src='figures/(3,2,1)_20250902155736.png' width=60% />
@@ -318,12 +338,15 @@ plot_hydrogen_wavefunction_xz(wf, colormap="rocket", use_dark_theme=True, k=2)
 ```python
 wf = WaveFunction(n=4, l=3, m=0)
 plot_hydrogen_wavefunction_xz(wf, colormap="rocket", k=2.2, exposure=0.5)
-plot_hydrogen_wavefunction_xz(wf, colormap="rocket", use_dark_theme=True, k=2.2, exposure=0.5)
 ```
 
 <p align='left'>
   <img src='figures/(4,3,0)_20250902155810.png' width=60% />
 </p>
+
+```python
+plot_hydrogen_wavefunction_xz(wf, colormap="rocket", use_dark_theme=True, k=2.2, exposure=0.5)
+```
 
 <p align='left'>
   <img src='figures/(4,3,0)_20250902155813.png' width=60% />
@@ -336,12 +359,15 @@ plot_hydrogen_wavefunction_xz(wf, colormap="rocket", use_dark_theme=True, k=2.2,
 ```python
 wf = WaveFunction(n=3, l=0, m=0)
 plot_hydrogen_wavefunction_xz(wf, colormap="rocket", k=2.5, exposure=1)
-plot_hydrogen_wavefunction_xz(wf, colormap="rocket", use_dark_theme=True, k=2.5, exposure=1)
 ```
 
 <p align='left'>
   <img src='figures/(3,0,0)_20250902155705.png' width=60% />
 </p>
+
+```python
+plot_hydrogen_wavefunction_xz(wf, colormap="rocket", use_dark_theme=True, k=2.5, exposure=1)
+```
 
 <p align='left'>
   <img src='figures/(3,0,0)_20250902155708.png' width=60% />
@@ -355,12 +381,15 @@ plot_hydrogen_wavefunction_xz(wf, colormap="rocket", use_dark_theme=True, k=2.5,
 ```python
 wf = WaveFunction(n=4, l=3, m=1)
 plot_hydrogen_wavefunction_xz(wf, colormap="rocket", k=2)
-plot_hydrogen_wavefunction_xz(wf, colormap="rocket", use_dark_theme=True, k=2)
 ```
 
 <p align='left'>
   <img src='figures/(4,3,1)_20250902155815.png' width=60% />
 </p>
+
+```python
+plot_hydrogen_wavefunction_xz(wf, colormap="rocket", use_dark_theme=True, k=2)
+```
 
 <p align='left'>
   <img src='figures/(4,3,1)_20250902155817.png' width=60% />
