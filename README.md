@@ -164,11 +164,11 @@ L_{n-\ell-1}^{\,2\ell+1}\!\left(\frac{2 Z r}{n a_{\mu}}\right)$
 
 The radial wavefunction gives us information about the probability
 distribution of the electron as a function of distance $r$ from the 
-nucleus. Its form encompasses three major terms. 
+nucleus. Its form encompasses three major terms:
 
 <br>
 
-**a) Exponential Decay**
+**Exponential Decay**
 
 Signifies the probability decay of finding an 
 electron as we move away from the nucleus. Here, $a_{\mu}$ is the reduced-mass Bohr 
@@ -178,7 +178,7 @@ $\large e^{-\frac{Z r}{n a_{\mu}}}$
 
 <br>
 
-**b) Power term**
+**Power term**
 
 Dictates how the probability changes with $r$. 
 The azimuthal quantum number $\ell$ governs the near-origin behavior and number of radial nodes:
@@ -187,7 +187,7 @@ $\large \left( \frac{2 Z r}{n a_{\mu}} \right)^{\ell}$
 
 <br>
 
-**c) Associated Laguerre Polynomials**
+**Associated Laguerre Polynomials**
 
 These polynomials contribute to the finer structure of the radial part, especially defining nodes (regions where the probability is zero):
 
@@ -201,11 +201,11 @@ $\large Y_{\ell}^{m}(\theta, \phi) = (-1)^m \sqrt{\frac{(2\ell+1)}{4\pi}\frac{(\
 
 The angular wavefunction yields the spherical harmonics, which gives the angular dependence of the wavefunction in terms of the polar ($\theta$) and azimuthal ($\phi$) angles. These spherical harmonics provide a detailed account of the shapes and orientations of atomic orbitals,
 characterizing how electron probability distributions are spread out in space. 
-It has two components.
+It has two components:
 
 <br>
 
-**a) Associated Legendre Polynomials**
+**Associated Legendre Polynomials**
 
 These dictate the shape of the orbital in the polar ($\theta$) direction,
 helping to define the characteristic shapes (s, p, d, etc.) we often associate with atomic orbitals:
@@ -214,7 +214,7 @@ $\large P_{\ell}^{m}(\cos\theta)$
 
 <br>
 
-**b) Exponential Azimuthal Term**
+**Exponential Azimuthal Term**
 
 This term provides the orientation of the orbital in the azimuthal plane, as 
 determined by the magnetic quantum number $m$:
@@ -285,23 +285,7 @@ $\large \psi_{n\ell m}(x,0,z) = R_{n\ell}(r)\, Y_{\ell}^{m}(\theta,\phi), \quad 
 
 The azimuth $\phi$ on the $y=0$ plane is prescribed in two modes:
 
-- **Plane mode** (default): 
-
-  $$
-  \phi = \begin{cases}
-  0, & x \ge 0 \\
-  \pi, & x < 0
-  \end{cases}
-  $$
-
-
-$\large \phi = \begin{cases} 
-0, & x \ge 0 \\ 
-\pi, & x < 0 
-\end{cases}$
-
-- **Plane mode** (default): $\phi = \begin{cases} 0, & x \ge 0 \\\\ \pi, & x < 0 \end{cases}$
-
+- **Plane mode** (default): $\phi=0\ \text{for}\ x\ge0,\quad \phi=\pi\ \text{for}\ x<0.$
 
 - **Constant mode**: $\large \phi \equiv \phi_0$ (user-specified constant).
 
