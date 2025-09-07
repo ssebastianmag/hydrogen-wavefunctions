@@ -99,11 +99,11 @@ For electrons in an atom, there are typically four quantum numbers:
 Represents the electron's energy level and relative size of the orbital.
 
 
-- Azimuthal quantum number ($l$): `( 0 <= l <= n-1 )`<br>
+- Azimuthal quantum number ($\ell$): `( 0 <= l <= n-1 )`<br>
 Relates to the shape of the atomic orbital.
 
 
-- Magnetic quantum number ($m_l$): `( -l <= m <= l )`<br>
+- Magnetic quantum number ($m_\ell$): `( -l <= m <= l )`<br>
 Specifies the orientation of the orbital in space.
 
 
@@ -166,7 +166,9 @@ L_{n-\ell-1}^{\,2\ell+1}\!\left(\frac{2 Z r}{n a_{\mu}}\right)$
 
 The radial wavefunction gives us information about the probability
 distribution of the electron as a function of distance $r$ from the 
-nucleus. Its form encompasses three major terms:
+nucleus. Its form encompasses three major terms: 
+
+<br>
 
 **Exponential Decay**
 
@@ -202,6 +204,8 @@ $\large Y_{\ell}^{m}(\theta, \phi) = (-1)^m \sqrt{\frac{(2\ell+1)}{4\pi}\frac{(\
 The angular wavefunction yields the spherical harmonics, which gives the angular dependence of the wavefunction in terms of the polar ($\theta$) and azimuthal ($\phi$) angles. These spherical harmonics provide a detailed account of the shapes and orientations of atomic orbitals,
 characterizing how electron probability distributions are spread out in space. 
 It has two components:
+
+<br>
 
 **Associated Legendre Polynomials**
 
@@ -252,7 +256,7 @@ $\large P_{n\ell}(r) = r^2\, |R_{n\ell}(r)|^2$
 - Cartesian coordinates $(x,y,z)$ and radial distance $r$ are in meters.
 - Masses are in kilograms.
 
----
+<br>
 
 #### Reduced-mass correction and effective Bohr radius
 
@@ -264,18 +268,18 @@ Here $m_e$ is the electron mass, $M$ is the nuclear mass (for Hydrogen $M \appro
 
 Setting $a_{\mu}\!\to\! a_0$ recovers the infinite–nuclear–mass approximation.
 
----
+<br>
 
-#### 3.2 Hydrogenic ions and $Z$-scaling
+#### Hydrogenic ions and $Z$-scaling
 
 The same formalism applies for hydrogenic ions with nuclear charge $Z$.
 
 All radial length scales contract by $Z$ and the normalized radial function is given with $Z$ and $a_{\mu}$ explicitly included.  
 (When $Z>1$, the nuclear mass $M$ must be specified to evaluate $\mu$ and $a_{\mu}$.)
 
----
+<br>
 
-#### 3.3 $x–z$ plane slice used for plotting
+#### $x–z$ plane slice used for plotting
 
 For visualization, the model evaluates stationary states on the plane $y=0$:
 
@@ -283,7 +287,11 @@ $\large \psi_{n\ell m}(x,0,z) = R_{n\ell}(r)\, Y_{\ell}^{m}(\theta,\phi), \quad 
 
 The azimuth $\phi$ on the $y=0$ plane is prescribed in two modes:
 
-- **Plane mode** (default): $\large \phi = \begin{cases} 0, & x \ge 0 \\ \pi, & x<0 \end{cases}$
+- **Plane mode** (default): 
+$\large \phi = \begin{cases} 
+0, & x \ge 0 \\ 
+\pi, & x < 0 
+\end{cases}$
 
 - **Constant mode**: $\large \phi \equiv \phi_0$ (user-specified constant).
 
