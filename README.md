@@ -248,8 +248,8 @@ $\large P_{n\ell}(r) = r^2\, |R_{n\ell}(r)|^2$
 - No spin/fine-structure, external fields, or finite-nuclear-size effects.
 - Shapes broadcast; $R$ is real-valued, $Y_{\ell}^{m}$ and $\psi$ are complex.
 - $R$ and $\psi$ have units of $\,\mathrm{m}^{-3/2}$.
-- $Y_{\ell}^{m}$ and $Z$ is dimensionless. 
-- Carteisnan coordinates $(x,y,z)$ and radial distance $r$ are in meters.
+- $Y_{\ell}^{m}$ and $Z$ are dimensionless. 
+- Cartesian coordinates $(x,y,z)$ and radial distance $r$ are in meters.
 - Masses are in kilograms.
 
 ---
@@ -397,7 +397,7 @@ plot_hydrogen_wavefunction_xz(wf, colormap="rocket", use_dark_theme=True, k=2)
 
 As we examine the electron density plots corresponding to the quantum numbers above, 
 we notice that with increasing principal quantum number $n$, 
-the complexity of the wavefunction grows Specifically:
+the complexity of the wavefunction grows. Specifically:
 
 - The number of nodes (regions where the probability density is zero) increases.
 - The electron's spatial distribution expands, covering larger regions around the nucleus. 
