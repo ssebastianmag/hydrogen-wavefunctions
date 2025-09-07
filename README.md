@@ -20,7 +20,7 @@ Modeling and visualization of bound-state hydrogen eigenfunctions and electron p
 * [hydrogen_wavefunction.py - Wavefunction computational modeling](hydrogen_wavefunction.py)
 * [hwf_plots.py - Plotting module](hwf_plots.py)
 * [main.py - Application entry-point to showcase samples](main.py)
-* [hydrogen_wavefunctions.ipynb - IPython / Jupyter Notebook Notebook](hydrogen_wavefunctions.ipynb)
+* [hydrogen_wavefunctions.ipynb - IPython / Jupyter Notebook](hydrogen_wavefunctions.ipynb)
 
 ---
 
