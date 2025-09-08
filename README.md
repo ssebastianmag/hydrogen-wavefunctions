@@ -470,3 +470,19 @@ For extremely high quantum numbers, the following effects can be observed:
  - Freie Universität Berlin (2015) Theoretical chemistry, Available at: https://www.bcp.fu-berlin.de/en/chemie/chemie/forschung/PhysTheoChem/agkeller/_Docs/TC_WS15_Ex07.pdf
 
 ---
+
+### Acknowledgements
+
+As of August 2025, the contents of this work have been utilized by various universities, academic institutions, research projects and scientific exhibitions.
+
+Their use in these contexts is gratefully acknowledged, and it continues to be openly available for academic, research, and educational purposes.
+
+Readers, scholars, researchers and institutions are welcome to reference or incorporate it in their own work as appropriate.  
+
+> [!IMPORTANT]  
+> This work is openly available for academic, research and educational purposes.
+> Voluntary contributions to support this effort are welcome.
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/G2G31KWRWG)
+
+---
