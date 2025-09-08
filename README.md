@@ -480,8 +480,7 @@ Their use in these contexts is gratefully acknowledged, and it continues to be o
 Readers, scholars, researchers and institutions are welcome to reference or incorporate it in their own work as appropriate.  
 
 > [!IMPORTANT]  
-> This work is openly available for academic, research and educational purposes.
->
+> This work is openly available for academic, research and educational purposes.<br>
 > Voluntary contributions to support this effort are welcome.
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/G2G31KWRWG)
