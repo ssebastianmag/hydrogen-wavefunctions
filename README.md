@@ -481,6 +481,7 @@ Readers, scholars, researchers and institutions are welcome to reference or inco
 
 > [!IMPORTANT]  
 > This work is openly available for academic, research and educational purposes.
+>
 > Voluntary contributions to support this effort are welcome.
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/G2G31KWRWG)
